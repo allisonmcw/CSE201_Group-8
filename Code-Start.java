@@ -8,15 +8,9 @@ import java.util.*;
 * Date (start): 10/6/2021
 */
 
-public class Iteration1 {
+public static void main(String args[]) {
   
-  // =============================================================== Properties
-  
-  // =============================================================== Constructors
-  
-  // =============================================================== Methods
-  
-  // =============================================================== Getters / Setters
+  // This will be our tester class with all main methods etc
   
 }
 
