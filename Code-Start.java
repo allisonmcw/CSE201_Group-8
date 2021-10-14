@@ -12,6 +12,8 @@ public static void main(String args[]) {
   
   // This will be our tester class with all main methods etc
   
+  syso
+  
 }
 
 
