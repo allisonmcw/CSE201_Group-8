@@ -30,16 +30,19 @@ public class GUI {
         b1.setBounds(125, 20, 90, 20);
 
         /*
-         * Team Credits TAJI Inc. Founded 2021 Members Jenn Pham: Project
-         * Manager Allison McWilliams: Technical Manager, Tester and Developer
-         * Isabel Pulte: Designer, Developer, and Documentor Tanmay Bhatkar:
-         * Developer and Tester
+         * Team Credits 
+         * © 2021 TAJI Inc. 
+         * Personnel 
+         * Jenn Pham: Project Manager & Designer
+         * Allison McWilliams: Technical Manager
+         * Isabel Pulte: Developer & Documentor 
+         * Tanmay Bhatkar: Developer & Tester
          *
          */
         JLabel tc = new JLabel(
-                "<html>Team Credits<br>TAJI Inc.<br>Founded 2021<br>"
-                        + "Members<br>Jenn Pham: Project Manager<br>Allison McWilliams: Technical Manager, Tester and Developer<br>"
-                        + "Isabel Pulte: Designer, Developer, and Documentor<br>Tanmay Bhatkar: Developer and Tester </html>");
+                "<html>© 2021 TAJI Inc.<br><br>"
+                        + "Personnel<br>Jenn Pham: Project Manager & Designer<br>Allison McWilliams: Technical Manager<br>"
+                        + "Isabel Pulte: Developer & Documentor<br>Tanmay Bhatkar: Developer & Tester </html>");
         tc.setBounds(50, 200, 2000, 500);
         a.add(tc);
 
