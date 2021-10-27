@@ -22,7 +22,7 @@ public class GUI {
 
     public static void main(String args[]) {
 
-        a.getContentPane().setBackground(Color.gray);
+        a.getContentPane().setBackground(Color.white);
         JButton inputButton = new JButton("Search");
 
         JLabel b1;
