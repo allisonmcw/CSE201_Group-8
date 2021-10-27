@@ -192,7 +192,6 @@ public class login {
                     }
                     myObj.close();
                 } catch (IOException e1) {
-                    // TODO Auto-generated catch block
                     e1.printStackTrace();
                 }
                 b4.setText("");
@@ -237,7 +236,6 @@ public class login {
             }
 
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return map;
