@@ -34,7 +34,7 @@ public class GUI {
          * Manager Allison McWilliams: Technical Manager, Tester and Developer
          * Isabel Pulte: Designer, Developer, and Documentor Tanmay Bhatkar:
          * Developer and Tester
-         * 
+         *
          */
         JLabel tc = new JLabel(
                 "<html>Team Credits<br>TAJI Inc.<br>Founded 2021<br>"
@@ -64,11 +64,11 @@ public class GUI {
         a.setVisible(true);
 
         List<App> apps = readAppsFromCSV(
-                "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/Application Information - Sheet1 (1).csv");
+                "Application Information - Sheet1 (1).csv");
 // Code for printing out app names.
-//        for (App r : apps) {
-//            System.out.println(r);
-//        }
+       for (App r : apps) {
+           System.out.println(r);
+       }
 
 
         JButton c = new JButton("Apps Info");
@@ -103,8 +103,8 @@ public class GUI {
                          JOptionPane.showMessageDialog(null,
                                  "App does not exist");
                      }
-                     
-                
+
+
             }
 
         });
