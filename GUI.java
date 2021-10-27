@@ -6,29 +6,52 @@
 */
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class GUI {
+    static JFrame a = new JFrame("App Store");
+    static JButton logIn = new JButton("Sign In/Sign up");
 
     public static void main(String args[]) {
 
-        JFrame a = new JFrame("App Store");
-        a.getContentPane().setBackground(Color.cyan);
+        a.getContentPane().setBackground(Color.gray);
+        JButton inputButton = new JButton("Search");
+
         JLabel b1;
         b1 = new JLabel("App Store");
         b1.setBounds(125, 20, 90, 20);
+
+        /*
+         * Team Credits TAJI Inc. Founded 2021 Members Jenn Pham: Project
+         * Manager Allison McWilliams: Technical Manager, Tester and Developer
+         * Isabel Pulte: Designer, Developer, and Documentor Tanmay Bhatkar:
+         * Developer and Tester
+         * 
+         */
+        JLabel tc = new JLabel(
+                "<html>Team Credits<br>TAJI Inc.<br>Founded 2021<br>"
+                        + "Members<br>Jenn Pham: Project Manager<br>Allison McWilliams: Technical Manager, Tester and Developer<br>"
+                        + "Isabel Pulte: Designer, Developer, and Documentor<br>Tanmay Bhatkar: Developer and Tester </html>");
+        tc.setBounds(50, 200, 2000, 500);
+        a.add(tc);
+
+        a.add(logIn);
+        logIn.setBounds(270, 20, 150, 30);
+
+        a.add(inputButton);
+        inputButton.setBounds(270, 100, 100, 30);
+
         JTextField b2 = new JTextField("Search Here!");
+        b2.setBackground(Color.white);
+        b2.setForeground(Color.black);
         a.add(b2);
         b2.setBounds(50, 100, 200, 30);
         a.add(b1);
@@ -36,57 +59,101 @@ public class GUI {
         b.setBounds(100, 45, 100, 50);
         ;
         a.add(b);
-        a.setSize(300, 250);
+        a.setSize(600, 600);
         a.setLayout(null);
         a.setVisible(true);
 
         List<App> apps = readAppsFromCSV(
-                "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/applist.csv");
+                "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/Application Information - Sheet1 (1).csv");
+// Code for printing out app names.
+//        for (App r : apps) {
+//            System.out.println(r);
+//        }
 
-        for (App r : apps) {
-            System.out.println(r);
-        }
-
-        String[] sortedApps = sort(apps);
-
-        for (String r : sortedApps) {
-            System.out.println(r);
-        }
 
         JButton c = new JButton("Apps Info");
         c.setBounds(100, 150, 100, 50);
         ;
         a.add(c);
-        a.setSize(300, 250);
+        login.clickClear(b2);
+        a.setSize(450, 250);
         a.setLayout(null);
         a.setVisible(true);
 
+        inputButton.addActionListener((ActionListener) new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                String myString = b2.getText();
+
+                b2.setText("");
+                boolean appExists = false;
+                // System.out.println(myString);
+                String[] sortedApps = sort(apps);
+             // Code for printing out sorted apps
+                     for (String r : sortedApps) {
+                         if(r.compareTo(myString)==0) {
+                             JOptionPane.showMessageDialog(null,
+                                     "App you're searching exists");
+                             appExists = true;
+                         }
+                     }
+                     if(appExists == false) {
+                         JOptionPane.showMessageDialog(null,
+                                 "App does not exist");
+                     }
+                     
+                
+            }
+
+        });
+
+        logIn.addActionListener((ActionListener) new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                login.main(args);
+            }
+
+        });
+
         // needs when clicked and to go to page with apps / app info etc
         // apps / app info loads from csv file
+
+    } // main end
+
+    public static void logInAfter(String name) {
+        logIn.setVisible(false);
+        JLabel n = new JLabel("Hello, " + name);
+        n.setBounds(270, 20, 150, 30);
+        a.add(n);
+        a.setVisible(false);
+        a.setVisible(true);
 
     }
 
     private static String[] sort(List<App> apps) {
         String appsSorted[] = new String[apps.size()];
         int i = 0;
-        
+
         for (App r : apps) {
             appsSorted[i] = r.getName();
             i++;
         }
         // Arrays.sort(appsSorted);
-        
+
 //        for (String r : appsSorted) {
 //            System.out.println(r);
 //        }
 
-        for (int x = 0; x < 10; x++) {
-            for (int y = 1; y < (10 - x); y++) {
+        for (int x = 0; x < apps.size(); x++) {
+            for (int y = 1; y < (apps.size() - x); y++) {
                 if (appsSorted[y - 1].compareTo(appsSorted[y]) > 0) {
                     // swap elements
                     String temp = appsSorted[y - 1];
                     appsSorted[y - 1] = appsSorted[y];
-                    appsSorted[y] = temp;                    
+                    appsSorted[y] = temp;
                 }
             }
         }
@@ -113,7 +180,7 @@ public class GUI {
 
             String line = sc.nextLine();
 
-            for(int i = 0; i<10; i++) {
+            while (sc.hasNext()) {
 
                 String[] attributes = line.split(",");
 
@@ -132,8 +199,8 @@ public class GUI {
     }
 
     private static App createApp(String[] meta) {
-        String name = meta[1];
-        String about = meta[2];
+        String name = meta[0];
+        String about = meta[1];
 
         return new App(name, about);
     }
