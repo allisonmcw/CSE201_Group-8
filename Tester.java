@@ -1,25 +1,15 @@
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
 public class Tester {
-    @Test
-    public void testAdd(){
-        double result = 6;
-        assertTrue(result == 6);
-        assertFalse(result == 5);
-    }
-
 	/**
-	 * JUnit Tester 1: Testing sortNames() method.
+	 * JUnit Tester 1: Testing sortNames() method in NameSort.java.
 	 */
 	@Test
 	public void testSort() {
 		String[] names = {"Candy", "Snack", "Barbeque", "Apple"};
 		names = NameSort.sortNames(names);
-
 
 		// Apple, Barbeque, Candy, Snack
 		assertEquals("Apple", names[0]);
