@@ -52,7 +52,7 @@ public class GUI {
         a.add(inputButton);
         inputButton.setBounds(270, 100, 100, 30);
 
-        JTextField b2 = new JTextField("Search Here!");
+        JTextField b2 = new JTextField("Type something...");
         b2.setBackground(Color.white);
         b2.setForeground(Color.black);
         a.add(b2);
@@ -103,13 +103,13 @@ public class GUI {
                      for (String r : sortedApps) {
                          if(r.compareTo(myString)==0) {
                              JOptionPane.showMessageDialog(null,
-                                     "App you're searching exists");
+                                     "App Exists!");
                              appExists = true;
                          }
                      }
                      if(appExists == false) {
                          JOptionPane.showMessageDialog(null,
-                                 "App does not exist");
+                                 "App Does Not Exist!");
                      }
 
 
