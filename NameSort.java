@@ -19,24 +19,23 @@ public class NameSort{
 		appNames[8] = "snapchat";
 		appNames[9] = "instagram";
 		
-		for (String name: appNames) { 
-			System.out.println(name); 
-		}
-		
-		System.out.println(); 
 		String[] sorted = sortNames(appNames); 
 		for (String name: sorted) { 
 			System.out.println(name); 
 		}
 	} 
 	
-	
-	
+
+	/**
+	 * Method for sorting strings.
+	 * @param names
+	 * @return a String array
+	 */
 	public static String[] sortNames(String[] names) { 
 		String[] sorted = Arrays.copyOf(names, names.length); 
 		Arrays.sort(sorted);
 		return sorted; 
-	}
+	} // End method
 
 }
 
