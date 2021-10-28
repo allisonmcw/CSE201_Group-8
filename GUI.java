@@ -6,10 +6,13 @@
 */
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -59,9 +62,10 @@ public class GUI {
         a.add(b2);
         b2.setBounds(50, 100, 200, 30);
         a.add(b1);
-        JButton b = new JButton("The Forum");
-        b.setBounds(100, 45, 100, 50);
-        ;
+        JButton b = new JButton("THE FORUM");
+        b.setFont(new Font("Monospace", Font.BOLD, 20));
+        b.setBounds(50, 45, 200, 50);
+        
         a.add(b);
         a.setSize(600, 600);
         a.setLayout(null);
