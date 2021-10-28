@@ -1,5 +1,5 @@
-
 import java.util.Arrays;
+
 public class NameSort{ 
 	public static void main(String[] args) { 
 		String[] appNames = new String[10];
@@ -33,6 +33,18 @@ public class NameSort{
 		Arrays.sort(sorted);
 		return sorted; 
 	}
+
+	/**
+	 * JUnit Tester 1: Testing sortNames() method.
+	 */
+	// @Test
+	// public void testSort() {
+	// 	String[] names = {"Candy", "Snack", "Barbeque", "Apple"};
+	// 	// sortNames(names);
+
+	// 	assertEquals("Apple", names[0]);
+	// 	assertEquals("Candy", names[0]);
+	// }
 }
 
 
