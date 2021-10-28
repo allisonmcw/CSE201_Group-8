@@ -1,3 +1,10 @@
+/*
+* CSE201_Group-8 Project
+* Authors: Allison McWilliams, Jenn Pham, Isabel Pulte, Tanmay Bhatkar
+* File-3: JUnit Test Suite
+* Date (start): 10/28/2021
+*/
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;
