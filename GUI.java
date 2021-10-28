@@ -13,6 +13,7 @@ import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -151,39 +152,16 @@ public class GUI {
      * @return a String array.
      */
     private static String[] sort(List<App> apps) {
-        String appsSorted[] = new String[apps.size()];
         int i = 0;
-
+        String appsNames[] = new String[apps.size()];
         for (App r : apps) {
-            appsSorted[i] = r.getName();
+            appsNames[i] = r.getName();
             i++;
         }
-        // Arrays.sort(appsSorted);
 
-//        for (String r : appsSorted) {
-//            System.out.println(r);
-//        }
+        String appsSorted[] = Arrays.copyOf(appsNames, appsNames.length);
+        Arrays.sort(appsSorted);
 
-        for (int x = 0; x < apps.size(); x++) {
-            for (int y = 1; y < (apps.size() - x); y++) {
-                if (appsSorted[y - 1].compareTo(appsSorted[y]) > 0) {
-                    // swap elements
-                    String temp = appsSorted[y - 1];
-                    appsSorted[y - 1] = appsSorted[y];
-                    appsSorted[y] = temp;
-                }
-            }
-        }
-
-//        for(int x = 0; x< appsSorted.length - 1; x++) {
-//            for(int y = x+1; y< appsSorted.length; y++) {
-//                if(appsSorted[x].compareTo(appsSorted[y]) > 0) {
-//                    String temp = appsSorted[x];
-//                    appsSorted[x] = appsSorted[y];
-//                    appsSorted[y] = temp;
-//                }
-//            }
-//        }
         return appsSorted;
 
     }
