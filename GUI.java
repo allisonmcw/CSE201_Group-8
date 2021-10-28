@@ -11,7 +11,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
-import javax.swing.plaf.FontUIResource;
 
 import java.io.File;
 import java.io.IOException;
@@ -63,7 +62,7 @@ public class GUI {
         b2.setBounds(50, 100, 200, 30);
         a.add(b1);
         JButton b = new JButton("THE FORUM");
-        b.setFont(new Font("Monospace", Font.BOLD, 20));
+        b.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
         b.setBounds(50, 45, 200, 50);
         
         a.add(b);
@@ -148,7 +147,7 @@ public class GUI {
         a.setVisible(false);
         a.setVisible(true);
 
-    }
+    }  // Method end
 
     /**
      * Method to sort the apps alphabetically by names.
@@ -168,7 +167,7 @@ public class GUI {
 
         return appsSorted;
 
-    }
+    } // Method end
 
     /**
      * Method to read the apps from the excel file.
@@ -200,7 +199,7 @@ public class GUI {
         }
 
         return apps;
-    }
+    } // Method end
 
     /**
      * Method to create an app.
@@ -212,7 +211,7 @@ public class GUI {
         String about = meta[1];
 
         return new App(name, about);
-    }
+    } // Method end
 
 }
 
