@@ -1,4 +1,8 @@
+// import static org.junit.Assert.assertEquals;
+
 import java.util.Arrays;
+
+// import org.junit.Test;
 
 public class NameSort{ 
 	public static void main(String[] args) { 
@@ -29,23 +33,16 @@ public class NameSort{
 	
 	
 	public static String[] sortNames(String[] names) { 
-		String[] sorted = Arrays.copyOf(names, 10); 
+		String[] sorted = Arrays.copyOf(names, names.length); 
 		Arrays.sort(sorted);
 		return sorted; 
 	}
 
-	/**
-	 * JUnit Tester 1: Testing sortNames() method.
-	 */
-	// @Test
-	// public void testSort() {
-	// 	String[] names = {"Candy", "Snack", "Barbeque", "Apple"};
-	// 	// sortNames(names);
-
-	// 	assertEquals("Apple", names[0]);
-	// 	assertEquals("Candy", names[0]);
-	// }
 }
+
+
+
+
 
 
 	
