@@ -131,6 +131,10 @@ public class GUI {
 
     } // main end
 
+    /**
+     * Method after logged in to create a user home page.
+     * @param name
+     */
     public static void logInAfter(String name) {
         logIn.setVisible(false);
         JLabel n = new JLabel("Hello, " + name);
@@ -141,6 +145,11 @@ public class GUI {
 
     }
 
+    /**
+     * Method to sort the apps alphabetically by names.
+     * @param apps
+     * @return a String array.
+     */
     private static String[] sort(List<App> apps) {
         String appsSorted[] = new String[apps.size()];
         int i = 0;
@@ -179,6 +188,11 @@ public class GUI {
 
     }
 
+    /**
+     * Method to read the apps from the excel file.
+     * @param fileName
+     * @return a List of Apps.
+     */
     private static List<App> readAppsFromCSV(String fileName) {
         List<App> apps = new ArrayList<>();
         Scanner sc;
@@ -206,6 +220,11 @@ public class GUI {
         return apps;
     }
 
+    /**
+     * Method to create an app.
+     * @param meta
+     * @return an App object.
+     */
     private static App createApp(String[] meta) {
         String name = meta[0];
         String about = meta[1];
@@ -215,6 +234,9 @@ public class GUI {
 
 }
 
+/**
+ * Class App.
+ */
 class App {
     private String name;
     private String about;
