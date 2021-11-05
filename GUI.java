@@ -105,7 +105,10 @@ public class GUI {
                 String[] sortedApps = sort(apps);
              // Code for printing out sorted apps
                      for (String r : sortedApps) {
-                         if(r.compareTo(myString)==0) {
+                    	 // converts to lower case to deal with differing capitalization
+                    	 r = r.toLowerCase();
+                    	 myString = myString.toLowerCase();
+                    	 if(r.compareTo(myString)==0) {
                              JOptionPane.showMessageDialog(null,
                                      "App Exists!");
                              appExists = true;
@@ -221,6 +224,12 @@ public class GUI {
 class App {
     private String name;
     private String about;
+    private String description; 
+    private String[] platform; 
+    private double version; 
+    private double price; 
+    private String category; 
+    private String storeName; 
 
     public App(String name, String about) {
         this.name = name;
@@ -235,14 +244,56 @@ class App {
         this.name = name;
     }
 
-    public String getAbout() {
-        return about;
+    public String getDescription() {
+        return description; 
     }
 
-    public void setAbout(String about) {
-        this.about = about;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+     
+    public String[] getPlatform() {
+        return platform;
     }
 
+    public void setPlatform(String[] platforms) {
+        this.platform = platform;
+    }
+    
+    public double getVersion() {
+        return version;
+    }
+
+    public void setVersion(double version) {
+        this.version = version;
+    }
+    
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+    
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+    
+    public String getStoreName() {
+        return storeName;
+    }
+
+    public void setStore(String storeName) {
+        this.storeName = storeName;
+    }
+  
+    
     @Override
     public String toString() {
         return "Name: " + name + "\n" + "About: " + about + "\n";
