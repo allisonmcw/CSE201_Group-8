@@ -16,7 +16,7 @@ class CommentTester {
 		// checks can comment if logged in  
 		u.login = true;
 		assertTrue(u.addComment(a, "I love this!"));
-		
+		assertFalse(u.addComment(d, "Such a fun app")); 
 	}
 
 }
