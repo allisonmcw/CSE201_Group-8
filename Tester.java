@@ -22,4 +22,6 @@ public class Tester {
 		assertEquals("Apple", names[0]);
 		assertEquals("Barbeque", names[1]);
 	}
+
+	//Comment
 }
