@@ -12,9 +12,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -55,24 +52,49 @@ public class admin {
         c1 = new JLabel("Add Apps");
         c1.setBounds(50, 50, 200, 30);
         a.add(c1);
+        JLabel n1;
+        n1 = new JLabel("Name");
+        n1.setBounds(50, 100, 200, 30);
+        a.add(n1);
+        c1 = new JLabel("Description");
+        c1.setBounds(150, 100, 200, 30);
+        a.add(c1);
+        c1 = new JLabel("Platform");
+        c1.setBounds(250, 100, 200, 30);
+        a.add(c1);
+        c1 = new JLabel("Versions");
+        c1.setBounds(350, 100, 200, 30);
+        a.add(c1);
+        c1 = new JLabel("Store Link");
+        c1.setBounds(450, 100, 200, 30);
+        a.add(c1);
+        c1 = new JLabel("Price");
+        c1.setBounds(550, 100, 200, 30);
+        a.add(c1);
+        c1 = new JLabel("Category");
+        c1.setBounds(650, 100, 200, 30);
+        a.add(c1);
+        c1 = new JLabel("Store Name");
+        c1.setBounds(750, 100, 200, 30);
+        a.add(c1);
         JTextField b7 = new JTextField("App 1");
         a.add(b7);
-        b7.setBounds(50, 100, 200, 30);
+        b7.setBounds(50, 200, 200, 30);
         clickClear(b7);
 
         JTextField b8 = new JTextField("App 2");
         a.add(b8);
-        b8.setBounds(50, 150, 200, 30);
+        b8.setBounds(50, 250, 200, 30);
         clickClear(b8);
 
         JLabel c2;
         JButton d1 = new JButton("Approve");
-        d1.setBounds(275, 100, 100, 30);
+        d1.setBounds(275, 200, 100, 30);
         a.add(d1);
         
         JLabel c3;
         JButton d2 = new JButton("Approve");
-        d2.setBounds(275, 150, 100, 30);
+        d2.setBounds(275, 250, 100, 30);
         a.add(d2);
 //        c2 = new JLabel("Create Account");
 //        c2.setBounds(275, 50, 200, 20);
@@ -245,4 +267,3 @@ public class admin {
         }
         return map;
     }
-}
