@@ -135,7 +135,7 @@ public class GUI {
         int width = 300;
         int height = 200;                      
         
-        String filePath = "icons"+appName+".png";
+        String filePath = "icons/"+appName+".png";
         Icon ico = new ImageIcon(filePath);
         
         JButton app = new JButton(ico);
