@@ -87,12 +87,12 @@ public class admin {
         b8.setBounds(50, 250, 200, 30);
         clickClear(b8);
 
-        JLabel c2;
+        // JLabel c2;
         JButton d1 = new JButton("Approve");
         d1.setBounds(275, 200, 100, 30);
         a.add(d1);
         
-        JLabel c3;
+        // JLabel c3;
         JButton d2 = new JButton("Approve");
         d2.setBounds(275, 250, 100, 30);
         a.add(d2);

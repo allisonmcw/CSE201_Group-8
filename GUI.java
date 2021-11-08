@@ -258,7 +258,7 @@ class App {
     }
 
     public void setPlatform(String[] platforms) {
-        this.platform = platform;
+        this.platform = platforms;
     }
     
     public double getVersion() {
