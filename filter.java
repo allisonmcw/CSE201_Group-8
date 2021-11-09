@@ -27,7 +27,7 @@ public class filter {
 
 
    	/**
-	 * Tester 3: Filtering method()
+	 * JUnit Tester: Filtering method()
 	 */
    @Test
    public void testCategory() {
@@ -43,5 +43,4 @@ public class filter {
     //    assertEquals("Education", m1.get("Canvas"));
    }
 
-   /// coment 
 }

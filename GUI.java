@@ -1,6 +1,6 @@
 /*
 * CSE201_Group-8 Project
-* Authors: Allison McWilliams, Jenn Pham, Isabel Pulte, Tanmay Bhatkar
+* @author Allison McWilliams, Jenn Pham, Isabel Pulte, Tanmay Bhatkar
 * File-1: main file
 * Date (start): 10/6/2021
 */
@@ -20,6 +20,9 @@ import java.util.List;
 // import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * Public Class GUI. Start GUI.
+ */
 public class GUI {
     static JFrame a = new JFrame("App Store");
     static JButton logIn = new JButton("Sign In/Sign up");
@@ -63,16 +66,6 @@ public class GUI {
 
         List<App> apps = readAppsFromCSV(
                 "Application Information - Sheet1 (1).csv");
-        // Code for printing out app names.
-        // for (App r : apps) {
-        // System.out.println(r);
-        // }
-
-//        // Testing the sort names method
-//        String[] appsSorted = sort(apps);
-//        for (String r : appsSorted) {
-//            System.out.println(r);
-//        }
 
         JButton c = new JButton("Apps Info");
         c.setBounds(100, 150, 100, 50);        
@@ -89,6 +82,11 @@ public class GUI {
 
         inputButton.addActionListener((ActionListener) new ActionListener() {
 
+            /**
+             * Override method actionPerformed().
+             * This method checks whether the app exists or not.
+             * @param ActionEvent
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -127,6 +125,12 @@ public class GUI {
 
     } // main end
 
+    /**
+     * This method generates Apps'icon and information from the CSV file.
+     * 
+     * @param appName a String value
+     * @param appsList a List of Apps
+     */
     private static void generateApps(String appName, List<App> appsList) {    
 //        int row = totalApps % 3;
 //        int col = totalApps % 3;
@@ -146,6 +150,11 @@ public class GUI {
         
         app.addActionListener((ActionListener) new ActionListener() {
 
+            /**
+             * Override method actionPerformed().
+             * This method generates the app MessageDialog consisting of Name and Description.
+             * @param ActionEvent
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 App ans = null;
@@ -164,7 +173,7 @@ public class GUI {
     /**
      * Method after logged in to create a user home page.
      * 
-     * @param name
+     * @param name a String value
      */
     public static void logInAfter(String name) {
         logIn.setVisible(false);
@@ -227,11 +236,6 @@ public class GUI {
             appsSorted[i] = r.getName();
             i++;
         }
-        // Arrays.sort(appsSorted);
-
-//        for (String r : appsSorted) {
-//            System.out.println(r);
-//        }
 
         for (int x = 0; x < apps.size(); x++) {
             for (int y = 1; y < (apps.size() - x); y++) {
@@ -244,17 +248,7 @@ public class GUI {
             }
         }
 
-//        for(int x = 0; x< appsSorted.length - 1; x++) {
-//            for(int y = x+1; y< appsSorted.length; y++) {
-//                if(appsSorted[x].compareTo(appsSorted[y]) > 0) {
-//                    String temp = appsSorted[x];
-//                    appsSorted[x] = appsSorted[y];
-//                    appsSorted[y] = temp;
-//                }
-//            }
-//        }
         return appsSorted;
-
     }
 
     /**
