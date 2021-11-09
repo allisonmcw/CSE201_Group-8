@@ -223,6 +223,11 @@ public class login {
         });
     }
 
+    /**
+     * This method reads from the Accounts file.
+     * 
+     * @return a HashMap
+     */
     private static HashMap<String, String> readFromFile() {
         HashMap<String, String> map = new HashMap<String, String>();
         try {
