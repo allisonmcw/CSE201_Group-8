@@ -342,13 +342,13 @@ public class SortedGUI {
         String about = meta[1];
         String platform = meta[2];
         String versions = meta[3];
-        String storeLink = meta[4];
-        String price = meta[5];
-        String category = meta[6];
-        String storeName = meta[7];
+        String price = meta[4];
+        String category = meta[5];
+        String storeName = meta[6];
+        String storeLink = meta[7];
 
-        return new App(name, about, platform, versions, storeLink, price,
-                category, storeName);
+        return new App(name, about, platform, versions, price,
+                category, storeName, storeLink);
     }
 
 }

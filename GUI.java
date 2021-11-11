@@ -328,13 +328,13 @@ public class GUI {
         String about = meta[1];
         String platform = meta[2];
         String versions = meta[3];
-        String storeLink = meta[4];
-        String price = meta[5];
-        String category = meta[6];
-        String storeName = meta[7];
+        String price = meta[4];
+        String category = meta[5];
+        String storeName = meta[6];
+        String storeLink = meta[7];
 
-        return new App(name, about, platform, versions, storeLink, price,
-                category, storeName);
+        return new App(name, about, platform, versions, price,
+                category, storeName, storeLink);
     }
 
 }
@@ -347,21 +347,21 @@ class App {
     private String about;
     private String platform;
     private String versions;
-    private String storeLink;
     private String price;
     private String category;
     private String storeName;
+    private String storeLink;
 
     public App(String name, String about, String platform, String versions,
-            String storeLink, String price, String category, String storeName) {
+            String price, String category, String storeName, String storeLink) {
         this.name = name;
         this.about = about;
         this.platform = platform;
         this.versions = versions;
-        this.storeLink = storeLink;
         this.price = price;
         this.category = category;
         this.storeName = storeName;
+        this.storeLink = storeLink;
     }
 
     public String getName() {
@@ -467,8 +467,8 @@ class App {
     @Override
     public String toString() {
         return "App [name=" + name + ", about=" + about + ", platform="
-                + platform + ", versions=" + versions + ", storeLink="
-                + storeLink + ", price=" + price + ", category=" + category
-                + ", storeName=" + storeName + "]";
+                + platform + ", versions=" + versions + ", price=" + price + ", category=" + category
+                + ", storeName=" + storeName + ", storeLink="
+                + storeLink + "]";
     }
 }
