@@ -1,5 +1,24 @@
+/*
+* CSE201_Group-8 Project
+* Authors: Allison McWilliams, Jenn Pham, Isabel Pulte, Tanmay Bhatkar
+* File-2: Admin file
+* Date (start): 10/6/2021
+*/
 
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
+import javax.swing.*;
+
+public class admin {
     public static void main(String args[]) {
 
         int w = 300;
