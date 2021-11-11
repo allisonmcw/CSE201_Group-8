@@ -23,7 +23,7 @@ import javax.swing.JTextField;
 
 /**
  * @author tanma
- * Sorted GUI. This application is already sorted when opened. Make it unsorted first.
+ * Sorted GUI class. Called by GUI.java.
  */
 public class SortedGUI {
     static JFrame a = new JFrame("App Store");

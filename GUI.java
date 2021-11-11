@@ -212,16 +212,18 @@ public class GUI {
         n.setBounds(270, 20, 150, 30);
         a.add(n);
 
+        // Create a request field
         JTextField bx = new JTextField("Enter a request...");
         bx.setBackground(Color.white);
         bx.setForeground(Color.black);
         a.add(bx);
         bx.setBounds(50, 300, 200, 30);
 
+        // Create a send button
         JButton send = new JButton("Send");
-
+        send.setBorderPainted(true);
         a.add(send);
-        send.setBounds(270, 400, 100, 30);
+        send.setBounds(270, 300, 100, 30);
 
         send.addActionListener((ActionListener) new ActionListener() {
 
