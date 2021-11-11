@@ -9,17 +9,17 @@ import java.util.*;
 public class filter {
     public static void main(String[] args) {
         List<App> apps = readAppsFromCSV("Application Information - Sheet1 (1).csv");
-        System.out.println(apps.get(9).getName());
+        // System.out.println(apps.get(9).getName());
         // List<App> apps2 = filterCategory(apps, "Game");
-        // List<App> apps2 = filterPrice(apps, "Free");
-        List<App> apps2 = filterPlatform(apps, "smartphone");
+        List<App> apps2 = filterPrice(apps, "Paid");
+        // List<App> apps2 = filterPlatform(apps, "smartphone");
         for (App a : apps2) {
             System.out.println(a.getName());
         }
     }
 
     /**
-     * This method filter apps category: Game, Education, Social Media, and Streaming.
+     * This method filter apps category: Game, Education, Social Media, Streaming, and Music.
      * @param m
      * @return a List of Apps with the indicated categories.
      */ 
@@ -50,7 +50,7 @@ public class filter {
             }
         } else if (choice.equalsIgnoreCase("Paid")) {
             for (App r : apps) {
-                if(!(r.getPrice().equals("0"))) {
+                if(!r.getPrice().equals("0")) {
                     result.add(r);
                 }
             }
@@ -67,7 +67,7 @@ public class filter {
     public static List<App> filterPlatform(List<App> apps, String choice) {
         List<App> result = new ArrayList<App>();
         for (App r : apps) {
-            if(r.getPlatform().contains(choice)) {
+            if(r.getPlatform().contains(choice.toLowerCase())) {
                 result.add(r);
             }
         }
