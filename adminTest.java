@@ -1,12 +1,12 @@
-import static org.junit.jupiter.api.Assertions.*;
+// import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+// import org.junit.jupiter.api.Test;
 
-class adminTest {
+// class adminTest {
 
-	@Test
-	void test() {
-		assertTrue(true);
-	}
+// 	@Test
+// 	void test() {
+// 		assertTrue(true);
+// 	}
 
-}
+// }
