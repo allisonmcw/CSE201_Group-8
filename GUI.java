@@ -63,21 +63,7 @@ public class GUI {
         a.setVisible(true);
 
         List<App> apps = readAppsFromCSV(
-<<<<<<< HEAD
                 "Application Information - Sheet1 (1).csv");
-=======
-                "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/Application Information - Sheet1 (1).csv");
-        // Code for printing out app names.
-        // for (App r : apps) {
-        // System.out.println(r);
-        // }
-
-//        // Testing the sort names method
-//        String[] appsSorted = sort(apps);
-//        for (String r : appsSorted) {
-//            System.out.println(r);
-//        }
->>>>>>> tanmay_bench
 
         JButton c = new JButton("Sort");
         c.setBounds(100, 150, 100, 50);        
@@ -137,7 +123,7 @@ public class GUI {
                     if (r.compareTo(myString) == 0) {
                         appExists = true;
                         App ans = null;
-                        String filePath = "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/icons/"+myString+".png";
+                        String filePath = "icons/"+myString+".png";
                         Icon ico = new ImageIcon(filePath);
                         for(App a : apps) {
                             if(a.getName().compareTo(myString) == 0)
@@ -183,7 +169,7 @@ public class GUI {
         int width = 300;
         int height = 200;                      
         
-        String filePath = "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/icons/"+appName+".png";
+        String filePath = "icons/"+appName+".png";
         Icon ico = new ImageIcon(filePath);
         
         JButton app = new JButton(ico);
@@ -244,7 +230,7 @@ public class GUI {
                 FileWriter myObj;
                 try {
                     myObj = new FileWriter(
-                            "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/AdminRequests.txt",
+                            "AdminRequests.txt",
                             true);
                     PrintWriter pr = new PrintWriter(myObj);
                     pr.write(bx.getText() + "\n");
@@ -255,7 +241,6 @@ public class GUI {
                     myObj.close();
 
                 } catch (IOException e1) {
-                    // TODO Auto-generated catch block
                     e1.printStackTrace();
                 }
                 bx.setText("");

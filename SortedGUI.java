@@ -23,7 +23,7 @@ import javax.swing.JTextField;
 
 /**
  * @author tanma
- *
+ * Sorted GUI.
  */
 public class SortedGUI {
     static JFrame a = new JFrame("App Store");
@@ -69,7 +69,7 @@ public class SortedGUI {
         a.setVisible(true);
 
         List<App> apps = readAppsFromCSV(
-                "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/Application Information - Sheet1 (1).csv");
+                "Application Information - Sheet1 (1).csv");
         // Code for printing out app names.
         // for (App r : apps) {
         // System.out.println(r);
@@ -119,7 +119,7 @@ public class SortedGUI {
                     if (r.compareTo(myString) == 0) {
                         appExists = true;
                         App ans = null;
-                        String filePath = "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/icons/"
+                        String filePath = "icons/"
                                 + myString + ".png";
                         Icon ico = new ImageIcon(filePath);
                         for (App a : apps) {
@@ -163,7 +163,7 @@ public class SortedGUI {
         int width = 300;
         int height = 200;
 
-        String filePath = "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/icons/"
+        String filePath = "icons/"
                 + appName + ".png";
         Icon ico = new ImageIcon(filePath);
 
@@ -227,7 +227,7 @@ public class SortedGUI {
                 FileWriter myObj;
                 try {
                     myObj = new FileWriter(
-                            "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/AdminRequests.txt",
+                            "AdminRequests.txt",
                             true);
                     PrintWriter pr = new PrintWriter(myObj);
                     pr.write(bx.getText() + "\n");
