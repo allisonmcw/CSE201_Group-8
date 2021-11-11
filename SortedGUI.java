@@ -23,7 +23,7 @@ import javax.swing.JTextField;
 
 /**
  * @author tanma
- * Sorted GUI.
+ * Sorted GUI. This application is already sorted when opened. Make it unsorted first.
  */
 public class SortedGUI {
     static JFrame a = new JFrame("App Store");
@@ -68,6 +68,7 @@ public class SortedGUI {
         a.setLayout(null);
         a.setVisible(true);
 
+        // Please don't change the file path into a local file path. Keep it like this.
         List<App> apps = readAppsFromCSV(
                 "Application Information - Sheet1 (1).csv");
         // Code for printing out app names.
@@ -119,6 +120,8 @@ public class SortedGUI {
                     if (r.compareTo(myString) == 0) {
                         appExists = true;
                         App ans = null;
+
+                        // Please don't change the file path into a local file path. Keep it like this.
                         String filePath = "icons/"
                                 + myString + ".png";
                         Icon ico = new ImageIcon(filePath);
@@ -163,6 +166,7 @@ public class SortedGUI {
         int width = 300;
         int height = 200;
 
+        // Please don't change the file path into a local file path. Keep it like this.
         String filePath = "icons/"
                 + appName + ".png";
         Icon ico = new ImageIcon(filePath);
