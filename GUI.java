@@ -329,7 +329,7 @@ public class GUI {
         String platform = meta[2];
         String versions = meta[3];
         String storeLink = meta[4];
-        double price = Double.parseDouble(meta[5]);
+        String price = meta[5];
         String category = meta[6];
         String storeName = meta[7];
 
@@ -348,12 +348,12 @@ class App {
     private String platform;
     private String versions;
     private String storeLink;
-    private double price;
+    private String price;
     private String category;
     private String storeName;
 
     public App(String name, String about, String platform, String versions,
-            String storeLink, double price, String category, String storeName) {
+            String storeLink, String price, String category, String storeName) {
         this.name = name;
         this.about = about;
         this.platform = platform;
@@ -425,14 +425,14 @@ class App {
     /**
      * @return the price
      */
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
     /**
      * @param price the price to set
      */
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

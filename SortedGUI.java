@@ -343,7 +343,7 @@ public class SortedGUI {
         String platform = meta[2];
         String versions = meta[3];
         String storeLink = meta[4];
-        double price = Double.parseDouble(meta[5]);
+        String price = meta[5];
         String category = meta[6];
         String storeName = meta[7];
 
