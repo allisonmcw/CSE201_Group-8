@@ -42,7 +42,7 @@ public class SortedGUI {
         b1 = new JLabel("App Store");
         b1.setBounds(125, 20, 90, 20);
 
-        JLabel tc = new JLabel("<html>Â© 2021 TAJI Inc.<br><br>"
+        JLabel tc = new JLabel("<html>© 2021 TAJI Inc.<br><br>"
                 + "Personnel<br>Jenn Pham: Project Manager & Designer<br>Allison McWilliams: Technical Manager<br>"
                 + "Isabel Pulte: Developer & Documentor<br>Tanmay Bhatkar: Developer & Tester </html>");
         tc.setBounds(50, 200, 2000, 500);
@@ -81,7 +81,7 @@ public class SortedGUI {
 //            System.out.println(r);
 //        }
 
-        JButton c = new JButton("Sort");
+        JButton c = new JButton("UnSort");
         c.setBounds(100, 150, 100, 50);
         a.add(c);
         login.clickClear(b2);
@@ -98,7 +98,11 @@ public class SortedGUI {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                SortedGUI.main(args);
+                a.setVisible(false);
+                a.dispose();
+                GUI.main(args);
+                GUI.totalApps = 0;
+                
             }
 
         });
@@ -156,21 +160,20 @@ public class SortedGUI {
 
 
     private static void generateApps(String appName, List<App> appsList) {
-//  int row = totalApps % 3;
-//  int col = totalApps % 3;
         int x = 450;
         int y = 1;
-        int width = 300;
-        int height = 200;
-
-        String filePath = "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/icons/"
-                + appName + ".png";
-        Icon ico = new ImageIcon(filePath);
-
+        int width = 250;
+        int height = 150;                      
+        
+        String filePath = "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/icons/"+appName+".png";
+        Icon ico = new ImageIcon(filePath);               
         JButton app = new JButton(ico);
+        //JPanel appPanel = new JPanel();
+        
+        //appPanel.setLayout(new GridLayout(3, 3));
+        //appPanel.setVisible(true);
         app.setText(appName);
-        app.setBounds(x + ((totalApps % 3) * 350),
-                y + ((totalApps / 3) % 3 * 250), width, height);
+        app.setBounds(x + ((totalApps%4)*275), y+ ((totalApps/4)%4*175), width, height);
         a.add(app);
 
         app.addActionListener((ActionListener) new ActionListener() {
@@ -308,17 +311,16 @@ public class SortedGUI {
         try {
             sc = new Scanner(new File(fileName));
 
-            String line = sc.nextLine();
-            line = sc.nextLine();
+            String line = sc.nextLine();            
             while (sc.hasNext()) {
-
+                line = sc.nextLine();
                 String[] attributes = line.split(",");
 
                 App app = createApp(attributes);
 
                 apps.add(app);
 
-                line = sc.nextLine();
+                
 
             }
         } catch (IOException ioe) {

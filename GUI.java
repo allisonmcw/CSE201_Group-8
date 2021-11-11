@@ -10,6 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -26,14 +28,14 @@ public class GUI {
     public static void main(String args[]) {
 
         a.getContentPane().setBackground(Color.white);
-        JButton inputButton = new JButton("Search");
+        JButton inputButton = new JButton("Search");        
 
         JLabel b1;
         b1 = new JLabel("App Store");
         b1.setBounds(125, 20, 90, 20);
 
 
-        JLabel tc = new JLabel("<html>Â© 2021 TAJI Inc.<br><br>"
+        JLabel tc = new JLabel("<html>© 2021 TAJI Inc.<br><br>"
                 + "Personnel<br>Jenn Pham: Project Manager & Designer<br>Allison McWilliams: Technical Manager<br>"
                 + "Isabel Pulte: Developer & Documentor<br>Tanmay Bhatkar: Developer & Tester </html>");
         tc.setBounds(50, 200, 2000, 500);
@@ -43,13 +45,15 @@ public class GUI {
         logIn.setBounds(270, 20, 150, 30);
 
         a.add(inputButton);
-        inputButton.setBounds(270, 100, 100, 30);
+        inputButton.setBounds(270, 110, 100, 30);
+        Border bored= BorderFactory.createLineBorder(Color.GRAY,1, true);
 
         JTextField b2 = new JTextField("Type something...");
+        b2.setBorder(bored);
         b2.setBackground(Color.white);
         b2.setForeground(Color.black);
         a.add(b2);
-        b2.setBounds(50, 100, 200, 30);
+        b2.setBounds(50, 110, 225, 30);
         a.add(b1);
         JButton b = new JButton("The Forum");
         b.setBounds(100, 45, 100, 50);
@@ -61,10 +65,11 @@ public class GUI {
 
         List<App> apps = readAppsFromCSV(
                 "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/Application Information - Sheet1 (1).csv");
-        // Code for printing out app names.
-        // for (App r : apps) {
-        // System.out.println(r);
-        // }
+         //Code for printing out app names.
+         for (App r : apps) {
+             //System.out.println(r.getName());
+             generateApps(r.getName(), apps);
+         }
 
 //        // Testing the sort names method
 //        String[] appsSorted = sort(apps);
@@ -80,19 +85,25 @@ public class GUI {
         a.setLayout(null);
         a.setVisible(true);
         
-        if(args.length != 0) {
-            System.out.println("In sort");
-            String[] appsSorted = sort(apps);
-          for (String r : appsSorted) {
-              System.out.println(r);
-              generateApps(r, apps);
-          }
-        }
-        else {
-            for(App a : apps) {            
-                generateApps(a.getName(), apps);
-            }
-        }
+//        String[] appsSorted2 = sort(apps);
+//      for (String r : appsSorted2) {
+//          System.out.println(r);
+//          generateApps(r, apps);
+//      }
+//        
+//        if(args.length != 0) {
+//            removeAllApps(removeApp);
+//            String[] appsSorted2 = sort(apps);
+//          for (String r : appsSorted2) {
+//              System.out.println(r);
+//              generateApps(r, apps);
+//          }
+//        }
+//        else {
+//            for(App a : apps) {            
+//                removeApp = generateApps(a.getName(), apps);
+//            }
+//        }        
         
         
         c.addActionListener((ActionListener) new ActionListener() {
@@ -101,7 +112,9 @@ public class GUI {
             public void actionPerformed(ActionEvent e) {
               //String args[] = {"Sort",""}; 
               a.setVisible(false);
+              a.dispose();
               SortedGUI.main(args);
+              SortedGUI.totalApps = 0;
             }
 
         });
@@ -112,7 +125,6 @@ public class GUI {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
 
                 String myString = b2.getText();
 
@@ -157,21 +169,31 @@ public class GUI {
 
     } // main end
 
-    private static void generateApps(String appName, List<App> appsList) {    
-//        int row = totalApps % 3;
-//        int col = totalApps % 3;
+    private static JButton generateApps(String appName, List<App> appsList) {    
         int x = 450;
         int y = 1;
-        int width = 300;
-        int height = 200;                      
+        int width = 250;
+        int height = 150;                      
         
         String filePath = "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/icons/"+appName+".png";
-        Icon ico = new ImageIcon(filePath);
-        
+        Icon ico = new ImageIcon(filePath);               
         JButton app = new JButton(ico);
+        //JPanel appPanel = new JPanel();
+        
+        //appPanel.setLayout(new GridLayout(3, 3));
+        //appPanel.setVisible(true);
         app.setText(appName);
-        app.setBounds(x + ((totalApps%3)*350), y+ ((totalApps/3)%3*250), width, height);
-        a.add(app);         
+        app.setBounds(x + ((totalApps%4)*275), y+ ((totalApps/4)%4*175), width, height);
+        //app.setBounds(x + ((totalApps%3)*250), y+ ((totalApps/3)%3*150), width, height);
+        //app.setPreferredSize(new Dimension(100, 100));
+        //appPanel.add(app);
+        //appPanel.invalidate();
+        //appPanel.repaint();
+        a.add(app);                
+        
+        JButton clear = new JButton("Clear Apps");
+        clear.setBounds(250, 150, 100, 50);
+        a.add(clear);
         
         
         app.addActionListener((ActionListener) new ActionListener() {
@@ -188,9 +210,24 @@ public class GUI {
             }
 
         });
+        
+        clear.addActionListener((ActionListener) new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {                          
+                a.setVisible(false);
+                a.setVisible(true);
+            }
+
+        });
         ++totalApps;
+        if(totalApps == appsList.size())
+            totalApps = 0;
+         
+        return app;
         
     }
+    
 
     /**
      * Method after logged in to create a user home page.
@@ -303,16 +340,16 @@ public class GUI {
             sc = new Scanner(new File(fileName));
 
             String line = sc.nextLine();
-            line = sc.nextLine();
+            
             while (sc.hasNext()) {
+                line = sc.nextLine();
 
                 String[] attributes = line.split(",");
 
                 App app = createApp(attributes);
 
                 apps.add(app);
-
-                line = sc.nextLine();
+                
 
             }
         } catch (IOException ioe) {
