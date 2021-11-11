@@ -134,7 +134,7 @@ public class GUI {
                     if (r.compareTo(myString) == 0) {
                         appExists = true;
                         App ans = null;
-                        String filePath = "icons/"+myString+".png";
+                        String filePath = "updateIcons/"+myString+".png";
                         Icon ico = new ImageIcon(filePath);
                         for(App a : apps) {
                             if(a.getName().compareTo(myString) == 0)
@@ -172,7 +172,7 @@ public class GUI {
         int width = 250;
         int height = 150;                      
         
-        String filePath = "icons/"+appName+".png";
+        String filePath = "updateIcons/"+appName+".png";
         Icon ico = new ImageIcon(filePath);
         
         JButton app = new JButton(ico);

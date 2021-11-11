@@ -126,7 +126,7 @@ public class SortedGUI {
                         App ans = null;
 
                         // Please don't change the file path into a local file path. Keep it like this.
-                        String filePath = "icons/"
+                        String filePath = "updateIcons/"
                                 + myString + ".png";
                         Icon ico = new ImageIcon(filePath);
                         for (App a : apps) {
@@ -168,7 +168,7 @@ public class SortedGUI {
         int width = 250;
         int height = 150;                      
         
-        String filePath = "icons/"+appName+".png";
+        String filePath = "updateIcons/"+appName+".png";
         Icon ico = new ImageIcon(filePath);               
         JButton app = new JButton(ico);
         //JPanel appPanel = new JPanel();
