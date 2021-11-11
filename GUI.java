@@ -68,6 +68,11 @@ public class GUI {
 
         List<App> apps = readAppsFromCSV("Application Information - Sheet1 (1).csv");
 
+        for (App r : apps) {
+            //System.out.println(r.getName());
+            generateApps(r.getName(), apps);
+        }
+        
         // Sort button
         JButton c = new JButton("Sort");
         c.setBounds(100, 150, 100, 50);        
