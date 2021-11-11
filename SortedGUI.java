@@ -91,9 +91,9 @@ public class SortedGUI {
         a.setVisible(true);
 
         String[] appsSorted = sort(apps);
-      for (String r : appsSorted) {
-          generateApps(r, apps);
-      }
+        for (String r : appsSorted) {
+            generateApps(r, apps);
+        }
 
         c.addActionListener((ActionListener) new ActionListener() {
 
@@ -343,7 +343,7 @@ public class SortedGUI {
         String platform = meta[2];
         String versions = meta[3];
         String storeLink = meta[4];
-        String price = meta[5];
+        double price = Double.parseDouble(meta[5]);
         String category = meta[6];
         String storeName = meta[7];
 
