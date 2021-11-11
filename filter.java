@@ -9,10 +9,10 @@ import java.util.*;
 public class filter {
     public static void main(String[] args) {
         List<App> apps = readAppsFromCSV("Application Information - Sheet1 (1).csv");
-        // System.out.println(apps.get(8).getPrice());
-        List<App> apps2 = filterCategory(apps, "Game");
-        // List<App> apps2 = filterPrice(apps, "Paid");
-        // List<App> apps2 = filterPlatform(apps, "smartphone");
+        System.out.println(apps.get(9).getName());
+        // List<App> apps2 = filterCategory(apps, "Game");
+        // List<App> apps2 = filterPrice(apps, "Free");
+        List<App> apps2 = filterPlatform(apps, "smartphone");
         for (App a : apps2) {
             System.out.println(a.getName());
         }
@@ -89,16 +89,16 @@ public class filter {
             sc = new Scanner(new File(fileName));
 
             String line = sc.nextLine();
-            line = sc.nextLine();
+            
             while (sc.hasNext()) {
+                line = sc.nextLine();
 
                 String[] attributes = line.split(",");
 
                 App app = createApp(attributes);
 
                 apps.add(app);
-
-                line = sc.nextLine();
+                
 
             }
         } catch (IOException ioe) {
