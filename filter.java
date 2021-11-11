@@ -9,9 +9,13 @@ import java.util.*;
 public class filter {
     public static void main(String[] args) {
         List<App> apps = readAppsFromCSV("Application Information - Sheet1 (1).csv");
-        System.out.println(apps.get(0).getPrice());
-        List<App> gameApps = filterCategory(apps, "Game");
-        System.out.println(gameApps);
+        // System.out.println(apps.get(8).getPrice());
+        List<App> apps2 = filterCategory(apps, "Game");
+        // List<App> apps2 = filterPrice(apps, "Paid");
+        // List<App> apps2 = filterPlatform(apps, "smartphone");
+        for (App a : apps2) {
+            System.out.println(a.getName());
+        }
     }
 
     /**
@@ -20,10 +24,10 @@ public class filter {
      * @return a List of Apps with the indicated categories.
      */ 
     public static List<App> filterCategory(List<App> apps, String choice) {
-        choice = choice.toLowerCase();
+        // choice = choice.toLowerCase();
         List<App> result = new ArrayList<App>();
         for (App r : apps) {
-            if(r.getCategory().equals(choice)) {
+            if(r.getCategory().equalsIgnoreCase(choice)) {
                 result.add(r);
             }
         }
@@ -40,13 +44,13 @@ public class filter {
         List<App> result = new ArrayList<App>();
         if (choice.equalsIgnoreCase("Free")) {
             for (App r : apps) {
-                if(r.getPrice() == 0) {
+                if(r.getPrice().equals("0")) {
                     result.add(r);
                 }
             }
         } else if (choice.equalsIgnoreCase("Paid")) {
             for (App r : apps) {
-                if(r.getPrice() > 0) {
+                if(!(r.getPrice().equals("0"))) {
                     result.add(r);
                 }
             }
@@ -56,13 +60,11 @@ public class filter {
     }
 
     /**
-     * This method filter apps platform: Smartphones, Tablets, Laptops, Game Console, Streaming Media Player.
+     * This method filter apps platform: Smartphone, Tablet, Laptop, Game Console, Streaming Media Player.
      * @param m
      * @return a List of Apps with the indicated categories.
      */ 
     public static List<App> filterPlatform(List<App> apps, String choice) {
-        choice = choice.toLowerCase();
-
         List<App> result = new ArrayList<App>();
         for (App r : apps) {
             if(r.getPlatform().contains(choice)) {
@@ -117,13 +119,13 @@ public class filter {
         String about = meta[1];
         String platform = meta[2];
         String versions = meta[3];
-        String storeLink = meta[4];
-        double price = Double.parseDouble(meta[5]);
-        String category = meta[6];
-        String storeName = meta[7];
+        String price = meta[4];
+        String category = meta[5];
+        String storeName = meta[6];
+        String storeLink = meta[7];
 
-        return new App(name, about, platform, versions, storeLink, price,
-                category, storeName);
+        return new App(name, about, platform, versions, price,
+                category, storeName, storeLink);
     }
     
 }
