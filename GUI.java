@@ -62,9 +62,9 @@ public class GUI {
         a.setLayout(null);
         a.setVisible(true);
 
-        List<App> apps = readAppsFromCSV(
-                "Application Information - Sheet1 (1).csv");
+        List<App> apps = readAppsFromCSV("Application Information - Sheet1 (1).csv");
 
+        // Sort button
         JButton c = new JButton("Sort");
         c.setBounds(100, 150, 100, 50);        
         a.add(c);
