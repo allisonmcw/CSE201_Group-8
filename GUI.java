@@ -26,9 +26,11 @@ import java.util.Scanner;
 public class GUI {
     static JFrame a = new JFrame("App Store");
     static JButton logIn = new JButton("Sign In/Sign up");
+    static JPanel panel = new JPanel();
     static int totalApps = 0;
 
     public static void main(String args[]) {
+        a.add(panel);
 
         a.getContentPane().setBackground(Color.white);
         JButton inputButton = new JButton("Search");        
@@ -169,6 +171,46 @@ public class GUI {
         // needs when clicked and to go to page with apps / app info etc
         // apps / app info loads from csv file
 
+        // Filter bar code
+        JMenuBar jMenuBar = new JMenuBar();
+        JMenu menu1 = new JMenu("Filter");
+        // 3 Menus
+        // Add options in Categories
+        JMenu cat = new JMenu("By Categories");
+        JMenuItem game = new JMenuItem("Game");
+        JMenuItem education = new JMenuItem("Education");
+        JMenuItem socialMedia = new JMenuItem("Social Media");
+        JMenuItem streaming = new JMenuItem("Streaming");
+        cat.add(game);
+        cat.add(education);
+        cat.add(socialMedia);
+        cat.add(streaming);
+        // Add options in Price
+        JMenu price = new JMenu("By Price");
+        JMenuItem free = new JMenuItem("Free");
+        JMenuItem paid = new JMenuItem("Paid");
+        price.add(free);
+        price.add(paid);
+        // Add options in Platform
+        JMenu pf = new JMenu("By Platform");
+        JMenuItem mobile = new JMenuItem("Mobile Device");
+        JMenuItem laptop = new JMenuItem("Laptop");
+        JMenuItem gameConsole = new JMenuItem("Game Console");
+        JMenuItem stream = new JMenuItem("Streaming Device");
+        pf.add(mobile);
+        pf.add(laptop);
+        pf.add(gameConsole);
+        pf.add(stream);
+        // Add menus into main menu.
+        menu1.add(cat);
+        menu1.add(price);
+        menu1.add(pf);
+        // Add menu into menu bar.
+        jMenuBar.add(menu1);
+        a.setJMenuBar(jMenuBar);
+
+        a.setVisible(true);
+        a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     } // main end
 
     private static JButton generateApps(String appName, List<App> appsList) {    

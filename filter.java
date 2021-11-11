@@ -60,7 +60,7 @@ public class filter {
     }
 
     /**
-     * This method filter apps platform: Smartphone, Tablet, Laptop, Game Console, Streaming Media Player.
+     * This method filter apps platform: Mobile Device, Streaming Device, Laptop, Game Console.
      * @param m
      * @return a List of Apps with the indicated categories.
      */ 

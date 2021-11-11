@@ -14,7 +14,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
@@ -28,12 +32,14 @@ import javax.swing.JTextField;
 public class SortedGUI {
     static JFrame a = new JFrame("App Store");
     static JButton logIn = new JButton("Sign In/Sign up");
+    static JPanel panel = new JPanel();
     static int totalApps = 0;
 
     /**
      * @param args
      */
     public static void main(String[] args) {
+        a.add(panel);
 
         a.getContentPane().setBackground(Color.white);
         JButton inputButton = new JButton("Search");
@@ -158,6 +164,47 @@ public class SortedGUI {
 
         });
 
+
+       // Filter bar code
+       JMenuBar jMenuBar = new JMenuBar();
+       JMenu menu1 = new JMenu("Filter");
+       // 3 Menus
+       // Add options in Categories
+       JMenu cat = new JMenu("By Categories");
+       JMenuItem game = new JMenuItem("Game");
+       JMenuItem education = new JMenuItem("Education");
+       JMenuItem socialMedia = new JMenuItem("Social Media");
+       JMenuItem streaming = new JMenuItem("Streaming");
+       cat.add(game);
+       cat.add(education);
+       cat.add(socialMedia);
+       cat.add(streaming);
+       // Add options in Price
+       JMenu price = new JMenu("By Price");
+       JMenuItem free = new JMenuItem("Free");
+       JMenuItem paid = new JMenuItem("Paid");
+       price.add(free);
+       price.add(paid);
+       // Add options in Platform
+       JMenu pf = new JMenu("By Platform");
+       JMenuItem mobile = new JMenuItem("Mobile Device");
+       JMenuItem laptop = new JMenuItem("Laptop");
+       JMenuItem gameConsole = new JMenuItem("Game Console");
+       JMenuItem stream = new JMenuItem("Streaming Device");
+       pf.add(mobile);
+       pf.add(laptop);
+       pf.add(gameConsole);
+       pf.add(stream);
+       // Add menus into main menu.
+       menu1.add(cat);
+       menu1.add(price);
+       menu1.add(pf);
+       // Add menu into menu bar.
+       jMenuBar.add(menu1);
+       a.setJMenuBar(jMenuBar);
+
+       a.setVisible(true);
+       a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
 

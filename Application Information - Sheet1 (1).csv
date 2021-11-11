@@ -1,11 +1,11 @@
 Name,Description,Platforms,Versions,Price,Category,StoreName,StoreLink
-Youtube,A free video sharing website that makes it easy to watch online videos.,"smartphone tablet streaming media device smart TV laptop",16.42,0,Streaming,GooglePlay,https://play.google.com/store/apps/details?id=com.google.android.youtube&hl=en_US&gl=US
-Netflix,A pay television over-the-top media service that offers subscription-based video on demand from a library of films and television series.,"smart TV smartphone tablet streaming media player game console laptop",14.11,7.99,Streaming,AppleStore,https://apps.apple.com/us/app/netflix/id363590051
-Roblox,Online game platform that allows users to program games and play games created by other users,"game console streaming media player smartphone tablet",2.5,4.99,Game,MicrosoftStore,https://www.microsoft.com/en-us/p/roblox/9nblgggzm6wm?activetab=pivot:overviewtab
-Subway Surfers,An endless runner mobile game ,"smartphone tablet",1.95,0,Game,GooglePlay,https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf&hl=en_US&gl=US
-Candy Crush,A match-three puzzle video game,"smartphone tablet laptop",1.2,0,Game,AppleStore,https://apps.apple.com/us/app/candy-crush-saga/id553834731
-Soundcloud,Stream and listen online for free with over 265 million tracks,"smartphone tablet laptop",5.15,0,Music,GooglePlay,https://play.google.com/store/apps/details?id=com.soundcloud.android&hl=en_US&gl=US
-Spotify,Stream music and podcasts you love.,"smartphone tablet laptop",8.6,12.99,Music,MicrosoftStore,https://www.microsoft.com/en-us/p/spotify/9wzdncrfj4wk?activetab=pivot:overviewtab
-Snapchat,A popular messaging app that lets users exchange pictures and videos that are meant to disappear after they're viewed.,"smartphone tablet",11.5,0,Social Media,AppleStore,https://apps.apple.com/us/app/snapchat/id447188370
-Instagram,A free social networking service built around sharing photos and videos.,"smartphone tablet laptop",210,0,Social Media,AppleStore,https://apps.apple.com/us/app/instagram/id389801252
-Canvas,A course management system that supports online learning and teaching.,"smartphone tablet laptop",6.13,0,Education,AppleStore,https://apps.apple.com/us/app/canvas-student/id480883488
+Youtube,A free video sharing website that makes it easy to watch online videos.,"mobile device streaming device laptop",16.42,0,Streaming,GooglePlay,https://play.google.com/store/apps/details?id=com.google.android.youtube&hl=en_US&gl=US
+Netflix,A pay television over-the-top media service that offers subscription-based video on demand from a library of films and television series.,"mobile device streaming device game console laptop",14.11,7.99,Streaming,AppleStore,https://apps.apple.com/us/app/netflix/id363590051
+Roblox,Online game platform that allows users to program games and play games created by other users,"game console streaming device mobile device",2.5,4.99,Game,MicrosoftStore,https://www.microsoft.com/en-us/p/roblox/9nblgggzm6wm?activetab=pivot:overviewtab
+Subway Surfers,An endless runner mobile game ,"mobile device",1.95,0,Game,GooglePlay,https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf&hl=en_US&gl=US
+Candy Crush,A match-three puzzle video game,"mobile device laptop",1.2,0,Game,AppleStore,https://apps.apple.com/us/app/candy-crush-saga/id553834731
+Soundcloud,Stream and listen online for free with over 265 million tracks,"mobile device laptop",5.15,0,Music,GooglePlay,https://play.google.com/store/apps/details?id=com.soundcloud.android&hl=en_US&gl=US
+Spotify,Stream music and podcasts you love.,"mobile device laptop",8.6,12.99,Music,MicrosoftStore,https://www.microsoft.com/en-us/p/spotify/9wzdncrfj4wk?activetab=pivot:overviewtab
+Snapchat,A popular messaging app that lets users exchange pictures and videos that are meant to disappear after they're viewed.,"mobile device",11.5,0,Social Media,AppleStore,https://apps.apple.com/us/app/snapchat/id447188370
+Instagram,A free social networking service built around sharing photos and videos.,"mobile device laptop",210,0,Social Media,AppleStore,https://apps.apple.com/us/app/instagram/id389801252
+Canvas,A course management system that supports online learning and teaching.,"mobile device laptop",6.13,0,Education,AppleStore,https://apps.apple.com/us/app/canvas-student/id480883488
