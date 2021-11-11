@@ -1,15 +1,6 @@
-/*
-* CSE201_Group-8 Project
-* @author Allison McWilliams, Jenn Pham, Isabel Pulte, Tanmay Bhatkar
-* File-1: main file
-* Date (start): 10/6/2021
-*/
-
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -18,15 +9,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
- * Public Class GUI. Start GUI.
+ * 
  */
-public class GUI {
+
+/**
+ * @author tanma
+ *
+ */
+public class SortedGUI {
     static JFrame a = new JFrame("App Store");
     static JButton logIn = new JButton("Sign In/Sign up");
     static int totalApps = 0;
 
-    public static void main(String args[]) {
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
 
         a.getContentPane().setBackground(Color.white);
         JButton inputButton = new JButton("Search");
@@ -34,7 +41,6 @@ public class GUI {
         JLabel b1;
         b1 = new JLabel("App Store");
         b1.setBounds(125, 20, 90, 20);
-
 
         JLabel tc = new JLabel("<html>© 2021 TAJI Inc.<br><br>"
                 + "Personnel<br>Jenn Pham: Project Manager & Designer<br>Allison McWilliams: Technical Manager<br>"
@@ -63,9 +69,6 @@ public class GUI {
         a.setVisible(true);
 
         List<App> apps = readAppsFromCSV(
-<<<<<<< HEAD
-                "Application Information - Sheet1 (1).csv");
-=======
                 "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/Application Information - Sheet1 (1).csv");
         // Code for printing out app names.
         // for (App r : apps) {
@@ -77,54 +80,33 @@ public class GUI {
 //        for (String r : appsSorted) {
 //            System.out.println(r);
 //        }
->>>>>>> tanmay_bench
 
         JButton c = new JButton("Sort");
-        c.setBounds(100, 150, 100, 50);        
+        c.setBounds(100, 150, 100, 50);
         a.add(c);
         login.clickClear(b2);
         a.setSize(1920, 1080);
         a.setLayout(null);
         a.setVisible(true);
-        
-        if(args.length != 0) {
-            System.out.println("In sort");
-            String[] appsSorted = sort(apps);
-          for (String r : appsSorted) {
-              System.out.println(r);
-              generateApps(r, apps);
-          }
-        }
-        else {
-            for(App a : apps) {            
-                generateApps(a.getName(), apps);
-            }
-        }
-        
-        
+
+        String[] appsSorted = sort(apps);
+      for (String r : appsSorted) {
+          generateApps(r, apps);
+      }
+
         c.addActionListener((ActionListener) new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-              //String args[] = {"Sort",""}; 
-              a.setVisible(false);
-              SortedGUI.main(args);
+                SortedGUI.main(args);
             }
 
         });
 
-        
-
         inputButton.addActionListener((ActionListener) new ActionListener() {
 
-            /**
-             * Override method actionPerformed().
-             * This method checks whether the app exists or not.
-             * @param ActionEvent
-             */
             @Override
             public void actionPerformed(ActionEvent e) {
-
 
                 String myString = b2.getText();
 
@@ -137,14 +119,19 @@ public class GUI {
                     if (r.compareTo(myString) == 0) {
                         appExists = true;
                         App ans = null;
-                        String filePath = "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/icons/"+myString+".png";
+                        String filePath = "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/icons/"
+                                + myString + ".png";
                         Icon ico = new ImageIcon(filePath);
-                        for(App a : apps) {
-                            if(a.getName().compareTo(myString) == 0)
+                        for (App a : apps) {
+                            if (a.getName().compareTo(myString) == 0)
                                 ans = a;
                         }
                         JOptionPane.showMessageDialog(null,
-                                "Name: " + ans.getName() +"\nDescription: " +ans.getAbout() + "\nVersion: "+ans.getVersions(), ans.getName(), JOptionPane.INFORMATION_MESSAGE, ico);
+                                "Name: " + ans.getName() + "\nDescription: "
+                                        + ans.getAbout() + "\nVersion: "
+                                        + ans.getVersions(),
+                                ans.getName(), JOptionPane.INFORMATION_MESSAGE,
+                                ico);
                     }
                 }
                 if (appExists == false) {
@@ -164,61 +151,57 @@ public class GUI {
 
         });
 
-        // needs when clicked and to go to page with apps / app info etc
-        // apps / app info loads from csv file
+    }
 
-    } // main end
 
-    /**
-     * This method generates Apps'icon and information from the CSV file.
-     * 
-     * @param appName a String value
-     * @param appsList a List of Apps
-     */
-    private static void generateApps(String appName, List<App> appsList) {    
-//        int row = totalApps % 3;
-//        int col = totalApps % 3;
+
+    private static void generateApps(String appName, List<App> appsList) {
+//  int row = totalApps % 3;
+//  int col = totalApps % 3;
         int x = 450;
         int y = 1;
         int width = 300;
-        int height = 200;                      
-        
-        String filePath = "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/icons/"+appName+".png";
+        int height = 200;
+
+        String filePath = "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/icons/"
+                + appName + ".png";
         Icon ico = new ImageIcon(filePath);
-        
+
         JButton app = new JButton(ico);
         app.setText(appName);
-        app.setBounds(x + ((totalApps%3)*350), y+ ((totalApps/3)%3*250), width, height);
-        a.add(app);         
-        
-        
+        app.setBounds(x + ((totalApps % 3) * 350),
+                y + ((totalApps / 3) % 3 * 250), width, height);
+        a.add(app);
+
         app.addActionListener((ActionListener) new ActionListener() {
 
-            /**
-             * Override method actionPerformed().
-             * This method generates the app MessageDialog consisting of Name and Description.
-             * @param ActionEvent
-             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 App ans = null;
-                for(App a : appsList) {
-                    if(a.getName().compareTo(appName) == 0)
+                for (App a : appsList) {
+                    if (a.getName().compareTo(appName) == 0)
                         ans = a;
                 }
                 JOptionPane.showMessageDialog(null,
-                        "Name: " + ans.getName() +"\nDescription: " +ans.getAbout() + "\nVersion: "+ans.getVersions(), appName, JOptionPane.INFORMATION_MESSAGE, ico);
+                        "Name: " + ans.getName() + "\nDescription: "
+                                + ans.getAbout() + "\nVersion: "
+                                + ans.getVersions(),
+                        appName, JOptionPane.INFORMATION_MESSAGE, ico);
             }
 
         });
         ++totalApps;
-        
+    }
+
+    private static void removeApps(String appName, List<App> appsList) {
+//int row = totalApps % 3;
+//int col = totalApps % 3;
     }
 
     /**
      * Method after logged in to create a user home page.
      * 
-     * @param name a String value
+     * @param name
      */
     public static void logInAfter(String name) {
         logIn.setVisible(false);
@@ -255,7 +238,6 @@ public class GUI {
                     myObj.close();
 
                 } catch (IOException e1) {
-                    // TODO Auto-generated catch block
                     e1.printStackTrace();
                 }
                 bx.setText("");
@@ -282,6 +264,11 @@ public class GUI {
             appsSorted[i] = r.getName();
             i++;
         }
+        // Arrays.sort(appsSorted);
+
+//  for (String r : appsSorted) {
+//      System.out.println(r);
+//  }
 
         for (int x = 0; x < apps.size(); x++) {
             for (int y = 1; y < (apps.size() - x); y++) {
@@ -294,7 +281,17 @@ public class GUI {
             }
         }
 
+//  for(int x = 0; x< appsSorted.length - 1; x++) {
+//      for(int y = x+1; y< appsSorted.length; y++) {
+//          if(appsSorted[x].compareTo(appsSorted[y]) > 0) {
+//              String temp = appsSorted[x];
+//              appsSorted[x] = appsSorted[y];
+//              appsSorted[y] = temp;
+//          }
+//      }
+//  }
         return appsSorted;
+
     }
 
     /**
@@ -350,138 +347,4 @@ public class GUI {
                 category, storeName);
     }
 
-}
-
-/**
- * Class App.
- */
-class App {
-    private String name;
-    private String about;
-    private String platform;
-    private String versions;
-    private String storeLink;
-    private String price;
-    private String category;
-    private String storeName;
-
-    public App(String name, String about, String platform, String versions,
-            String storeLink, String price, String category, String storeName) {
-        this.name = name;
-        this.about = about;
-        this.platform = platform;
-        this.versions = versions;
-        this.storeLink = storeLink;
-        this.price = price;
-        this.category = category;
-        this.storeName = storeName;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAbout() {
-        return about;
-    }
-
-    public void setAbout(String about) {
-        this.about = about;
-    }
-
-    /**
-     * @return the platform
-     */
-    public String getPlatform() {
-        return platform;
-    }
-
-    /**
-     * @param platform the platform to set
-     */
-    public void setPlatform(String platform) {
-        this.platform = platform;
-    }
-
-    /**
-     * @return the versions
-     */
-    public String getVersions() {
-        return versions;
-    }
-
-    /**
-     * @param versions the versions to set
-     */
-    public void setVersions(String versions) {
-        this.versions = versions;
-    }
-
-    /**
-     * @return the storeLink
-     */
-    public String getStoreLink() {
-        return storeLink;
-    }
-
-    /**
-     * @param storeLink the storeLink to set
-     */
-    public void setStoreLink(String storeLink) {
-        this.storeLink = storeLink;
-    }
-
-    /**
-     * @return the price
-     */
-    public String getPrice() {
-        return price;
-    }
-
-    /**
-     * @param price the price to set
-     */
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    /**
-     * @return the category
-     */
-    public String getCategory() {
-        return category;
-    }
-
-    /**
-     * @param category the category to set
-     */
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    /**
-     * @return the storeName
-     */
-    public String getStoreName() {
-        return storeName;
-    }
-
-    /**
-     * @param storeName the storeName to set
-     */
-    public void setStoreName(String storeName) {
-        this.storeName = storeName;
-    }
-
-    @Override
-    public String toString() {
-        return "App [name=" + name + ", about=" + about + ", platform="
-                + platform + ", versions=" + versions + ", storeLink="
-                + storeLink + ", price=" + price + ", category=" + category
-                + ", storeName=" + storeName + "]";
-    }
 }
