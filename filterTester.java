@@ -16,8 +16,8 @@ public class filterTester {
 	 */
    @Test
    public void testCategory() {
-		List<App> apps = filter.readAppsFromCSV("Application Information - Sheet1 (1).csv");
-    	List<App> apps2 = filter.filterCategory(apps, "Game");
+		List<App> apps = filterDriver.readAppsFromCSV("Application Information - Sheet1 (1).csv");
+    	List<App> apps2 = filterDriver.filterCategory(apps, "Game");
        
     	assertEquals("[]", apps2);
     	// assertEquals("Education", apps);

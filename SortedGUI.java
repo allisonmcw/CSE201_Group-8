@@ -1,25 +1,9 @@
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import java.io.*;
+import java.util.*;
+import javax.swing.*;
 
 /**
  * 
@@ -163,196 +147,14 @@ public class SortedGUI {
             }
 
         });
+        // needs when clicked and to go to page with apps / app info etc
+        // apps / app info loads from csv file
 
-
-       // Filter bar code
-       JMenuBar jMenuBar = new JMenuBar();
-       JMenu menu1 = new JMenu("Filter");
-
-       // 3 Menus
-       // Add options in Categories
-       JMenu cat = new JMenu("By Categories");
-       JMenuItem game = new JMenuItem("Game");
-       game.addActionListener((ActionListener) new ActionListener() {
-
-           @Override
-           public void actionPerformed(ActionEvent e) {
-               List<App> result = filter.filterCategory(apps, "Game");
-               String message = "\n Games \n";
-               for (App a : result) {
-                   message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
-               }
-               JOptionPane.showMessageDialog(null, message);
-           }
-   
-       });
-       JMenuItem education = new JMenuItem("Education");
-       education.addActionListener((ActionListener) new ActionListener() {
-
-           @Override
-           public void actionPerformed(ActionEvent e) {
-               List<App> result = filter.filterCategory(apps, "Education");
-               String message = "\n Education \n";
-               for (App a : result) {
-                   message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
-               }
-               JOptionPane.showMessageDialog(null, message);
-           }
-   
-       });
-       JMenuItem socialMedia = new JMenuItem("Social Media");
-       socialMedia.addActionListener((ActionListener) new ActionListener() {
-
-           @Override
-           public void actionPerformed(ActionEvent e) {
-               List<App> result = filter.filterCategory(apps, "Social Media");
-               String message = "\n Social Media \n";
-               for (App a : result) {
-                   message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
-               }
-               JOptionPane.showMessageDialog(null, message);
-           }
-   
-       });
-       JMenuItem streaming = new JMenuItem("Streaming");
-       streaming.addActionListener((ActionListener) new ActionListener() {
-
-           @Override
-           public void actionPerformed(ActionEvent e) {
-               List<App> result = filter.filterCategory(apps, "Streaming");
-               String message = "\n Streaming \n";
-               for (App a : result) {
-                   message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
-               }
-               JOptionPane.showMessageDialog(null, message);
-           }
-   
-       });
-       JMenuItem music = new JMenuItem("Music");
-       music.addActionListener((ActionListener) new ActionListener() {
-
-           @Override
-           public void actionPerformed(ActionEvent e) {
-               List<App> result = filter.filterCategory(apps, "Music");
-               String message = "\n Music \n";
-               for (App a : result) {
-                   message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
-               }
-               JOptionPane.showMessageDialog(null, message);
-           }
-   
-       });
-       cat.add(game);
-       cat.add(education);
-       cat.add(socialMedia);
-       cat.add(streaming);
-       cat.add(music);
-
-       // Add options in Price
-       JMenu price = new JMenu("By Price");
-       JMenuItem free = new JMenuItem("Free");
-       free.addActionListener((ActionListener) new ActionListener() {
-
-           @Override
-           public void actionPerformed(ActionEvent e) {
-               List<App> result = filter.filterPrice(apps, "Free");
-               String message = "\n Free \n";
-               for (App a : result) {
-                   message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
-               }
-               JOptionPane.showMessageDialog(null, message);
-           }
-   
-       });
-       JMenuItem paid = new JMenuItem("Paid");
-       paid.addActionListener((ActionListener) new ActionListener() {
-
-           @Override
-           public void actionPerformed(ActionEvent e) {
-               List<App> result = filter.filterPrice(apps, "Paid");
-               String message = "\n Paid \n";
-               for (App a : result) {
-                   message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
-               }
-               JOptionPane.showMessageDialog(null, message);
-           }
-   
-       });
-       price.add(free);
-       price.add(paid);
-
-       // Add options in Platform
-       JMenu pf = new JMenu("By Platform");
-       JMenuItem mobile = new JMenuItem("Mobile Device");
-       mobile.addActionListener((ActionListener) new ActionListener() {
-
-           @Override
-           public void actionPerformed(ActionEvent e) {
-               List<App> result = filter.filterPlatform(apps, "Mobile Device");
-               String message = "\n Mobile Device \n";
-               for (App a : result) {
-                   message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
-               }
-               JOptionPane.showMessageDialog(null, message);
-           }
-   
-       });
-       JMenuItem laptop = new JMenuItem("Laptop");
-       laptop.addActionListener((ActionListener) new ActionListener() {
-
-           @Override
-           public void actionPerformed(ActionEvent e) {
-               List<App> result = filter.filterPlatform(apps, "Laptop");
-               String message = "\n Laptop \n";
-               for (App a : result) {
-                   message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
-               }
-               JOptionPane.showMessageDialog(null, message);
-           }
-   
-       });
-       JMenuItem gameConsole = new JMenuItem("Game Console");
-       gameConsole.addActionListener((ActionListener) new ActionListener() {
-
-           @Override
-           public void actionPerformed(ActionEvent e) {
-               List<App> result = filter.filterPlatform(apps, "Game Console");
-               String message = "\n Game Console \n";
-               for (App a : result) {
-                   message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
-               }
-               JOptionPane.showMessageDialog(null, message);
-           }
-   
-       });
-       JMenuItem stream = new JMenuItem("Streaming Device");
-       stream.addActionListener((ActionListener) new ActionListener() {
-
-           @Override
-           public void actionPerformed(ActionEvent e) {
-               List<App> result = filter.filterPlatform(apps, "Streaming Device");
-               String message = "\n Streaming Device \n";
-               for (App a : result) {
-                   message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
-               }
-               JOptionPane.showMessageDialog(null, message);
-           }
-   
-       });
-       pf.add(mobile);
-       pf.add(laptop);
-       pf.add(gameConsole);
-       pf.add(stream);
-       // Add menus into main menu.
-       menu1.add(cat);
-       menu1.add(price);
-       menu1.add(pf);
-       // Add menu into menu bar.
-       jMenuBar.add(menu1);
-       a.setJMenuBar(jMenuBar);
-
-       a.setVisible(true);
-       a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // Generate Filter Menu Bar
+        filterDriver filterDriver = new filterDriver();
+        a.setJMenuBar(filterDriver.getJMenuBar());
+        a.setVisible(true);
+        a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
 
