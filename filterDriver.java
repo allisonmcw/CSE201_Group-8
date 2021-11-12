@@ -31,11 +31,16 @@ public class filterDriver {
             @Override
             public void actionPerformed(ActionEvent e) {
                 List<App> result = filterCategory(apps, "Game");
-                String message = "\n Games \n";
+                JLabel[] arrJLabels = new JLabel[result.size()];
+                int i = 0;
                 for (App a : result) {
-                    message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
+                    String filePath = "updateIcons/"+a.getName()+".png";
+                    Icon ico = new ImageIcon(filePath);
+                    JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
+                    arrJLabels[i] = aJLabel; 
+                    i++;               
                 }
-                JOptionPane.showMessageDialog(null, message);
+                JOptionPane.showMessageDialog(null, arrJLabels, "GAME", JOptionPane.INFORMATION_MESSAGE);
             }
     
         });
@@ -45,11 +50,16 @@ public class filterDriver {
             @Override
             public void actionPerformed(ActionEvent e) {
                 List<App> result = filterCategory(apps, "Education");
-                String message = "\n Education \n";
+                JLabel[] arrJLabels = new JLabel[result.size()];
+                int i = 0;
                 for (App a : result) {
-                    message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
+                    String filePath = "updateIcons/"+a.getName()+".png";
+                    Icon ico = new ImageIcon(filePath);
+                    JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
+                    arrJLabels[i] = aJLabel; 
+                    i++;               
                 }
-                JOptionPane.showMessageDialog(null, message);
+                JOptionPane.showMessageDialog(null, arrJLabels, "EDUCATION", JOptionPane.INFORMATION_MESSAGE);
             }
     
         });
@@ -59,11 +69,16 @@ public class filterDriver {
             @Override
             public void actionPerformed(ActionEvent e) {
                 List<App> result = filterCategory(apps, "Social Media");
-                String message = "\n Social Media \n";
+                JLabel[] arrJLabels = new JLabel[result.size()];
+                int i = 0;
                 for (App a : result) {
-                    message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
+                    String filePath = "updateIcons/"+a.getName()+".png";
+                    Icon ico = new ImageIcon(filePath);
+                    JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
+                    arrJLabels[i] = aJLabel; 
+                    i++;               
                 }
-                JOptionPane.showMessageDialog(null, message);
+                JOptionPane.showMessageDialog(null, arrJLabels, "SOCIAL MEDIA", JOptionPane.INFORMATION_MESSAGE);
             }
     
         });
@@ -73,11 +88,16 @@ public class filterDriver {
             @Override
             public void actionPerformed(ActionEvent e) {
                 List<App> result = filterCategory(apps, "Streaming");
-                String message = "\n Streaming \n";
+                JLabel[] arrJLabels = new JLabel[result.size()];
+                int i = 0;
                 for (App a : result) {
-                    message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
+                    String filePath = "updateIcons/"+a.getName()+".png";
+                    Icon ico = new ImageIcon(filePath);
+                    JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
+                    arrJLabels[i] = aJLabel; 
+                    i++;               
                 }
-                JOptionPane.showMessageDialog(null, message);
+                JOptionPane.showMessageDialog(null, arrJLabels, "STREAMING", JOptionPane.INFORMATION_MESSAGE);
             }
     
         });
@@ -87,11 +107,16 @@ public class filterDriver {
             @Override
             public void actionPerformed(ActionEvent e) {
                 List<App> result = filterCategory(apps, "Music");
-                String message = "\n Music \n";
+                JLabel[] arrJLabels = new JLabel[result.size()];
+                int i = 0;
                 for (App a : result) {
-                    message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
+                    String filePath = "updateIcons/"+a.getName()+".png";
+                    Icon ico = new ImageIcon(filePath);
+                    JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
+                    arrJLabels[i] = aJLabel; 
+                    i++;               
                 }
-                JOptionPane.showMessageDialog(null, message);
+                JOptionPane.showMessageDialog(null, arrJLabels, "MUSIC", JOptionPane.INFORMATION_MESSAGE);
             }
     
         });
@@ -109,11 +134,16 @@ public class filterDriver {
             @Override
             public void actionPerformed(ActionEvent e) {
                 List<App> result = filterPrice(apps, "Free");
-                String message = "\n Free \n";
+                JLabel[] arrJLabels = new JLabel[result.size()];
+                int i = 0;
                 for (App a : result) {
-                    message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
+                    String filePath = "updateIcons/"+a.getName()+".png";
+                    Icon ico = new ImageIcon(filePath);
+                    JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
+                    arrJLabels[i] = aJLabel; 
+                    i++;               
                 }
-                JOptionPane.showMessageDialog(null, message);
+                JOptionPane.showMessageDialog(null, arrJLabels, "FREE", JOptionPane.INFORMATION_MESSAGE);
             }
     
         });
@@ -123,11 +153,16 @@ public class filterDriver {
             @Override
             public void actionPerformed(ActionEvent e) {
                 List<App> result = filterPrice(apps, "Paid");
-                String message = "\n Paid \n";
+                JLabel[] arrJLabels = new JLabel[result.size()];
+                int i = 0;
                 for (App a : result) {
-                    message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
+                    String filePath = "updateIcons/"+a.getName()+".png";
+                    Icon ico = new ImageIcon(filePath);
+                    JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
+                    arrJLabels[i] = aJLabel; 
+                    i++;               
                 }
-                JOptionPane.showMessageDialog(null, message);
+                JOptionPane.showMessageDialog(null, arrJLabels, "PAID", JOptionPane.INFORMATION_MESSAGE);
             }
     
         });
@@ -142,11 +177,16 @@ public class filterDriver {
             @Override
             public void actionPerformed(ActionEvent e) {
                 List<App> result = filterPlatform(apps, "Mobile Device");
-                String message = "\n Mobile Device \n";
+                JLabel[] arrJLabels = new JLabel[result.size()];
+                int i = 0;
                 for (App a : result) {
-                    message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
+                    String filePath = "updateIcons/"+a.getName()+".png";
+                    Icon ico = new ImageIcon(filePath);
+                    JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
+                    arrJLabels[i] = aJLabel; 
+                    i++;               
                 }
-                JOptionPane.showMessageDialog(null, message);
+                JOptionPane.showMessageDialog(null, arrJLabels, "MOBILE DEVICE", JOptionPane.INFORMATION_MESSAGE);
             }
     
         });
@@ -156,11 +196,16 @@ public class filterDriver {
             @Override
             public void actionPerformed(ActionEvent e) {
                 List<App> result = filterPlatform(apps, "Laptop");
-                String message = "\n Laptop \n";
+                JLabel[] arrJLabels = new JLabel[result.size()];
+                int i = 0;
                 for (App a : result) {
-                    message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
+                    String filePath = "updateIcons/"+a.getName()+".png";
+                    Icon ico = new ImageIcon(filePath);
+                    JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
+                    arrJLabels[i] = aJLabel; 
+                    i++;               
                 }
-                JOptionPane.showMessageDialog(null, message);
+                JOptionPane.showMessageDialog(null, arrJLabels, "LAPTOP", JOptionPane.INFORMATION_MESSAGE);
             }
     
         });
@@ -170,11 +215,16 @@ public class filterDriver {
             @Override
             public void actionPerformed(ActionEvent e) {
                 List<App> result = filterPlatform(apps, "Game Console");
-                String message = "\n Game Console \n";
+                JLabel[] arrJLabels = new JLabel[result.size()];
+                int i = 0;
                 for (App a : result) {
-                    message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
+                    String filePath = "updateIcons/"+a.getName()+".png";
+                    Icon ico = new ImageIcon(filePath);
+                    JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
+                    arrJLabels[i] = aJLabel; 
+                    i++;               
                 }
-                JOptionPane.showMessageDialog(null, message);
+                JOptionPane.showMessageDialog(null, arrJLabels, "GAME CONSOLE", JOptionPane.INFORMATION_MESSAGE);
             }
     
         });
@@ -184,11 +234,16 @@ public class filterDriver {
             @Override
             public void actionPerformed(ActionEvent e) {
                 List<App> result = filterPlatform(apps, "Streaming Device");
-                String message = "\n Streaming Device \n";
+                JLabel[] arrJLabels = new JLabel[result.size()];
+                int i = 0;
                 for (App a : result) {
-                    message += "\n\n\n" + "Name: " + a.getName() +"\nDescription: " +a.getAbout() + "\nVersion: "+a.getVersions();
+                    String filePath = "updateIcons/"+a.getName()+".png";
+                    Icon ico = new ImageIcon(filePath);
+                    JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
+                    arrJLabels[i] = aJLabel; 
+                    i++;               
                 }
-                JOptionPane.showMessageDialog(null, message);
+                JOptionPane.showMessageDialog(null, arrJLabels, "STREAMING DEVICE", JOptionPane.INFORMATION_MESSAGE);
             }
     
         });
@@ -204,17 +259,6 @@ public class filterDriver {
         jMenuBar.add(menu1);
 
         return jMenuBar;
-    }
-
-    public static void main(String[] args) {
-        // List<App> apps = readAppsFromCSV("Application Information - Sheet1 (1).csv");
-        // // System.out.println(apps.get(9).getName());
-        // // List<App> apps2 = filterCategory(apps, "Game");
-        // List<App> apps2 = filterPrice(apps, "Paid");
-        // // List<App> apps2 = filterPlatform(apps, "smartphone");
-        // for (App a : apps2) {
-        //     System.out.println(a.getName());
-        // }
     }
 
     /**
