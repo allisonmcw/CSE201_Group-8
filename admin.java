@@ -19,6 +19,7 @@ import java.util.Scanner;
 import javax.swing.*;
 
 public class admin {
+
     public static void main(String args[]) {
 
         int w = 300;
@@ -64,16 +65,16 @@ public class admin {
         c1 = new JLabel("Versions");
         c1.setBounds(425, 100, 200, 30);
         a.add(c1);
-        c1 = new JLabel("Store Link");
+        c1 = new JLabel("Price");
         c1.setBounds(550, 100, 200, 30);
         a.add(c1);
-        c1 = new JLabel("Price");
+        c1 = new JLabel("Category");
         c1.setBounds(675, 100, 200, 30);
         a.add(c1);
-        c1 = new JLabel("Category");
+        c1 = new JLabel("Store Name");
         c1.setBounds(800, 100, 200, 30);
         a.add(c1);
-        c1 = new JLabel("Store Name");
+        c1 = new JLabel("Store Link");
         c1.setBounds(925, 100, 200, 30);
         a.add(c1);
         JTextField b7 = new JTextField("Name");
@@ -92,36 +93,95 @@ public class admin {
         a.add(b10);
         b10.setBounds(425, 150, 100, 30);
         clickClear(b10);
-        JTextField b11 = new JTextField("Store Link");
+        JTextField b11 = new JTextField("Price");
         a.add(b11);
         b11.setBounds(550, 150, 100, 30);
         clickClear(b11);
-        JTextField b12 = new JTextField("Price");
+        JTextField b12 = new JTextField("Category");
         a.add(b12);
         b12.setBounds(675, 150, 100, 30);
         clickClear(b12);
-        JTextField b13 = new JTextField("Category");
-        a.add(b13);
-        b13.setBounds(800, 150, 100, 30);
-        clickClear(b13);
-//        JPopupMenu b13 = new JPopupMenu("Category");
-//        a.add(b13);
-//        JMenuItem cut = new JMenuItem("Cut");  
-//        JMenuItem copy = new JMenuItem("Copy");  
-//        JMenuItem paste = new JMenuItem("Paste");  
-//        b13.add(cut); b13.add(copy); b13.add(paste);        
-//        a.addMouseListener(new MouseAdapter() {  
-//           public void mouseClicked(MouseEvent e) {              
-//               b13.show(a , e.getX(), e.getY());  
-//           }                 
-//        });  
-//        a.setSize(300,300);  
-//        a.setLayout(null);  
-//        a.setVisible(true);
-        b13.setBounds(800, 150, 100, 30);
-        clickClear(b13);
+        JTextField b13a = new JTextField("Store Name");
+        a.add(b13a);
+        b13a.setBounds(800, 150, 100, 30);
         
-        JTextField b14 = new JTextField("Store Name");
+        clickClear(b13a);
+        JPopupMenu b13 = new JPopupMenu("Store Name");
+        a.add(b13);
+        // COMBO BOX
+//        JLabel label = new JLabel();          
+//        label.setHorizontalAlignment(JLabel.CENTER);  
+//        label.setSize(100,30);
+        // Categories: games, streaming, music, social media, education
+        // Store Names: Google Play, Apple Store, Microsoft Store
+        JMenuItem goog = new JMenuItem("Google Play");  
+        JMenuItem appl = new JMenuItem("Apple");  
+        JMenuItem micro = new JMenuItem("Microsoft");  
+        b13.add(goog); b13.add(appl); b13.add(micro);        
+        b13a.addMouseListener(new MouseAdapter() {  
+           public void mouseClicked(MouseEvent e) {              
+               b13.show(a , 800, 150);  
+           }                 
+        });  
+        goog.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e) {              
+                b13.setToolTipText("Google Play");  
+            }  
+           });  
+           appl.addActionListener(new ActionListener(){  
+               public void actionPerformed(ActionEvent e) {              
+            	   b13.setToolTipText("Google Play");  
+               }  
+              });  
+           micro.addActionListener(new ActionListener(){  
+               public void actionPerformed(ActionEvent e) {              
+            	   b13.setToolTipText("Google Play");   
+               }  
+              });  
+        b13.setBounds(800, 150, 100, 30);
+//        clickClear(b13);
+        // Categories: games, streaming, music, social media, education
+        JPopupMenu b12a = new JPopupMenu("Category");
+        a.add(b12a);
+        JMenuItem game = new JMenuItem("Games");  
+        JMenuItem stream = new JMenuItem("Streaming");  
+        JMenuItem music = new JMenuItem("Music");  
+        JMenuItem soc = new JMenuItem("Social Media");  
+        JMenuItem edu = new JMenuItem("Education");  
+        b12a.add(game); b12a.add(stream); b12a.add(music); b12a.add(soc); b12a.add(edu);        
+        b12.addMouseListener(new MouseAdapter() {  
+           public void mouseClicked(MouseEvent e) {              
+               b12a.show(a , 675, 150);  
+           }                 
+        });  
+        game.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e) {              
+                b12.setToolTipText("Google Play");  
+            }  
+           });  
+           stream.addActionListener(new ActionListener(){  
+               public void actionPerformed(ActionEvent e) {              
+            	   b13.setToolTipText("Google Play");  
+               }  
+              });  
+           music.addActionListener(new ActionListener(){  
+               public void actionPerformed(ActionEvent e) {              
+            	   b13.setToolTipText("Google Play");   
+               }  
+              });  
+           soc.addActionListener(new ActionListener(){  
+               public void actionPerformed(ActionEvent e) {              
+            	   b13.setToolTipText("Google Play");  
+               }  
+              });  
+           edu.addActionListener(new ActionListener(){  
+               public void actionPerformed(ActionEvent e) {              
+            	   b13.setToolTipText("Google Play");   
+               }  
+              });  
+        b12a.setBounds(675, 150, 100, 30);
+        
+        JTextField b14 = new JTextField("Store Link");
         a.add(b14);
         b14.setBounds(925, 150, 100, 30);
         clickClear(b14);
