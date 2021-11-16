@@ -180,6 +180,12 @@ public class GUI {
         // needs when clicked and to go to page with apps / app info etc
         // apps / app info loads from csv file
 
+        // Generate Filter Menu Bar
+        filterDriver filterDriver = new filterDriver();
+        a.setJMenuBar(filterDriver.getJMenuBar());
+        a.setVisible(true);
+        a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
     } // main end
 
     private static JButton generateApps(String appName, List<App> appsList) {    
@@ -271,7 +277,7 @@ public class GUI {
                 FileWriter myObj;
                 try {
                     myObj = new FileWriter(
-                            "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/AdminRequests.txt",
+                            "AdminRequests.txt",
                             true);
                     PrintWriter pr = new PrintWriter(myObj);
                     pr.write(bx.getText() + "\n");
@@ -282,7 +288,6 @@ public class GUI {
                     myObj.close();
 
                 } catch (IOException e1) {
-                    // TODO Auto-generated catch block
                     e1.printStackTrace();
                 }
                 bx.setText("");
@@ -330,7 +335,6 @@ public class GUI {
 //                    myObj.close();
 //
 //                } catch (IOException e1) {
-//                    // TODO Auto-generated catch block
 //                    e1.printStackTrace();
 //                }
 //                bx.setText("");                
@@ -359,11 +363,6 @@ public class GUI {
             appsSorted[i] = r.getName();
             i++;
         }
-        // Arrays.sort(appsSorted);
-
-//        for (String r : appsSorted) {
-//            System.out.println(r);
-//        }
 
         for (int x = 0; x < apps.size(); x++) {
             for (int y = 1; y < (apps.size() - x); y++) {
@@ -376,15 +375,6 @@ public class GUI {
             }
         }
 
-//        for(int x = 0; x< appsSorted.length - 1; x++) {
-//            for(int y = x+1; y< appsSorted.length; y++) {
-//                if(appsSorted[x].compareTo(appsSorted[y]) > 0) {
-//                    String temp = appsSorted[x];
-//                    appsSorted[x] = appsSorted[y];
-//                    appsSorted[y] = temp;
-//                }
-//            }
-//        }
         return appsSorted;
 
     }
@@ -433,17 +423,15 @@ public class GUI {
         String about = meta[1];
         String platform = meta[2];
         String versions = meta[3];
-        String storeLink = meta[4];
-        String price = meta[5];
-        String category = meta[6];
-        String storeName = meta[7];
+        String price = meta[4];
+        String category = meta[5];
+        String storeName = meta[6];
+        String storeLink = meta[7];
 
-        return new App(name, about, platform, versions, storeLink, price,
-                category, storeName);
+        return new App(name, about, platform, versions, price,
+                category, storeName, storeLink);
     }
-
 }
-
 /**
  * Class App.
  */
@@ -452,128 +440,127 @@ class App {
     private String about;
     private String platform;
     private String versions;
-    private String storeLink;
     private String price;
     private String category;
     private String storeName;
+    private String storeLink;
 
     public App(String name, String about, String platform, String versions,
-            String storeLink, String price, String category, String storeName) {
+            String price, String category, String storeName, String storeLink) {
         this.name = name;
         this.about = about;
         this.platform = platform;
         this.versions = versions;
-        this.storeLink = storeLink;
         this.price = price;
         this.category = category;
         this.storeName = storeName;
+        this.storeLink = storeLink;
     }
 
+    /**
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @param name to set
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * @return the about
+     */
     public String getAbout() {
         return about;
     }
 
+    /**
+     * @param about to set
+     */
     public void setAbout(String about) {
         this.about = about;
     }
-
     /**
      * @return the platform
      */
     public String getPlatform() {
         return platform;
     }
-
     /**
      * @param platform the platform to set
      */
     public void setPlatform(String platform) {
         this.platform = platform;
     }
-
     /**
      * @return the versions
      */
     public String getVersions() {
         return versions;
     }
-
     /**
      * @param versions the versions to set
      */
     public void setVersions(String versions) {
         this.versions = versions;
     }
-
     /**
      * @return the storeLink
      */
     public String getStoreLink() {
         return storeLink;
     }
-
     /**
      * @param storeLink the storeLink to set
      */
     public void setStoreLink(String storeLink) {
         this.storeLink = storeLink;
     }
-
     /**
      * @return the price
      */
     public String getPrice() {
         return price;
     }
-
     /**
      * @param price the price to set
      */
     public void setPrice(String price) {
         this.price = price;
     }
-
     /**
      * @return the category
      */
     public String getCategory() {
         return category;
     }
-
     /**
      * @param category the category to set
      */
     public void setCategory(String category) {
         this.category = category;
     }
-
     /**
      * @return the storeName
      */
     public String getStoreName() {
         return storeName;
     }
-
     /**
      * @param storeName the storeName to set
      */
     public void setStoreName(String storeName) {
         this.storeName = storeName;
     }
-
     @Override
     public String toString() {
         return "App [name=" + name + ", about=" + about + ", platform="
-                + platform + ", versions=" + versions + ", storeLink="
-                + storeLink + ", price=" + price + ", category=" + category
-                + ", storeName=" + storeName + "]";
+                + platform + ", versions=" + versions + ", price=" + price + ", category=" + category
+                + ", storeName=" + storeName + ", storeLink="
+                + storeLink + "]";
     }
 }
