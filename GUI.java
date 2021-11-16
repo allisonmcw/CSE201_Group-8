@@ -35,7 +35,7 @@ public class GUI {
         b1.setBounds(125, 20, 90, 20);
 
 
-        JLabel tc = new JLabel("<html>© 2021 TAJI Inc.<br><br>"
+        JLabel tc = new JLabel("<html>ï¿½ 2021 TAJI Inc.<br><br>"
                 + "Personnel<br>Jenn Pham: Project Manager & Designer<br>Allison McWilliams: Technical Manager<br>"
                 + "Isabel Pulte: Developer & Documentor<br>Tanmay Bhatkar: Developer & Tester </html>");
         tc.setBounds(50, 200, 2000, 500);
@@ -44,7 +44,7 @@ public class GUI {
         a.add(logIn);
         logIn.setBounds(270, 20, 150, 30);
         
-        JLabel scroll = new JLabel("This is to test scrollinh");
+        JLabel scroll = new JLabel("This is to test scrolling");
         scroll.setBounds(2160, 3280, 200, 200);
         a.add(scroll);
 
@@ -77,7 +77,7 @@ public class GUI {
         a.setVisible(true);
 
         List<App> apps = readAppsFromCSV(
-                "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/Application Information - Sheet1 (1).csv");
+                "Application Information - Sheet1 (1).csv");
          //Code for printing out app names.
          for (App r : apps) {
              //System.out.println(r.getName());
@@ -150,7 +150,7 @@ public class GUI {
                     if (r.compareTo(myString) == 0) {
                         appExists = true;
                         App ans = null;
-                        String filePath = "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/icons/"+myString+".png";
+                        String filePath = "updateIcons/"+myString+".png";
                         Icon ico = new ImageIcon(filePath);
                         for(App a : apps) {
                             if(a.getName().compareTo(myString) == 0)
@@ -188,7 +188,7 @@ public class GUI {
         int width = 250;
         int height = 150;                      
         
-        String filePath = "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/icons/"+appName+".png";
+        String filePath = "updateIcons/"+appName+".png";
         Icon ico = new ImageIcon(filePath);               
         JButton app = new JButton(ico);
         //JPanel appPanel = new JPanel();
