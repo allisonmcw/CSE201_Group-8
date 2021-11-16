@@ -1,6 +1,6 @@
 /*
 * CSE201_Group-8 Project
-* @author Allison McWilliams, Jenn Pham, Isabel Pulte, Tanmay Bhatkar
+* Authors: Allison McWilliams, Jenn Pham, Isabel Pulte, Tanmay Bhatkar
 * File-1: main file
 * Date (start): 10/6/2021
 */
@@ -8,23 +8,24 @@
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
-import java.util.*;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-/**
- * Public Class GUI. Start GUI.
- */
 public class GUI {
     static JFrame a = new JFrame("App Store");
     static JButton logIn = new JButton("Sign In/Sign up");
-    static JPanel panel = new JPanel();
     static int totalApps = 0;
 
     public static void main(String args[]) {
-        a.add(panel);
 
         a.getContentPane().setBackground(Color.white);
         JButton inputButton = new JButton("Search");        
@@ -34,7 +35,7 @@ public class GUI {
         b1.setBounds(125, 20, 90, 20);
 
 
-        JLabel tc = new JLabel("<html>ï¿½ 2021 TAJI Inc.<br><br>"
+        JLabel tc = new JLabel("<html>© 2021 TAJI Inc.<br><br>"
                 + "Personnel<br>Jenn Pham: Project Manager & Designer<br>Allison McWilliams: Technical Manager<br>"
                 + "Isabel Pulte: Developer & Documentor<br>Tanmay Bhatkar: Developer & Tester </html>");
         tc.setBounds(50, 200, 2000, 500);
@@ -42,11 +43,24 @@ public class GUI {
 
         a.add(logIn);
         logIn.setBounds(270, 20, 150, 30);
+        
+        JLabel scroll = new JLabel("This is to test scrollinh");
+        scroll.setBounds(2160, 3280, 200, 200);
+        a.add(scroll);
 
         a.add(inputButton);
         inputButton.setBounds(270, 110, 100, 30);
         Border bored= BorderFactory.createLineBorder(Color.GRAY,1, true);
+      //Create a JPanel        
+        JScrollPane scrollBar=new JScrollPane();
 
+      //Create a JFrame with title ( AddScrollBarToJFrame )      
+      //Add JScrollPane into JFrame
+      a.add(scrollBar);
+
+      //Set close operation for JFrame
+      a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         JTextField b2 = new JTextField("Type something...");
         b2.setBorder(bored);
         b2.setBackground(Color.white);
@@ -62,14 +76,20 @@ public class GUI {
         a.setLayout(null);
         a.setVisible(true);
 
-        List<App> apps = readAppsFromCSV("Application Information - Sheet1 (1).csv");
+        List<App> apps = readAppsFromCSV(
+                "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/Application Information - Sheet1 (1).csv");
+         //Code for printing out app names.
+         for (App r : apps) {
+             //System.out.println(r.getName());
+             generateApps(r.getName(), apps);
+         }
 
-        for (App r : apps) {
-            //System.out.println(r.getName());
-            generateApps(r.getName(), apps);
-        }
-        
-        // Sort button
+//        // Testing the sort names method
+//        String[] appsSorted = sort(apps);
+//        for (String r : appsSorted) {
+//            System.out.println(r);
+//        }
+
         JButton c = new JButton("Sort");
         c.setBounds(100, 150, 100, 50);        
         a.add(c);
@@ -77,7 +97,28 @@ public class GUI {
         a.setSize(1920, 1080);
         a.setLayout(null);
         a.setVisible(true);
-          
+        
+//        String[] appsSorted2 = sort(apps);
+//      for (String r : appsSorted2) {
+//          System.out.println(r);
+//          generateApps(r, apps);
+//      }
+//        
+//        if(args.length != 0) {
+//            removeAllApps(removeApp);
+//            String[] appsSorted2 = sort(apps);
+//          for (String r : appsSorted2) {
+//              System.out.println(r);
+//              generateApps(r, apps);
+//          }
+//        }
+//        else {
+//            for(App a : apps) {            
+//                removeApp = generateApps(a.getName(), apps);
+//            }
+//        }        
+        
+        
         c.addActionListener((ActionListener) new ActionListener() {
 
             @Override
@@ -95,11 +136,6 @@ public class GUI {
 
         inputButton.addActionListener((ActionListener) new ActionListener() {
 
-            /**
-             * Override method actionPerformed().
-             * This method checks whether the app exists or not.
-             * @param ActionEvent
-             */
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -114,7 +150,7 @@ public class GUI {
                     if (r.compareTo(myString) == 0) {
                         appExists = true;
                         App ans = null;
-                        String filePath = "updateIcons/"+myString+".png";
+                        String filePath = "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/icons/"+myString+".png";
                         Icon ico = new ImageIcon(filePath);
                         for(App a : apps) {
                             if(a.getName().compareTo(myString) == 0)
@@ -140,49 +176,20 @@ public class GUI {
             }
 
         });
+
         // needs when clicked and to go to page with apps / app info etc
         // apps / app info loads from csv file
 
-        // Generate Filter Menu Bar
-        filterDriver filterDriver = new filterDriver();
-        a.setJMenuBar(filterDriver.getJMenuBar());
-        a.setVisible(true);
-        a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        // comment button
-        JButton commentButton = new JButton("Comment");
-        commentButton.setBounds(100, 200, 100, 50);   
-        a.add(commentButton);
-        a.setSize(1920, 1080);
-        a.setLayout(null);
-        a.setVisible(true);
-        commentButton.addActionListener((ActionListener) new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                commentDriver.main(args);
-            }
-
-        });
-        
     } // main end
 
-    /**
-     * This method generates apps button with respective information.
-     * 
-     * @param appName
-     * @param appsList
-     * @return a JButton
-     */
     private static JButton generateApps(String appName, List<App> appsList) {    
         int x = 450;
         int y = 1;
         int width = 250;
         int height = 150;                      
         
-        String filePath = "updateIcons/"+appName+".png";
-        Icon ico = new ImageIcon(filePath);
-        
+        String filePath = "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/icons/"+appName+".png";
+        Icon ico = new ImageIcon(filePath);               
         JButton app = new JButton(ico);
         //JPanel appPanel = new JPanel();
         
@@ -204,11 +211,6 @@ public class GUI {
         
         app.addActionListener((ActionListener) new ActionListener() {
 
-            /**
-             * Override method actionPerformed().
-             * This method generates the app MessageDialog consisting of Name and Description.
-             * @param ActionEvent
-             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 App ans = null;
@@ -225,25 +227,24 @@ public class GUI {
         clear.addActionListener((ActionListener) new ActionListener() {
 
             @Override
-            public void actionPerformed(ActionEvent e) {                          
+            public void actionPerformed(ActionEvent e) { 
+                a.remove(app);                
                 a.setVisible(false);
                 a.setVisible(true);
             }
-
         });
         ++totalApps;
         if(totalApps == appsList.size())
             totalApps = 0;
          
-        return app;
-        
+        return app;        
     }
     
 
     /**
      * Method after logged in to create a user home page.
      * 
-     * @param name a String value
+     * @param name
      */
     public static void logInAfter(String name) {
         logIn.setVisible(false);
@@ -251,18 +252,17 @@ public class GUI {
         n.setBounds(270, 20, 150, 30);
         a.add(n);
 
-        // Create a request field
-        JTextField bx = new JTextField("Enter a request...");
+        JLabel bx = new JLabel("Enter a request...");
         bx.setBackground(Color.white);
         bx.setForeground(Color.black);
         a.add(bx);
-        bx.setBounds(50, 300, 200, 30);
+        bx.setBounds(50, 300, 200, 30);   
+        bx.setVisible(false);
 
-        // Create a send button
         JButton send = new JButton("Send");
-        send.setBorderPainted(true);
+
         a.add(send);
-        send.setBounds(270, 300, 100, 30);
+        send.setBounds(270, 400, 100, 30);
 
         send.addActionListener((ActionListener) new ActionListener() {
 
@@ -271,7 +271,7 @@ public class GUI {
                 FileWriter myObj;
                 try {
                     myObj = new FileWriter(
-                            "AdminRequests.txt",
+                            "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/AdminRequests.txt",
                             true);
                     PrintWriter pr = new PrintWriter(myObj);
                     pr.write(bx.getText() + "\n");
@@ -282,9 +282,60 @@ public class GUI {
                     myObj.close();
 
                 } catch (IOException e1) {
+                    // TODO Auto-generated catch block
                     e1.printStackTrace();
                 }
                 bx.setText("");
+            }
+
+        });
+
+        a.setVisible(false);
+        a.setVisible(true);
+
+    }
+    
+    public static void logInAfterAdmin(String name) {
+        logIn.setVisible(false);
+        JLabel n = new JLabel("Hello, " + name);
+        n.setBounds(270, 20, 150, 30);
+        a.add(n);
+
+        JLabel bx = new JLabel("Enter a request...");
+        bx.setBackground(Color.white);
+        bx.setForeground(Color.black);
+        a.add(bx);
+        bx.setBounds(50, 300, 200, 30);        
+
+        JButton send = new JButton("Send");
+
+        a.add(send);
+        send.setBounds(270, 400, 100, 30);
+
+        send.addActionListener((ActionListener) new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+//                FileWriter myObj;
+//                try {
+//                    myObj = new FileWriter(
+//                            "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/AdminRequests.txt",
+//                            true);
+//                    PrintWriter pr = new PrintWriter(myObj);
+//                    pr.write(bx.getText() + "\n");
+//                    // HashMap<String, String> map = new HashMap<String,
+//                    // String>();
+//                    JOptionPane.showMessageDialog(null,
+//                            "Successful addition to requests");
+//                    myObj.close();
+//
+//                } catch (IOException e1) {
+//                    // TODO Auto-generated catch block
+//                    e1.printStackTrace();
+//                }
+//                bx.setText("");                
+                admin.main(null);
+                
             }
 
         });
@@ -308,6 +359,11 @@ public class GUI {
             appsSorted[i] = r.getName();
             i++;
         }
+        // Arrays.sort(appsSorted);
+
+//        for (String r : appsSorted) {
+//            System.out.println(r);
+//        }
 
         for (int x = 0; x < apps.size(); x++) {
             for (int y = 1; y < (apps.size() - x); y++) {
@@ -320,7 +376,17 @@ public class GUI {
             }
         }
 
+//        for(int x = 0; x< appsSorted.length - 1; x++) {
+//            for(int y = x+1; y< appsSorted.length; y++) {
+//                if(appsSorted[x].compareTo(appsSorted[y]) > 0) {
+//                    String temp = appsSorted[x];
+//                    appsSorted[x] = appsSorted[y];
+//                    appsSorted[y] = temp;
+//                }
+//            }
+//        }
         return appsSorted;
+
     }
 
     /**
@@ -367,13 +433,13 @@ public class GUI {
         String about = meta[1];
         String platform = meta[2];
         String versions = meta[3];
-        String price = meta[4];
-        String category = meta[5];
-        String storeName = meta[6];
-        String storeLink = meta[7];
+        String storeLink = meta[4];
+        String price = meta[5];
+        String category = meta[6];
+        String storeName = meta[7];
 
-        return new App(name, about, platform, versions, price,
-                category, storeName, storeLink);
+        return new App(name, about, platform, versions, storeLink, price,
+                category, storeName);
     }
 
 }
@@ -386,47 +452,35 @@ class App {
     private String about;
     private String platform;
     private String versions;
+    private String storeLink;
     private String price;
     private String category;
     private String storeName;
-    private String storeLink;
 
     public App(String name, String about, String platform, String versions,
-            String price, String category, String storeName, String storeLink) {
+            String storeLink, String price, String category, String storeName) {
         this.name = name;
         this.about = about;
         this.platform = platform;
         this.versions = versions;
+        this.storeLink = storeLink;
         this.price = price;
         this.category = category;
         this.storeName = storeName;
-        this.storeLink = storeLink;
     }
-    
-    /**
-     * @return the name
-     */
+
     public String getName() {
         return name;
     }
 
-    /**
-     * @param name to set
-     */
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * @return the about
-     */
     public String getAbout() {
         return about;
     }
 
-    /**
-     * @param about to set
-     */
     public void setAbout(String about) {
         this.about = about;
     }
@@ -518,8 +572,8 @@ class App {
     @Override
     public String toString() {
         return "App [name=" + name + ", about=" + about + ", platform="
-                + platform + ", versions=" + versions + ", price=" + price + ", category=" + category
-                + ", storeName=" + storeName + ", storeLink="
-                + storeLink + "]";
+                + platform + ", versions=" + versions + ", storeLink="
+                + storeLink + ", price=" + price + ", category=" + category
+                + ", storeName=" + storeName + "]";
     }
 }

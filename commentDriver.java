@@ -1,24 +1,18 @@
 import java.awt.event.ActionListener;
-import java.awt.Color;
 import java.awt.event.ActionEvent;
-
-import javax.swing.BorderFactory;
 // import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 // import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.border.Border;
 
 public class commentDriver {
     public static void main(String[] args) {
         JFrame main = new JFrame("Comment Site");
 
-        JButton all = launchCommentButton();
-        all.addActionListener((ActionListener) new ActionListener() {
+        JButton b = launchCommentButton();
+        b.addActionListener((ActionListener) new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -28,48 +22,11 @@ public class commentDriver {
 
         });
 
-        
-        main.add(all);
+        main.add(b);
         main.setSize(800, 400);
         main.setLayout(null);
         main.setVisible(true);
         main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        // creates the text fields to get user info for a comment 
-        
-        // creates appName text box and label 
-        
-        JLabel appLabel = new JLabel("App Name");
-        appLabel.setBounds(50, 100, 200, 30);
-        main.add(appLabel);
-        
-        JTextField appName = new JTextField("App Name");
-        Border bored= BorderFactory.createLineBorder(Color.GRAY,1, true);
-        appName.setBorder(bored);
-        appName.setBackground(Color.white);
-        appName.setForeground(Color.black);
-        main.add(appName);
-        appName.setBounds(50, 150, 100, 30);
-      
-        // creates comment text box and label 
-        JLabel commentLabel = new JLabel("Comment");
-        commentLabel.setBounds(175, 100, 200, 30);
-        main.add(commentLabel);
-        
-        JTextField comment = new JTextField("Comment");
-        comment.setBorder(bored);
-        comment.setBackground(Color.white);
-        comment.setForeground(Color.black);
-        main.add(comment);
-        comment.setBounds(175, 150, 100, 30);
-        
-        // creates the add submit button
-        JButton submit = new JButton("Submit");
-        submit.setBounds(300, 150, 100, 30);
-        main.add(submit);
-        
-        
-        
     }
 
     /**
@@ -78,16 +35,12 @@ public class commentDriver {
      */
     public static JButton launchCommentButton() {
         JButton cButton = new JButton("All Comments");
-        cButton.setBounds(50, 200, 100, 50);
+        cButton.setBounds(10, 150, 100, 50);
         
         return cButton;
     }
 
 }
-
-/** 
- * Adds comments entered by the user to the JTable if they are logged in when add button is pushed 
- */
 
 /**
  * Class JTableCreate: Create a JTable for comments.
