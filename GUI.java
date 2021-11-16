@@ -258,17 +258,16 @@ public class GUI {
         n.setBounds(270, 20, 150, 30);
         a.add(n);
 
-        JLabel bx = new JLabel("Enter a request...");
+        JTextField bx = new JTextField("Enter a request...");
         bx.setBackground(Color.white);
         bx.setForeground(Color.black);
         a.add(bx);
         bx.setBounds(50, 300, 200, 30);   
-        bx.setVisible(false);
 
         JButton send = new JButton("Send");
-
+        send.setBorderPainted(true);
         a.add(send);
-        send.setBounds(270, 400, 100, 30);
+        send.setBounds(270, 300, 100, 30);
 
         send.addActionListener((ActionListener) new ActionListener() {
 
@@ -306,14 +305,14 @@ public class GUI {
         n.setBounds(270, 20, 150, 30);
         a.add(n);
 
-        JLabel bx = new JLabel("Enter a request...");
+        JTextField bx = new JTextField("Enter a request...");
         bx.setBackground(Color.white);
         bx.setForeground(Color.black);
         a.add(bx);
-        bx.setBounds(50, 300, 200, 30);        
+        bx.setBounds(50, 300, 200, 30);   
 
         JButton send = new JButton("Send");
-
+        send.setBorderPainted(true);
         a.add(send);
         send.setBounds(270, 400, 100, 30);
 
@@ -321,23 +320,23 @@ public class GUI {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-//                FileWriter myObj;
-//                try {
-//                    myObj = new FileWriter(
-//                            "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/AdminRequests.txt",
-//                            true);
-//                    PrintWriter pr = new PrintWriter(myObj);
-//                    pr.write(bx.getText() + "\n");
-//                    // HashMap<String, String> map = new HashMap<String,
-//                    // String>();
-//                    JOptionPane.showMessageDialog(null,
-//                            "Successful addition to requests");
-//                    myObj.close();
-//
-//                } catch (IOException e1) {
-//                    e1.printStackTrace();
-//                }
-//                bx.setText("");                
+               FileWriter myObj;
+               try {
+                   myObj = new FileWriter(
+                           "AdminRequests.txt",
+                           true);
+                   PrintWriter pr = new PrintWriter(myObj);
+                   pr.write(bx.getText() + "\n");
+                   // HashMap<String, String> map = new HashMap<String,
+                   // String>();
+                   JOptionPane.showMessageDialog(null,
+                           "Successful addition to requests");
+                   myObj.close();
+
+               } catch (IOException e1) {
+                   e1.printStackTrace();
+               }
+               bx.setText("");                
                 admin.main(null);
                 
             }
