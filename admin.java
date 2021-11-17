@@ -27,6 +27,7 @@ public class admin {
 
         int w = 300;
         int h = 250;
+        
 
 //        HashMap<String,String> map = new HashMap<String,String>();
 //        map = readFromFile();
@@ -186,8 +187,10 @@ public class admin {
         b14.setBounds(925, 150, 100, 30);
         clickClear(b14);
         
-        String toFile = name.getText() + "," + desc.getText() + "," + plat.getText() + "," + ver.getText() + "," +
-        		price.getText() + "," + cat.getText() + "," + storeName.getText();
+        
+        
+        String toFile = name.getText() + ", " + desc.getText() + ", " + plat.getText() + ", " + ver.getText() + ", " +
+        		price.getText() + ", " + cat.getText() + ", " + storeName.getText();
         
 
         JLabel c2;
@@ -199,47 +202,29 @@ public class admin {
         // Add app
         d1.addActionListener((ActionListener) new ActionListener() {
 
-            @Override
+        	@Override
             public void actionPerformed(ActionEvent e) {
-                HashMap<String, String> map = new HashMap<String, String>();
-                map = readFromFile();
-
-//                System.out.println("Iterating Hashmap...");
-//                for (Map.Entry<String, String> entry : map.entrySet()) {
-//                    String key = entry.getKey();
-//                    String value = entry.getValue();
-//                    System.out.println(key+" "+value);
-//                    // ...
-//                }
-                boolean addApp = false;
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    String key = entry.getKey();
-                    String value = entry.getValue();
-                    if (key.compareTo(storeName.getText()) == 0) {
-                        if (value.compareTo(storeName.getText().trim()) == 0) {
-                            // System.out.println("Successful Login");
-                            JOptionPane.showMessageDialog(null,
-                                    "App Added!");
-                            addApp = true;
-                            // GUI gu = new GUI();
-//                            GUI.logInAfter(key);
-                        } else {
-                            // System.out.println("Expecting: "+b8.getText()+"
-                            // Got: "+value);
-                            // System.out.println("Wrong Password");
-                            JOptionPane.showMessageDialog(null,
-                                    "App Unsuccessful");
-                            addApp = true;
-                        }
-                    }
-
-                    // ...
+                FileWriter myObj;
+                try {
+                    myObj = new FileWriter(
+                            "Application Information - Sheet1 (1).csv",
+                            true);
+                    PrintWriter pr = new PrintWriter(myObj);
+                    JOptionPane.showMessageDialog(null,
+                            "App Added!");
+                    pr.write(toFile);
+                    myObj.close();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
                 }
-                if (!addApp)
-                    // System.out.println("Wrong email");
-                    JOptionPane.showMessageDialog(null, "Incorrect Information");
-                storeName.setText("");
-                storeName.setText("");
+                name.setText("Name");
+                desc.setText("Description");
+                plat.setText("Platform");
+                ver.setText("Version");
+                price.setText("Price");
+                cat.setText("Category");
+                storeName.setText("Store Name");
+
             }
 
         });
