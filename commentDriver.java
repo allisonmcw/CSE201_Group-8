@@ -1,5 +1,8 @@
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
+import java.util.List;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 
@@ -7,11 +10,28 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
-public class commentDriver {
+public class commentDriver extends JFrame implements ItemListener{
+    @SuppressWarnings("rawtypes")
+    static
+    JComboBox type;
+    static String appNameString = "Candy Crush";
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public static void main(String[] args) {
         // name of JFrame
+        // System.out.println(args[0]);
     	JFrame main = new JFrame("Comment Site");
+    	
+    	List<App> apps;
+    	apps = GUI.readAppsFromCSV("C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/Application Information - Sheet1 (1).csv");
+    	String[] appNames = GUI.sort(apps);
         
+    	commentDriver s = new commentDriver();
+        //String s1[] = {"User", "Admin", "Moderator"}; 
+        type = new JComboBox(appNames);
+        type.addItemListener(s);
+        type.setBounds(175, 150, 100, 30);
+        main.add(type);
+    	
     	//array list of original values 
     	ArrayList<String[]> cl = new ArrayList<String[]>(); 
     	String[] temp = {"janedoe", "Netflix", "Love it!"}; 
@@ -65,6 +85,7 @@ public class commentDriver {
         appName.setForeground(Color.black);
         main.add(appName);
         appName.setBounds(175, 150, 100, 30);
+        appName.setVisible(false);
        
         // creates comment text box and label 
         JLabel commentLabel = new JLabel("Comment");
@@ -90,7 +111,7 @@ public class commentDriver {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-            	String[] temp = {name.getText(), appName.getText(), comment.getText()}; 
+            	String[] temp = {name.getText(), appNameString, comment.getText()}; 
             	cl.add(temp); 
             	JTableCreate newTable = new JTableCreate(cl); 
             	name.setText("");
@@ -151,6 +172,15 @@ public class commentDriver {
         
         return cButton;
     }
+    
+    public void itemStateChanged(ItemEvent e)
+    {
+        // if the state combobox is changed
+        if (e.getSource() == type) {
+            appNameString = type.getSelectedItem() + "";
+            //l1.setText(c1.getSelectedItem() + " selected");
+        }
+    }
 
 }
 
@@ -202,6 +232,7 @@ class JTableCreate {
             }
         });
         //jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
+        
+    }    
 
 }
