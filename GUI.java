@@ -35,7 +35,7 @@ public class GUI {
         b1.setBounds(125, 20, 90, 20);
 
 
-        JLabel tc = new JLabel("<html>© 2021 TAJI Inc.<br><br>"
+        JLabel tc = new JLabel("<html>ï¿½ 2021 TAJI Inc.<br><br>"
                 + "<b>Personnel</b><br>Jenn Pham: Project Manager & Designer<br>Allison McWilliams: Technical Manager<br>"
                 + "Isabel Pulte: Developer & Documentor<br>Tanmay Bhatkar: Developer & Tester </html>");
         tc.setBounds(50, 200, 2000, 500);
@@ -77,7 +77,7 @@ public class GUI {
         a.setVisible(true);
 
         List<App> apps = readAppsFromCSV(
-                "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/Application Information - Sheet1 (1).csv");
+                "Application Information - Sheet1 (1).csv");
          //Code for printing out app names.
          for (App r : apps) {
              //System.out.println(r.getName());
@@ -150,7 +150,7 @@ public class GUI {
                     if (r.compareTo(myString) == 0) {
                         appExists = true;
                         App ans = null;
-                        String filePath = "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/icons/"+myString+".png";
+                        String filePath = "updateIcons/"+myString+".png";
                         Icon ico = new ImageIcon(filePath);
                         for(App a : apps) {
                             if(a.getName().compareTo(myString) == 0)
@@ -196,9 +196,9 @@ public class GUI {
         JButton app;
         String filePath;
         if(totalApps<10)
-            filePath = "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/icons/"+appName+".png";
+            filePath = "updateIcons/"+appName+".png";
         else
-            filePath = "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/icons/appnotfound.png";
+            filePath = "updateIcons/appnotfound.png";
       Icon ico = new ImageIcon(filePath);       
       app = new JButton(ico);
       app.setText(appName);
@@ -271,7 +271,7 @@ public class GUI {
                 FileWriter myObj;
                 try {
                     myObj = new FileWriter(
-                            "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/AdminRequests.txt",
+                            "AdminRequests.txt",
                             true);
                     PrintWriter pr = new PrintWriter(myObj);
                     pr.write(bx.getText() + "\n");

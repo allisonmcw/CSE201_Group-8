@@ -22,7 +22,7 @@ public class commentDriver extends JFrame implements ItemListener{
     	JFrame main = new JFrame("Comment Site");
     	
     	List<App> apps;
-    	apps = GUI.readAppsFromCSV("C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/Application Information - Sheet1 (1).csv");
+    	apps = GUI.readAppsFromCSV("Application Information - Sheet1 (1).csv");
     	String[] appNames = GUI.sort(apps);
         
     	commentDriver s = new commentDriver();
