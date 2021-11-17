@@ -44,14 +44,15 @@ public class commentDriver {
         nameLabel.setBounds(50, 100, 200, 30);
         main.add(nameLabel);
         
-        JTextField name = new JTextField("Name");
+        JLabel name = new JLabel(args[0]);
         Border bored= BorderFactory.createLineBorder(Color.GRAY,1, true);
         name.setBorder(bored);
         name.setBackground(Color.white);
         name.setForeground(Color.black);
         main.add(name);
         name.setBounds(50, 150, 100, 30);
-      
+        //name.setVisible(false);
+        
         // creates appName text box and label 
         JLabel appLabel = new JLabel("App Name");
         appLabel.setBounds(175, 100, 200, 30);
@@ -106,11 +107,17 @@ public class commentDriver {
         deleteNum.setForeground(Color.black);
         main.add(deleteNum);
         deleteNum.setBounds(300, 200, 100, 30);
+        if (args[1].compareTo("User") == 0) { 
+        	deleteNum.setVisible(false);  
+        }
         
         JButton deleteButton = new JButton("Delete");
         deleteButton.setBounds(425, 200, 100, 30);
         deleteButton.setVisible(true);
         main.add(deleteButton);
+        if (args[1].compareTo("User") == 0) { 
+        	deleteButton.setVisible(false);  
+        }
         
         // deletes a comment from the list 
         deleteButton.addActionListener((ActionListener) new ActionListener() {
