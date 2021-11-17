@@ -109,6 +109,10 @@ public class admin {
         a.add(storeName);
         storeName.setBounds(800, 150, 100, 30);
         clickClear(storeName);
+        JTextField storeLink = new JTextField("Store Link");
+        a.add(storeLink);
+        storeLink.setBounds(800, 150, 100, 30);
+        clickClear(storeLink);
         
         JPopupMenu b13 = new JPopupMenu("Store Name");
         a.add(b13);
@@ -189,8 +193,6 @@ public class admin {
         
         
         
-        String toFile = name.getText() + ", " + desc.getText() + ", " + plat.getText() + ", " + ver.getText() + ", " +
-        		price.getText() + ", " + cat.getText() + ", " + storeName.getText() + "\n";
         
 
         JLabel c2;
@@ -206,6 +208,9 @@ public class admin {
             public void actionPerformed(ActionEvent e) {
                 FileWriter myObj;
                 try {
+                	String toFile = name.getText() + ", " + desc.getText() + ", " + plat.getText() + ", " + ver.getText() + ", " +
+                    		price.getText() + ", " + cat.getText() + ", " + storeName.getText() + ", " + storeLink + "\n";
+                    
                     myObj = new FileWriter(
                             "Application Information - Sheet1 (1).csv",
                             true);
@@ -217,13 +222,14 @@ public class admin {
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
-                name.setText("");
-                desc.setText("");
-                plat.setText("");
-                ver.setText("");
-                price.setText("");
-                cat.setText("");
-                storeName.setText("");
+                name.setText("Name");
+                desc.setText("Description");
+                plat.setText("Platform");
+                ver.setText("Version");
+                price.setText("Price");
+                cat.setText("Category");
+                storeName.setText("Store Name");
+                storeLink.setText("Store Link");
 
             }
 
