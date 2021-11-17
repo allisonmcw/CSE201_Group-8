@@ -217,13 +217,13 @@ public class admin {
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
-                name.setText("Name");
-                desc.setText("Description");
-                plat.setText("Platform");
-                ver.setText("Version");
-                price.setText("Price");
-                cat.setText("Category");
-                storeName.setText("Store Name");
+                name.setText("");
+                desc.setText("");
+                plat.setText("");
+                ver.setText("");
+                price.setText("");
+                cat.setText("");
+                storeName.setText("");
 
             }
 

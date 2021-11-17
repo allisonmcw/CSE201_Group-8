@@ -24,22 +24,8 @@ import javax.swing.*;
 public class login {
 
     public static void main(String args[]) {
-
         int w = 300;
         int h = 250;
-
-//        HashMap<String,String> map = new HashMap<String,String>();
-//        map = readFromFile();
-        /*
-         *
-         */
-//        System.out.println("Iterating Hashmap...");
-//        for (Map.Entry<String, String> entry : map.entrySet()) {
-//            String key = entry.getKey();
-//            String value = entry.getValue();
-//            System.out.println(key+" "+value);
-//            // ...
-//        }
 
         JFrame a = new JFrame("Login");
         a.getContentPane().setBackground(Color.gray);
@@ -110,13 +96,6 @@ public class login {
                 HashMap<String, String> map = new HashMap<String, String>();
                 map = readFromFile();
 
-//                System.out.println("Iterating Hashmap...");
-//                for (Map.Entry<String, String> entry : map.entrySet()) {
-//                    String key = entry.getKey();
-//                    String value = entry.getValue();
-//                    System.out.println(key+" "+value);
-//                    // ...
-//                }
                 boolean logIn = false;
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     String key = entry.getKey();
@@ -202,15 +181,6 @@ public class login {
 
         });
 
-        // needs when clicked and to go to page with apps / app info etc
-        // apps / app info loads from csv file
-
-//        JButton d = new JButton("Google Chrome");
-//        d.setBounds(400, 45, 200, 75);
-//        a.add(d);
-//        a.setSize(300, 250);
-//        a.setLayout(null);
-//        a.setVisible(true);
     } // end main
 
     public static void clickClear(JTextField j) {
