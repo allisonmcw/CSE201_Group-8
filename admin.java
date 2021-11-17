@@ -190,7 +190,7 @@ public class admin {
         
         
         String toFile = name.getText() + ", " + desc.getText() + ", " + plat.getText() + ", " + ver.getText() + ", " +
-        		price.getText() + ", " + cat.getText() + ", " + storeName.getText();
+        		price.getText() + ", " + cat.getText() + ", " + storeName.getText() + "\n";
         
 
         JLabel c2;
