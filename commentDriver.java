@@ -25,7 +25,7 @@ public class commentDriver {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                main.dispose();
+                //main.dispose();
                 JTableCreate newTable = new JTableCreate(cl);
             }
 
@@ -92,6 +92,9 @@ public class commentDriver {
             	String[] temp = {name.getText(), appName.getText(), comment.getText()}; 
             	cl.add(temp); 
             	JTableCreate newTable = new JTableCreate(cl); 
+            	name.setText("");
+            	appName.setText("");
+            	comment.setText("");
             }
 
         });
@@ -114,9 +117,16 @@ public class commentDriver {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-            	int num = Integer.valueOf(deleteNum.getText()); 
-            	cl.remove(num - 1); 
-            	JTableCreate newTable = new JTableCreate(cl); 
+            	try { 
+            		int num = Integer.valueOf(deleteNum.getText());
+            		cl.remove(num - 1); 
+                	JTableCreate newTable = new JTableCreate(cl);
+            	} catch(Exception e1) { 
+            		JOptionPane.showMessageDialog(null,
+                            "Invalid Comment #");
+            	}
+            	 
+            	 
             }
 
         });
@@ -181,10 +191,10 @@ class JTableCreate {
         jButton.addActionListener((ActionListener) new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                //jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             }
         });
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
 }
