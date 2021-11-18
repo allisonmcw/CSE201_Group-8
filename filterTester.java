@@ -16,11 +16,13 @@ public class filterTester {
 	 */
    @Test
    public void testCategory() {
-		List<App> apps = filterDriver.readAppsFromCSV("Application Information - Sheet1 (1).csv");
-    	List<App> apps2 = filterDriver.filterCategory(apps, "Game");
+		List<App> apps = GUI.readAppsFromCSV("Application Information - Sheet1 (1).csv");
+    	// List<App> apps2 = filterDriver.filterCategory(apps, "Game");
        
-    	assertEquals("[]", apps2);
+
+    	// assertEquals("[]", apps);
     	// assertEquals("Education", apps);
+        System.out.println(apps);
    }
 
 
@@ -63,7 +65,7 @@ public class filterTester {
      * @param meta
      * @return an App object.
      */
-    private static App createApp(String[] meta) {
+    public static App createApp(String[] meta) {
         String name = meta[0];
         String about = meta[1];
         String platform = meta[2];

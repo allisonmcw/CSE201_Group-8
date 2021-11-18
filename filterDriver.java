@@ -267,6 +267,7 @@ public class filterDriver {
      * @return a List of Apps with the indicated categories.
      */ 
     public static List<App> filterCategory(List<App> apps, String choice) {
+        // choice = choice.toLowerCase();
         List<App> result = new ArrayList<App>();
         for (App r : apps) {
             if(r.getCategory().equalsIgnoreCase(choice)) {
