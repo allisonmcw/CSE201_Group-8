@@ -111,7 +111,7 @@ public class admin {
         clickClear(storeName);
         JTextField storeLink = new JTextField("Store Link");
         a.add(storeLink);
-        storeLink.setBounds(800, 150, 100, 30);
+        storeLink.setBounds(925, 150, 100, 30);
         clickClear(storeLink);
         
         JPopupMenu b13 = new JPopupMenu("Store Name");
@@ -184,15 +184,7 @@ public class admin {
                }  
               });  
         
-        b12a.setBounds(675, 150, 100, 30);
-        
-        JTextField b14 = new JTextField("Store Link");
-        a.add(b14);
-        b14.setBounds(925, 150, 100, 30);
-        clickClear(b14);
-        
-        
-        
+        b12a.setBounds(675, 150, 100, 30);       
         
 
         JLabel c2;
