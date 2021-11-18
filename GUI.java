@@ -76,49 +76,21 @@ public class GUI {
         a.setLayout(null);
         a.setVisible(true);
 
-        List<App> apps = readAppsFromCSV(
-                "Application Information - Sheet1 (1).csv");
+        List<App> apps = readAppsFromCSV("/Users/penguinesee/Documents/201_Project/201Project/src/Textfiles/Apps.txt");
          //Code for printing out app names.
          for (App r : apps) {
              //System.out.println(r.getName());
              generateApps(r.getName(), apps);
          }
 
-//        // Testing the sort names method
-//        String[] appsSorted = sort(apps);
-//        for (String r : appsSorted) {
-//            System.out.println(r);
-//        }
-
         JButton c = new JButton("Sort");
-        c.setBounds(100, 150, 100, 50);        
+        c.setBounds(100, 150, 100, 50);       
         a.add(c);
         login.clickClear(b2);
         a.setSize(1920, 1080);
         a.setLayout(null);
         a.setVisible(true);
-        
-//        String[] appsSorted2 = sort(apps);
-//      for (String r : appsSorted2) {
-//          System.out.println(r);
-//          generateApps(r, apps);
-//      }
-//        
-//        if(args.length != 0) {
-//            removeAllApps(removeApp);
-//            String[] appsSorted2 = sort(apps);
-//          for (String r : appsSorted2) {
-//              System.out.println(r);
-//              generateApps(r, apps);
-//          }
-//        }
-//        else {
-//            for(App a : apps) {            
-//                removeApp = generateApps(a.getName(), apps);
-//            }
-//        }        
-        
-        
+
         c.addActionListener((ActionListener) new ActionListener() {
 
             @Override
@@ -150,7 +122,7 @@ public class GUI {
                     if (r.compareTo(myString) == 0) {
                         appExists = true;
                         App ans = null;
-                        String filePath = "updateIcons/"+myString+".png";
+                        String filePath = "/Users/penguinesee/Documents/201_Project/201Project/src/updateIcons/"+myString+".png";
                         Icon ico = new ImageIcon(filePath);
                         for(App a : apps) {
                             if(a.getName().compareTo(myString) == 0)
@@ -196,9 +168,9 @@ public class GUI {
         JButton app;
         String filePath;
         if(totalApps<10)
-            filePath = "updateIcons/"+appName+".png";
+            filePath = "/Users/penguinesee/Documents/201_Project/201Project/src/updateIcons/"+appName+".png";
         else
-            filePath = "updateIcons/appnotfound.png";
+            filePath = "/Users/penguinesee/Documents/201_Project/201Project/src/updateIcons/appnotfound.png";
       Icon ico = new ImageIcon(filePath);       
       app = new JButton(ico);
       app.setText(appName);
@@ -271,7 +243,7 @@ public class GUI {
                 FileWriter myObj;
                 try {
                     myObj = new FileWriter(
-                            "AdminRequests.txt",
+                            "/Users/penguinesee/Documents/201_Project/201Project/src/Textfiles/Admin.txt",
                             true);
                     PrintWriter pr = new PrintWriter(myObj);
                     pr.write(bx.getText() + "\n");
@@ -329,24 +301,6 @@ public class GUI {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-//                FileWriter myObj;
-//                try {
-//                    myObj = new FileWriter(
-//                            "C:/Users/tanma/Documents/Miami University/2nd year/2nd Semester/CSE274/Workspace/Scratch/src/AdminRequests.txt",
-//                            true);
-//                    PrintWriter pr = new PrintWriter(myObj);
-//                    pr.write(bx.getText() + "\n");
-//                    // HashMap<String, String> map = new HashMap<String,
-//                    // String>();
-//                    JOptionPane.showMessageDialog(null,
-//                            "Successful addition to requests");
-//                    myObj.close();
-//
-//                } catch (IOException e1) {
-//                    // TODO Auto-generated catch block
-//                    e1.printStackTrace();
-//                }
-//                bx.setText("");
                 String args[] = new String[2];
                 String temp;
                 if(name.contains(":"))
@@ -398,15 +352,6 @@ public class GUI {
             }
         }
 
-//        for(int x = 0; x< appsSorted.length - 1; x++) {
-//            for(int y = x+1; y< appsSorted.length; y++) {
-//                if(appsSorted[x].compareTo(appsSorted[y]) > 0) {
-//                    String temp = appsSorted[x];
-//                    appsSorted[x] = appsSorted[y];
-//                    appsSorted[y] = temp;
-//                }
-//            }
-//        }
         return appsSorted;
 
     }
@@ -444,7 +389,7 @@ public class GUI {
         return apps;
     }
 
-        /**
+    /**
      * Method to create an app.
      * 
      * @param meta
@@ -464,138 +409,4 @@ public class GUI {
                 category, storeName, storeLink);
     }
 
-}
-
-/**
- * Class App.
- */
-class App {
-    private String name;
-    private String about;
-    private String platform;
-    private String versions;
-    private String price;
-    private String category;
-    private String storeName;
-    private String storeLink;
-
-    public App(String name, String about, String platform, String versions,
-    		String price, String category, String storeName, String storeLink) {
-        this.name = name;
-        this.about = about;
-        this.platform = platform;
-        this.versions = versions;
-        this.price = price;
-        this.category = category;
-        this.storeName = storeName;
-        this.storeLink = storeLink;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAbout() {
-        return about;
-    }
-
-    public void setAbout(String about) {
-        this.about = about;
-    }
-
-    /**
-     * @return the platform
-     */
-    public String getPlatform() {
-        return platform;
-    }
-
-    /**
-     * @param platform the platform to set
-     */
-    public void setPlatform(String platform) {
-        this.platform = platform;
-    }
-
-    /**
-     * @return the versions
-     */
-    public String getVersions() {
-        return versions;
-    }
-
-    /**
-     * @param versions the versions to set
-     */
-    public void setVersions(String versions) {
-        this.versions = versions;
-    }
-
-    /**
-     * @return the storeLink
-     */
-    public String getStoreLink() {
-        return storeLink;
-    }
-
-    /**
-     * @param storeLink the storeLink to set
-     */
-    public void setStoreLink(String storeLink) {
-        this.storeLink = storeLink;
-    }
-
-    /**
-     * @return the price
-     */
-    public String getPrice() {
-        return price;
-    }
-
-    /**
-     * @param price the price to set
-     */
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    /**
-     * @return the category
-     */
-    public String getCategory() {
-        return category;
-    }
-
-    /**
-     * @param category the category to set
-     */
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    /**
-     * @return the storeName
-     */
-    public String getStoreName() {
-        return storeName;
-    }
-
-    /**
-     * @param storeName the storeName to set
-     */
-    public void setStoreName(String storeName) {
-        this.storeName = storeName;
-    }
-
-    @Override
-    public String toString() {
-        return "App [name=" + name + ", about=" + about + ", platform="
-                + platform + ", versions=" + versions + ", storeLink="
-                + storeLink + ", price=" + price + ", category=" + category
-                + ", storeName=" + storeName + "]";
-    }
 }
