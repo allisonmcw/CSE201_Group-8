@@ -58,20 +58,9 @@ public class SortedGUI {
         a.setLayout(null);
         a.setVisible(true);
 
-        // Please don't change the file path into a local file path. Keep it like this.
-        List<App> apps = readAppsFromCSV(
-                "Application Information - Sheet1 (1).csv");
-        // Code for printing out app names.
-        // for (App r : apps) {
-        // System.out.println(r);
-        // }
-
-//        // Testing the sort names method
-//        String[] appsSorted = sort(apps);
-//        for (String r : appsSorted) {
-//            System.out.println(r);
-//        }
-
+        // LOCAL FILE PATH
+        List<App> apps = readAppsFromCSV("/Users/penguinesee/Documents/201_Project/201Project/src/Textfiles/Apps.txt");
+        
         JButton c = new JButton("UnSort");
         c.setBounds(100, 150, 100, 50);
         a.add(c);
@@ -116,7 +105,7 @@ public class SortedGUI {
                         App ans = null;
 
                         // Please don't change the file path into a local file path. Keep it like this.
-                        String filePath = "updateIcons/"
+                        String filePath = "/Users/penguinesee/Documents/201_Project/201Project/src/updateIcons/"
                                 + myString + ".png";
                         Icon ico = new ImageIcon(filePath);
                         for (App a : apps) {
@@ -165,13 +154,11 @@ public class SortedGUI {
         int width = 250;
         int height = 150;                      
         
-        String filePath = "updateIcons/"+appName+".png";
+        // LOCAL FILE PATH
+        String filePath = "/Users/penguinesee/Documents/201_Project/201Project/src/updateIcons/"+appName+".png";
         Icon ico = new ImageIcon(filePath);               
         JButton app = new JButton(ico);
-        //JPanel appPanel = new JPanel();
-        
-        //appPanel.setLayout(new GridLayout(3, 3));
-        //appPanel.setVisible(true);
+
         app.setText(appName);
         app.setBounds(x + ((totalApps%4)*275), y+ ((totalApps/4)%4*175), width, height);
         a.add(app);
@@ -196,7 +183,8 @@ public class SortedGUI {
         ++totalApps;
     }
 
-    private static void removeApps(String appName, List<App> appsList) {
+    @SuppressWarnings("unused")
+	private static void removeApps(String appName, List<App> appsList) {
 //int row = totalApps % 3;
 //int col = totalApps % 3;
     }
@@ -230,7 +218,7 @@ public class SortedGUI {
                 FileWriter myObj;
                 try {
                     myObj = new FileWriter(
-                            "AdminRequests.txt",
+                            "/Users/penguinesee/Documents/201_Project/201Project/src/Textfiles/AdminRequests.txt",
                             true);
                     PrintWriter pr = new PrintWriter(myObj);
                     pr.write(bx.getText() + "\n");
@@ -267,11 +255,6 @@ public class SortedGUI {
             appsSorted[i] = r.getName();
             i++;
         }
-        // Arrays.sort(appsSorted);
-
-//  for (String r : appsSorted) {
-//      System.out.println(r);
-//  }
 
         for (int x = 0; x < apps.size(); x++) {
             for (int y = 1; y < (apps.size() - x); y++) {
@@ -283,16 +266,7 @@ public class SortedGUI {
                 }
             }
         }
-
-//  for(int x = 0; x< appsSorted.length - 1; x++) {
-//      for(int y = x+1; y< appsSorted.length; y++) {
-//          if(appsSorted[x].compareTo(appsSorted[y]) > 0) {
-//              String temp = appsSorted[x];
-//              appsSorted[x] = appsSorted[y];
-//              appsSorted[y] = temp;
-//          }
-//      }
-//  }
+        
         return appsSorted;
 
     }
