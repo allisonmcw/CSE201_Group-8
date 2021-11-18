@@ -44,7 +44,7 @@ public class GUI {
         a.add(logIn);
         logIn.setBounds(270, 20, 150, 30);
         
-        JLabel scroll = new JLabel("This is to test scrollinh");
+        JLabel scroll = new JLabel("This is to test scrolling");
         scroll.setBounds(2160, 3280, 200, 200);
         a.add(scroll);
 
@@ -76,7 +76,7 @@ public class GUI {
         a.setLayout(null);
         a.setVisible(true);
 
-        List<App> apps = readAppsFromCSV("/Users/penguinesee/Documents/201_Project/201Project/src/Textfiles/Apps.txt");
+        List<App> apps = readAppsFromCSV("Application Information - Sheet1 (1).csv");
          //Code for printing out app names.
          for (App r : apps) {
              //System.out.println(r.getName());
@@ -122,7 +122,7 @@ public class GUI {
                     if (r.compareTo(myString) == 0) {
                         appExists = true;
                         App ans = null;
-                        String filePath = "/Users/penguinesee/Documents/201_Project/201Project/src/updateIcons/"+myString+".png";
+                        String filePath = "updateIcons/"+myString+".png";
                         Icon ico = new ImageIcon(filePath);
                         for(App a : apps) {
                             if(a.getName().compareTo(myString) == 0)
@@ -168,9 +168,9 @@ public class GUI {
         JButton app;
         String filePath;
         if(totalApps<10)
-            filePath = "/Users/penguinesee/Documents/201_Project/201Project/src/updateIcons/"+appName+".png";
+            filePath = "updateIcons/"+appName+".png";
         else
-            filePath = "/Users/penguinesee/Documents/201_Project/201Project/src/updateIcons/appnotfound.png";
+            filePath = "updateIcons/appnotfound.png";
       Icon ico = new ImageIcon(filePath);       
       app = new JButton(ico);
       app.setText(appName);
@@ -243,7 +243,7 @@ public class GUI {
                 FileWriter myObj;
                 try {
                     myObj = new FileWriter(
-                            "/Users/penguinesee/Documents/201_Project/201Project/src/Textfiles/Admin.txt",
+                            "Admin.txt",
                             true);
                     PrintWriter pr = new PrintWriter(myObj);
                     pr.write(bx.getText() + "\n");
@@ -335,11 +335,6 @@ public class GUI {
             appsSorted[i] = r.getName();
             i++;
         }
-        // Arrays.sort(appsSorted);
-
-//        for (String r : appsSorted) {
-//            System.out.println(r);
-//        }
 
         for (int x = 0; x < apps.size(); x++) {
             for (int y = 1; y < (apps.size() - x); y++) {

@@ -20,7 +20,7 @@ class filterDriverTest {
 	 */
 	@Test
 	void testFilterCategory() {
-        List<App> apps = GUI.readAppsFromCSV("/Users/penguinesee/Documents/201_Project/201Project/src/Textfiles/Apps.txt");
+        List<App> apps = GUI.readAppsFromCSV("Application Information - Sheet1 (1).csv");
         List<App> game = filterDriver.filterCategory(apps, "Game");
         List<App> edu = filterDriver.filterCategory(apps, "Education");
         List<App> sm = filterDriver.filterCategory(apps, "Social Media");
@@ -61,7 +61,7 @@ class filterDriverTest {
 	 */
 	@Test
 	void testFilterPrice() {
-		List<App> apps = GUI.readAppsFromCSV("/Users/penguinesee/Documents/201_Project/201Project/src/Textfiles/Apps.txt");
+		List<App> apps = GUI.readAppsFromCSV("Application Information - Sheet1 (1).csv");
         List<App> free = filterDriver.filterPrice(apps, "Free");
         List<App> paid = filterDriver.filterPrice(apps, "Paid");
 
@@ -84,7 +84,7 @@ class filterDriverTest {
 	 */
 	@Test
 	void testFilterPlatform() {
-		List<App> apps = GUI.readAppsFromCSV("/Users/penguinesee/Documents/201_Project/201Project/src/Textfiles/Apps.txt");
+		List<App> apps = GUI.readAppsFromCSV("Application Information - Sheet1 (1).csv");
         List<App> mobile = filterDriver.filterPlatform(apps, "Mobile Device");
         List<App> lap = filterDriver.filterPlatform(apps, "Laptop");
         List<App> game = filterDriver.filterPlatform(apps, "Game Console");
