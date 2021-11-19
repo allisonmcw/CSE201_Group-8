@@ -109,10 +109,6 @@ public class admin {
         a.add(storeName);
         storeName.setBounds(800, 150, 100, 30);
         clickClear(storeName);
-        JTextField storeLink = new JTextField("Store Link");
-        a.add(storeLink);
-        storeLink.setBounds(925, 150, 100, 30);
-        clickClear(storeLink);
         
         JPopupMenu b13 = new JPopupMenu("Store Name");
         a.add(b13);
@@ -184,7 +180,16 @@ public class admin {
                }  
               });  
         
-        b12a.setBounds(675, 150, 100, 30);       
+        b12a.setBounds(675, 150, 100, 30);
+        
+        JTextField b14 = new JTextField("Store Link");
+        a.add(b14);
+        b14.setBounds(925, 150, 100, 30);
+        clickClear(b14);
+        
+        
+        
+        
         
 
         JLabel c2;
@@ -200,11 +205,10 @@ public class admin {
             public void actionPerformed(ActionEvent e) {
                 FileWriter myObj;
                 try {
-                	String toFile = name.getText() + ", " + desc.getText() + ", " + plat.getText() + ", " + ver.getText() + ", " +
-                    		price.getText() + ", " + cat.getText() + ", " + storeName.getText() + ", " + storeLink + "\n";
-                    
+                    String toFile = name.getText() + ", " + desc.getText() + ", " + plat.getText() + ", " + ver.getText() + ", " +
+                            price.getText() + ", " + cat.getText() + ", " + storeName.getText() + "\n";
                     myObj = new FileWriter(
-                            "Application Information - Sheet1 (1).csv",
+                            "src/Application Information - Sheet1 (1).csv",
                             true);
                     PrintWriter pr = new PrintWriter(myObj);
                     JOptionPane.showMessageDialog(null,
@@ -214,14 +218,13 @@ public class admin {
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
-                name.setText("Name");
-                desc.setText("Description");
-                plat.setText("Platform");
-                ver.setText("Version");
-                price.setText("Price");
-                cat.setText("Category");
-                storeName.setText("Store Name");
-                storeLink.setText("Store Link");
+                name.setText("");
+                desc.setText("");
+                plat.setText("");
+                ver.setText("");
+                price.setText("");
+                cat.setText("");
+                storeName.setText("");
 
             }
 
@@ -243,7 +246,7 @@ public class admin {
         HashMap<String, String> map = new HashMap<String, String>();
         try {
             Scanner sc = new Scanner(new File(
-                    "Application Information - Sheet1 (1).csv"));
+                    "Apps.txt"));
             while (sc.hasNext()) {
                 String line = sc.nextLine();
                 String[] attributes = line.split(",");

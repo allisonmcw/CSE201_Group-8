@@ -35,7 +35,7 @@ public class GUI {
         b1.setBounds(125, 20, 90, 20);
 
 
-        JLabel tc = new JLabel("<html>ï¿½ 2021 TAJI Inc.<br><br>"
+        JLabel tc = new JLabel("<html>© 2021 TAJI Inc.<br><br>"
                 + "<b>Personnel</b><br>Jenn Pham: Project Manager & Designer<br>Allison McWilliams: Technical Manager<br>"
                 + "Isabel Pulte: Developer & Documentor<br>Tanmay Bhatkar: Developer & Tester </html>");
         tc.setBounds(50, 200, 2000, 500);
@@ -44,7 +44,7 @@ public class GUI {
         a.add(logIn);
         logIn.setBounds(270, 20, 150, 30);
         
-        JLabel scroll = new JLabel("This is to test scrolling");
+        JLabel scroll = new JLabel("This is to test scrollinh");
         scroll.setBounds(2160, 3280, 200, 200);
         a.add(scroll);
 
@@ -76,7 +76,8 @@ public class GUI {
         a.setLayout(null);
         a.setVisible(true);
 
-        List<App> apps = readAppsFromCSV("Application Information - Sheet1 (1).csv");
+        List<App> apps = readAppsFromCSV(
+                "src/Application Information - Sheet1 (1).csv");
          //Code for printing out app names.
          for (App r : apps) {
              //System.out.println(r.getName());
@@ -84,13 +85,13 @@ public class GUI {
          }
 
         JButton c = new JButton("Sort");
-        c.setBounds(100, 150, 100, 50);       
+        c.setBounds(100, 150, 100, 50);        
         a.add(c);
         login.clickClear(b2);
         a.setSize(1920, 1080);
         a.setLayout(null);
-        a.setVisible(true);
-
+        a.setVisible(true);                   
+        
         c.addActionListener((ActionListener) new ActionListener() {
 
             @Override
@@ -122,7 +123,7 @@ public class GUI {
                     if (r.compareTo(myString) == 0) {
                         appExists = true;
                         App ans = null;
-                        String filePath = "updateIcons/"+myString+".png";
+                        String filePath = "src/icons/"+myString+".png";
                         Icon ico = new ImageIcon(filePath);
                         for(App a : apps) {
                             if(a.getName().compareTo(myString) == 0)
@@ -168,9 +169,9 @@ public class GUI {
         JButton app;
         String filePath;
         if(totalApps<10)
-            filePath = "updateIcons/"+appName+".png";
+            filePath = "src/icons/"+appName+".png";
         else
-            filePath = "updateIcons/appnotfound.png";
+            filePath = "src/icons/appnotfound.png";
       Icon ico = new ImageIcon(filePath);       
       app = new JButton(ico);
       app.setText(appName);
@@ -243,7 +244,7 @@ public class GUI {
                 FileWriter myObj;
                 try {
                     myObj = new FileWriter(
-                            "Admin.txt",
+                            "src/AdminRequests.txt",
                             true);
                     PrintWriter pr = new PrintWriter(myObj);
                     pr.write(bx.getText() + "\n");
@@ -254,6 +255,7 @@ public class GUI {
                     myObj.close();
 
                 } catch (IOException e1) {
+                    // TODO Auto-generated catch block
                     e1.printStackTrace();
                 }
                 bx.setText("");
@@ -395,13 +397,147 @@ public class GUI {
         String about = meta[1];
         String platform = meta[2];
         String versions = meta[3];
-        String price = meta[4];
-        String category = meta[5];
-        String storeName = meta[6];
-        String storeLink = meta[7];
-        
-        return new App(name, about, platform, versions, price,
-                category, storeName, storeLink);
+        String storeLink = meta[4];
+        String price = meta[5];
+        String category = meta[6];
+        String storeName = meta[7];
+
+        return new App(name, about, platform, versions, storeLink, price,
+                category, storeName);
     }
 
+}
+
+/**
+ * Class App.
+ */
+class App {
+    private String name;
+    private String about;
+    private String platform;
+    private String versions;
+    private String storeLink;
+    private String price;
+    private String category;
+    private String storeName;
+
+    public App(String name, String about, String platform, String versions,
+            String storeLink, String price, String category, String storeName) {
+        this.name = name;
+        this.about = about;
+        this.platform = platform;
+        this.versions = versions;
+        this.storeLink = storeLink;
+        this.price = price;
+        this.category = category;
+        this.storeName = storeName;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
+    }
+
+    /**
+     * @return the platform
+     */
+    public String getPlatform() {
+        return platform;
+    }
+
+    /**
+     * @param platform the platform to set
+     */
+    public void setPlatform(String platform) {
+        this.platform = platform;
+    }
+
+    /**
+     * @return the versions
+     */
+    public String getVersions() {
+        return versions;
+    }
+
+    /**
+     * @param versions the versions to set
+     */
+    public void setVersions(String versions) {
+        this.versions = versions;
+    }
+
+    /**
+     * @return the storeLink
+     */
+    public String getStoreLink() {
+        return storeLink;
+    }
+
+    /**
+     * @param storeLink the storeLink to set
+     */
+    public void setStoreLink(String storeLink) {
+        this.storeLink = storeLink;
+    }
+
+    /**
+     * @return the price
+     */
+    public String getPrice() {
+        return price;
+    }
+
+    /**
+     * @param price the price to set
+     */
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    /**
+     * @return the category
+     */
+    public String getCategory() {
+        return category;
+    }
+
+    /**
+     * @param category the category to set
+     */
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    /**
+     * @return the storeName
+     */
+    public String getStoreName() {
+        return storeName;
+    }
+
+    /**
+     * @param storeName the storeName to set
+     */
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
+    }
+
+    @Override
+    public String toString() {
+        return "App [name=" + name + ", about=" + about + ", platform="
+                + platform + ", versions=" + versions + ", storeLink="
+                + storeLink + ", price=" + price + ", category=" + category
+                + ", storeName=" + storeName + "]";
+    }
 }

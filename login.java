@@ -32,6 +32,7 @@ public class login extends JFrame implements ItemListener{
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public static void main(String args[]) {
+
         int w = 300;
         int h = 250;
 
@@ -214,7 +215,7 @@ public class login extends JFrame implements ItemListener{
                     FileWriter myObj;
                     try {
                         myObj = new FileWriter(
-                                "Accounts.txt",
+                                "src/Accounts.txt",
                                 true);
                         PrintWriter pr = new PrintWriter(myObj);
                         HashMap<String, String> map = new HashMap<String, String>();
@@ -261,7 +262,7 @@ public class login extends JFrame implements ItemListener{
                     FileWriter myObj;
                     try {
                         myObj = new FileWriter(
-                                "Admin.txt",
+                                "src/Admin.txt",
                                 true);
                         PrintWriter pr = new PrintWriter(myObj);
                         HashMap<String, String> map = new HashMap<String, String>();
@@ -306,7 +307,7 @@ public class login extends JFrame implements ItemListener{
                     FileWriter myObj;
                     try {
                         myObj = new FileWriter(
-                                "Moderator.txt",
+                                "src/Moderator.txt",
                                 true);
                         PrintWriter pr = new PrintWriter(myObj);
                         HashMap<String, String> map = new HashMap<String, String>();
@@ -353,6 +354,15 @@ public class login extends JFrame implements ItemListener{
 
         });
 
+        // needs when clicked and to go to page with apps / app info etc
+        // apps / app info loads from csv file
+
+//        JButton d = new JButton("Google Chrome");
+//        d.setBounds(400, 45, 200, 75);
+//        a.add(d);
+//        a.setSize(300, 250);
+//        a.setLayout(null);
+//        a.setVisible(true);
     } // end main
 
     
@@ -379,7 +389,7 @@ public class login extends JFrame implements ItemListener{
         HashMap<String, String> map = new HashMap<String, String>();
         try {
             Scanner sc = new Scanner(new File(
-                    "Accounts.txt"));
+                    "src/Accounts.txt"));
             while (sc.hasNext()) {
                 String line = sc.nextLine();
                 String[] attributes = line.split(",");
@@ -398,7 +408,7 @@ public class login extends JFrame implements ItemListener{
         HashMap<String, String> map = new HashMap<String, String>();
         try {
             Scanner sc = new Scanner(new File(
-                    "Admin.txt"));
+                    "src/Admin.txt"));
             while (sc.hasNext()) {
                 String line = sc.nextLine();
                 String[] attributes = line.split(",");
@@ -417,7 +427,7 @@ public class login extends JFrame implements ItemListener{
         HashMap<String, String> map = new HashMap<String, String>();
         try {
             Scanner sc = new Scanner(new File(
-                    "Moderator.txt"));
+                    "src/Moderator.txt"));
             while (sc.hasNext()) {
                 String line = sc.nextLine();
                 String[] attributes = line.split(",");
