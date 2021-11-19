@@ -170,7 +170,11 @@ public class SortedGUI {
         int width = 250;
         int height = 150;                      
         
-        String filePath = "src/icons/"+appName+".png";
+        String filePath;
+        if(totalApps<10)
+            filePath = "src/icons/"+appName+".png";
+        else
+            filePath = "src/icons/appnotfound.png";
         Icon ico = new ImageIcon(filePath);               
         JButton app = new JButton(ico);
         //JPanel appPanel = new JPanel();
