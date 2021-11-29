@@ -11,7 +11,11 @@ import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
 public class commentDriver extends JFrame implements ItemListener{
-    @SuppressWarnings("rawtypes")
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@SuppressWarnings("rawtypes")
     static
     JComboBox type;
     static String appNameString = "Candy Crush";
@@ -22,7 +26,7 @@ public class commentDriver extends JFrame implements ItemListener{
     	JFrame main = new JFrame("Comment Site");
     	
     	List<App> apps;
-    	apps = GUI.readAppsFromCSV("src/Application Information - Sheet1 (1).csv");
+    	apps = GUI.readAppsFromCSV("Application Information - Sheet1 (1).csv");
     	String[] appNames = GUI.sort(apps);
         
     	commentDriver s = new commentDriver();
@@ -46,7 +50,8 @@ public class commentDriver extends JFrame implements ItemListener{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //main.dispose();
-                JTableCreate newTable = new JTableCreate(cl);
+                @SuppressWarnings("unused")
+				JTableCreate newTable = new JTableCreate(cl);
             }
 
         });
@@ -113,8 +118,9 @@ public class commentDriver extends JFrame implements ItemListener{
             public void actionPerformed(ActionEvent e) {
             	String[] temp = {name.getText(), appNameString, comment.getText()}; 
             	cl.add(temp); 
-            	JTableCreate newTable = new JTableCreate(cl); 
-            	//name.setText("");
+            	@SuppressWarnings("unused")
+				JTableCreate newTable = new JTableCreate(cl); 
+            	name.setText("");
             	appName.setText("");
             	comment.setText("");
             }
@@ -148,7 +154,8 @@ public class commentDriver extends JFrame implements ItemListener{
             	try { 
             		int num = Integer.valueOf(deleteNum.getText());
             		cl.remove(num - 1); 
-                	JTableCreate newTable = new JTableCreate(cl);
+                	@SuppressWarnings("unused")
+					JTableCreate newTable = new JTableCreate(cl);
             	} catch(Exception e1) { 
             		JOptionPane.showMessageDialog(null,
                             "Invalid Comment #");
@@ -228,11 +235,11 @@ class JTableCreate {
         jButton.addActionListener((ActionListener) new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//                jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             }
         });
-        //jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+        jFrame.add(jButton);
+        jFrame.setVisible(true);
     }    
 
 }

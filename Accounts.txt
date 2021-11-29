@@ -1,5 +1,0 @@
-bhatkatm,password
-shashwat,1
-tanmay,bhatman
-phamav@miamioh.edu,123456
-abc@miamioh.edu,123456

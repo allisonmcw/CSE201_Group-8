@@ -1,9 +1,8 @@
 /**
- * File 4: Filtering method: Platform, Categories, and Price.
- * Author: Jenn Pham
+ * File: Filtering method: Platform, Categories, and Price.
+ * Author: JP
  */
 
-import java.io.*;
 import java.util.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,9 +15,9 @@ public class filterDriver {
      * 
      * @return a JMenuBar.
      */
-    public JMenuBar getJMenuBar() {        
-        List<App> apps = readAppsFromCSV("src/Application Information - Sheet1 (1).csv");
-
+    public JMenuBar getJMenuBar() {
+        List<App> apps = GUI.readAppsFromCSV("Application Information - Sheet1 (1).csv");
+       
         JMenuBar jMenuBar = new JMenuBar();
         // Filter bar code
         JMenu menu1 = new JMenu("Filter");
@@ -34,7 +33,7 @@ public class filterDriver {
                 JLabel[] arrJLabels = new JLabel[result.size()];
                 int i = 0;
                 for (App a : result) {
-                    String filePath = "updateIcons/"+a.getName()+".png";
+                    String filePath = "icons/"+a.getName()+".png";
                     Icon ico = new ImageIcon(filePath);
                     JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
                     arrJLabels[i] = aJLabel; 
@@ -53,8 +52,7 @@ public class filterDriver {
                 JLabel[] arrJLabels = new JLabel[result.size()];
                 int i = 0;
                 for (App a : result) {
-                    //String filePath = "updateIcons/"+a.getName()+".png";
-                    String filePath = "src/icons/"+a.getName()+".png";
+                    String filePath = "icons/"+a.getName()+".png";
                     Icon ico = new ImageIcon(filePath);
                     JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
                     arrJLabels[i] = aJLabel; 
@@ -73,8 +71,7 @@ public class filterDriver {
                 JLabel[] arrJLabels = new JLabel[result.size()];
                 int i = 0;
                 for (App a : result) {
-                    //String filePath = "updateIcons/"+a.getName()+".png";
-                    String filePath = "src/icons/"+a.getName()+".png";
+                    String filePath = "icons/"+a.getName()+".png";
                     Icon ico = new ImageIcon(filePath);
                     JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
                     arrJLabels[i] = aJLabel; 
@@ -93,8 +90,7 @@ public class filterDriver {
                 JLabel[] arrJLabels = new JLabel[result.size()];
                 int i = 0;
                 for (App a : result) {
-                    //String filePath = "updateIcons/"+a.getName()+".png";
-                    String filePath = "src/icons/"+a.getName()+".png";
+                    String filePath = "icons/"+a.getName()+".png";
                     Icon ico = new ImageIcon(filePath);
                     JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
                     arrJLabels[i] = aJLabel; 
@@ -113,8 +109,7 @@ public class filterDriver {
                 JLabel[] arrJLabels = new JLabel[result.size()];
                 int i = 0;
                 for (App a : result) {
-                    //String filePath = "updateIcons/"+a.getName()+".png";
-                    String filePath = "src/icons/"+a.getName()+".png";
+                    String filePath = "icons/"+a.getName()+".png";
                     Icon ico = new ImageIcon(filePath);
                     JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
                     arrJLabels[i] = aJLabel; 
@@ -141,8 +136,7 @@ public class filterDriver {
                 JLabel[] arrJLabels = new JLabel[result.size()];
                 int i = 0;
                 for (App a : result) {
-                    //String filePath = "updateIcons/"+a.getName()+".png";
-                    String filePath = "src/icons/"+a.getName()+".png";
+                    String filePath = "icons/"+a.getName()+".png";
                     Icon ico = new ImageIcon(filePath);
                     JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
                     arrJLabels[i] = aJLabel; 
@@ -161,8 +155,7 @@ public class filterDriver {
                 JLabel[] arrJLabels = new JLabel[result.size()];
                 int i = 0;
                 for (App a : result) {
-                    //String filePath = "updateIcons/"+a.getName()+".png";
-                    String filePath = "src/icons/"+a.getName()+".png";
+                    String filePath = "icons/"+a.getName()+".png";
                     Icon ico = new ImageIcon(filePath);
                     JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
                     arrJLabels[i] = aJLabel; 
@@ -186,8 +179,7 @@ public class filterDriver {
                 JLabel[] arrJLabels = new JLabel[result.size()];
                 int i = 0;
                 for (App a : result) {
-                    //String filePath = "updateIcons/"+a.getName()+".png";
-                    String filePath = "src/icons/"+a.getName()+".png";
+                    String filePath = "icons/"+a.getName()+".png";
                     Icon ico = new ImageIcon(filePath);
                     JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
                     arrJLabels[i] = aJLabel; 
@@ -206,8 +198,7 @@ public class filterDriver {
                 JLabel[] arrJLabels = new JLabel[result.size()];
                 int i = 0;
                 for (App a : result) {
-                    //String filePath = "updateIcons/"+a.getName()+".png";
-                    String filePath = "src/icons/"+a.getName()+".png";
+                    String filePath = "icons/"+a.getName()+".png";
                     Icon ico = new ImageIcon(filePath);
                     JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
                     arrJLabels[i] = aJLabel; 
@@ -226,8 +217,7 @@ public class filterDriver {
                 JLabel[] arrJLabels = new JLabel[result.size()];
                 int i = 0;
                 for (App a : result) {
-                    //String filePath = "updateIcons/"+a.getName()+".png";
-                    String filePath = "src/icons/"+a.getName()+".png";
+                    String filePath = "icons/"+a.getName()+".png";
                     Icon ico = new ImageIcon(filePath);
                     JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
                     arrJLabels[i] = aJLabel; 
@@ -246,8 +236,7 @@ public class filterDriver {
                 JLabel[] arrJLabels = new JLabel[result.size()];
                 int i = 0;
                 for (App a : result) {
-                    //String filePath = "updateIcons/"+a.getName()+".png";
-                    String filePath = "src/icons/"+a.getName()+".png";
+                    String filePath = "icons/"+a.getName()+".png";
                     Icon ico = new ImageIcon(filePath);
                     JLabel aJLabel = new JLabel(a.getName(), ico, SwingConstants.LEFT);
                     arrJLabels[i] = aJLabel; 
@@ -277,7 +266,6 @@ public class filterDriver {
      * @return a List of Apps with the indicated categories.
      */ 
     public static List<App> filterCategory(List<App> apps, String choice) {
-        // choice = choice.toLowerCase();
         List<App> result = new ArrayList<App>();
         for (App r : apps) {
             if(r.getCategory().equalsIgnoreCase(choice)) {
@@ -326,59 +314,6 @@ public class filterDriver {
         }
 
         return result;
-    }
-
-    /**
-     * Method to read the apps from the excel file.
-     * 
-     * @param fileName
-     * @return a List of Apps.
-     */
-    public static List<App> readAppsFromCSV(String fileName) {
-        List<App> apps = new ArrayList<>();
-        Scanner sc;
-
-        try {
-            sc = new Scanner(new File(fileName));
-
-            String line = sc.nextLine();
-            
-            while (sc.hasNext()) {
-                line = sc.nextLine();
-
-                String[] attributes = line.split(",");
-
-                App app = createApp(attributes);
-
-                apps.add(app);
-                
-
-            }
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-
-        return apps;
-    }
-
-    /**
-     * Method to create an app.
-     * 
-     * @param meta
-     * @return an App object.
-     */
-    private static App createApp(String[] meta) {
-        String name = meta[0];
-        String about = meta[1];
-        String platform = meta[2];
-        String versions = meta[3];
-        String price = meta[4];
-        String category = meta[5];
-        String storeName = meta[6];
-        String storeLink = meta[7];
-
-        return new App(name, about, platform, versions, price,
-                category, storeName, storeLink);
     }
     
 }

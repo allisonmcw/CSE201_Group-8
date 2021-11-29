@@ -13,9 +13,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -51,15 +49,15 @@ public class GUI {
         a.add(inputButton);
         inputButton.setBounds(270, 110, 100, 30);
         Border bored= BorderFactory.createLineBorder(Color.GRAY,1, true);
-      //Create a JPanel        
-        JScrollPane scrollBar=new JScrollPane();
+        //Create a JPanel        
+        JScrollPane scrollBar=new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
-      //Create a JFrame with title ( AddScrollBarToJFrame )      
-      //Add JScrollPane into JFrame
-      a.add(scrollBar);
+        //Create a JFrame with title ( AddScrollBarToJFrame )      
+        //Add JScrollPane into JFrame
+        a.add(scrollBar);
 
-      //Set close operation for JFrame
-      a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //Set close operation for JFrame
+        a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         JTextField b2 = new JTextField("Type something...");
         b2.setBorder(bored);
@@ -72,12 +70,11 @@ public class GUI {
         b.setBounds(100, 45, 100, 50);
         ;
         a.add(b);
-        a.setSize(600, 600);
+
         a.setLayout(null);
         a.setVisible(true);
 
-        List<App> apps = readAppsFromCSV(
-                "src/Application Information - Sheet1 (1).csv");
+        List<App> apps = readAppsFromCSV("Application Information - Sheet1 (1).csv");
          //Code for printing out app names.
          for (App r : apps) {
              //System.out.println(r.getName());
@@ -85,13 +82,13 @@ public class GUI {
          }
 
         JButton c = new JButton("Sort");
-        c.setBounds(100, 150, 100, 50);        
+        c.setBounds(100, 150, 100, 50);       
         a.add(c);
         login.clickClear(b2);
-        a.setSize(1920, 1080);
-        a.setLayout(null);
-        a.setVisible(true);                   
         
+        a.setLayout(null);
+        a.setVisible(true);
+
         c.addActionListener((ActionListener) new ActionListener() {
 
             @Override
@@ -123,7 +120,7 @@ public class GUI {
                     if (r.compareTo(myString) == 0) {
                         appExists = true;
                         App ans = null;
-                        String filePath = "src/icons/"+myString+".png";
+                        String filePath = "icons/"+myString+".png";
                         Icon ico = new ImageIcon(filePath);
                         for(App a : apps) {
                             if(a.getName().compareTo(myString) == 0)
@@ -150,32 +147,37 @@ public class GUI {
 
         });
 
-        // needs when clicked and to go to page with apps / app info etc
-        // apps / app info loads from csv file
-
         // Generate Filter Menu Bar
         filterDriver filterDriver = new filterDriver();
         a.setJMenuBar(filterDriver.getJMenuBar());
+        
+        a.setTitle("MetaApp");
         a.setVisible(true);
         a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        a.setExtendedState(JFrame.MAXIMIZED_BOTH);
     } // main end
 
+    /**
+     * Method to generate apps GUI with respective information.
+     * @param appName
+     * @param appsList
+     * @return
+     */
     private static JButton generateApps(String appName, List<App> appsList) {    
         int x = 450;
         int y = 1;
-        int width = 250;
+        int width = 230;
         int height = 150;                      
         JButton app;
         String filePath;
         if(totalApps<10)
-            filePath = "src/icons/"+appName+".png";
+            filePath = "icons/"+appName+".png";
         else
-            filePath = "src/icons/appnotfound.png";
+            filePath = "icons/appnotfound.png";
       Icon ico = new ImageIcon(filePath);       
       app = new JButton(ico);
       app.setText(appName);
-      app.setBounds(x + ((totalApps%4)*275), y+ ((totalApps/4)%4*175), width, height);
+      app.setBounds(x + ((totalApps%4)*230), y+ ((totalApps/4)%4*175), width, height);
       a.add(app);                
       
       JButton clear = new JButton("Clear Apps");
@@ -219,76 +221,68 @@ public class GUI {
      * 
      * @param name
      */
-    public static void logInAfter(String name) {
+    public static void logInAfter(String name,  String userType) {
         logIn.setVisible(false);
         JLabel n = new JLabel("Hello, " + name);
         n.setBounds(270, 20, 150, 30);
         a.add(n);
 
-        JLabel bx = new JLabel("Enter a request...");
-        bx.setBackground(Color.white);
-        bx.setForeground(Color.black);
-        a.add(bx);
-        bx.setBounds(50, 300, 200, 30);   
-        bx.setVisible(false);
-
         JButton send = new JButton("All Requests");
-
         a.add(send);
-        send.setBounds(270, 400, 100, 30);
+        send.setBounds(100, 250, 100, 30);
 
         send.addActionListener((ActionListener) new ActionListener() {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                FileWriter myObj;
-                try {
-                    myObj = new FileWriter(
-                            "src/AdminRequests.txt",
-                            true);
-                    PrintWriter pr = new PrintWriter(myObj);
-                    pr.write(bx.getText() + "\n");
-                    // HashMap<String, String> map = new HashMap<String,
-                    // String>();
-                    JOptionPane.showMessageDialog(null,
-                            "Successful addition to requests");
-                    myObj.close();
-
-                } catch (IOException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
-                bx.setText("");
+        	@Override
+            public void actionPerformed(ActionEvent e) {              
+                admin.main(null);                
             }
 
         });
 
+        JButton comm = new JButton("Comment here!");
+        a.add(comm);
+        comm.setBounds(270, 250, 120, 30);
+        comm.addActionListener((ActionListener) new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String args[] = new String[2];
+                String temp;
+                if(name.contains(":"))
+                    temp = name.substring(name.indexOf(":")+2);
+                else
+                    temp = name.substring(name.indexOf(":")+1);
+                args[0] = temp;
+                args[1] = userType;
+                commentDriver.main(args);
+                
+            }
+
+        });
         a.setVisible(false);
         a.setVisible(true);
 
     }
     
+    /**
+     * GUI after logged in as an admin.
+     * @param name
+     * @param userType
+     */
     public static void logInAfterAdmin(String name, String userType) {
         logIn.setVisible(false);
         JLabel n = new JLabel("Hello, " + name);
         n.setBounds(270, 20, 150, 30);
-        a.add(n);
-
-        JLabel bx = new JLabel("Enter a request...");
-        bx.setBackground(Color.white);
-        bx.setForeground(Color.black);
-        a.add(bx);
-        bx.setBounds(50, 300, 200, 30);        
+        a.add(n);      
 
         JButton send = new JButton("All requests");
-
         a.add(send);
-        send.setBounds(270, 400, 100, 30);
+        send.setBounds(100, 250, 100, 30);
         
         JButton comm = new JButton("Comment here!");
-
         a.add(comm);
-        comm.setBounds(270, 250, 100, 30);
+        comm.setBounds(270, 250, 120, 30);
 
         send.addActionListener((ActionListener) new ActionListener() {
 
@@ -337,7 +331,7 @@ public class GUI {
             appsSorted[i] = r.getName();
             i++;
         }
-
+        
         for (int x = 0; x < apps.size(); x++) {
             for (int y = 1; y < (apps.size() - x); y++) {
                 if (appsSorted[y - 1].compareTo(appsSorted[y]) > 0) {
@@ -397,13 +391,13 @@ public class GUI {
         String about = meta[1];
         String platform = meta[2];
         String versions = meta[3];
-        String storeLink = meta[4];
-        String price = meta[5];
-        String category = meta[6];
-        String storeName = meta[7];
-
-        return new App(name, about, platform, versions, storeLink, price,
-                category, storeName);
+        String price = meta[4];
+        String category = meta[5];
+        String storeName = meta[6];
+        String storeLink = meta[7];
+        
+        return new App(name, about, platform, versions, price,
+                category, storeName, storeLink);
     }
 
 }

@@ -32,22 +32,8 @@ public class login extends JFrame implements ItemListener{
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public static void main(String args[]) {
-
         int w = 300;
         int h = 250;
-
-//        HashMap<String,String> map = new HashMap<String,String>();
-//        map = readFromFile();
-        /*
-         * 
-         */
-//        System.out.println("Iterating Hashmap...");  
-//        for (Map.Entry<String, String> entry : map.entrySet()) {
-//            String key = entry.getKey();
-//            String value = entry.getValue();
-//            System.out.println(key+" "+value);
-//            // ...
-//        }
 
         JFrame a = new JFrame("Login");
         a.getContentPane().setBackground(Color.gray);
@@ -131,13 +117,6 @@ public class login extends JFrame implements ItemListener{
                 HashMap<String, String> mapMod = new HashMap<String, String>();
                 mapMod = readFromModFile();                
 
-//                System.out.println("Iterating Hashmap...");  
-//                for (Map.Entry<String, String> entry : map.entrySet()) {
-//                    String key = entry.getKey();
-//                    String value = entry.getValue();
-//                    System.out.println(key+" "+value);
-//                    // ...
-//                }
                 boolean logIn = false;
                 
                 for (Map.Entry<String, String> entry : mapAdmin.entrySet()) {
@@ -151,6 +130,7 @@ public class login extends JFrame implements ItemListener{
                             logIn = true;
                             // GUI gu = new GUI();
                             GUI.logInAfterAdmin("Admin: " + key, "Admin");
+                            SortedGUI.logInAfterAdmin("Admin: " + key, "Admin");
                         } 
                     }
 
@@ -168,6 +148,7 @@ public class login extends JFrame implements ItemListener{
                             logIn = true;
                             // GUI gu = new GUI();
                             GUI.logInAfterAdmin("Moderator: " + key, "Moderator");
+                            SortedGUI.logInAfterAdmin("Moderator: " + key, "Moderator");
                         } 
                     }
 
@@ -185,6 +166,7 @@ public class login extends JFrame implements ItemListener{
                             logIn = true;
                             // GUI gu = new GUI();
                             GUI.logInAfterAdmin(key, "User");
+                            SortedGUI.logInAfterAdmin(key, "User");
                         } else {
                             // System.out.println("Expecting: "+b8.getText()+"
                             // Got: "+value);
@@ -215,7 +197,7 @@ public class login extends JFrame implements ItemListener{
                     FileWriter myObj;
                     try {
                         myObj = new FileWriter(
-                                "src/Accounts.txt",
+                                "accounts/Accounts.txt",
                                 true);
                         PrintWriter pr = new PrintWriter(myObj);
                         HashMap<String, String> map = new HashMap<String, String>();
@@ -249,7 +231,6 @@ public class login extends JFrame implements ItemListener{
                         }
                         myObj.close();
                     } catch (IOException e1) {
-                        // TODO Auto-generated catch block
                         e1.printStackTrace();
                     }
                     b4.setText("");
@@ -262,7 +243,7 @@ public class login extends JFrame implements ItemListener{
                     FileWriter myObj;
                     try {
                         myObj = new FileWriter(
-                                "src/Admin.txt",
+                                "accounts/Admin.txt",
                                 true);
                         PrintWriter pr = new PrintWriter(myObj);
                         HashMap<String, String> map = new HashMap<String, String>();
@@ -296,7 +277,6 @@ public class login extends JFrame implements ItemListener{
                         }
                         myObj.close();
                     } catch (IOException e1) {
-                        // TODO Auto-generated catch block
                         e1.printStackTrace();
                     }
                     b4.setText("");
@@ -307,7 +287,7 @@ public class login extends JFrame implements ItemListener{
                     FileWriter myObj;
                     try {
                         myObj = new FileWriter(
-                                "src/Moderator.txt",
+                                "accounts/Moderator.txt",
                                 true);
                         PrintWriter pr = new PrintWriter(myObj);
                         HashMap<String, String> map = new HashMap<String, String>();
@@ -354,15 +334,6 @@ public class login extends JFrame implements ItemListener{
 
         });
 
-        // needs when clicked and to go to page with apps / app info etc
-        // apps / app info loads from csv file
-
-//        JButton d = new JButton("Google Chrome");
-//        d.setBounds(400, 45, 200, 75);
-//        a.add(d);
-//        a.setSize(300, 250);
-//        a.setLayout(null);
-//        a.setVisible(true);
     } // end main
 
     
@@ -389,16 +360,15 @@ public class login extends JFrame implements ItemListener{
         HashMap<String, String> map = new HashMap<String, String>();
         try {
             Scanner sc = new Scanner(new File(
-                    "src/Accounts.txt"));
+                    "accounts/Accounts.txt"));
             while (sc.hasNext()) {
                 String line = sc.nextLine();
                 String[] attributes = line.split(",");
                 map.put(attributes[0], attributes[1]);
 
             }
-
+            sc.close();
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return map;
@@ -408,16 +378,15 @@ public class login extends JFrame implements ItemListener{
         HashMap<String, String> map = new HashMap<String, String>();
         try {
             Scanner sc = new Scanner(new File(
-                    "src/Admin.txt"));
+                    "accounts/Admin.txt"));
             while (sc.hasNext()) {
                 String line = sc.nextLine();
                 String[] attributes = line.split(",");
                 map.put(attributes[0], attributes[1]);
 
             }
-
+            sc.close();
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return map;
@@ -427,16 +396,15 @@ public class login extends JFrame implements ItemListener{
         HashMap<String, String> map = new HashMap<String, String>();
         try {
             Scanner sc = new Scanner(new File(
-                    "src/Moderator.txt"));
+                    "accounts/Moderator.txt"));
             while (sc.hasNext()) {
                 String line = sc.nextLine();
                 String[] attributes = line.split(",");
                 map.put(attributes[0], attributes[1]);
 
             }
-
+            sc.close();
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return map;
