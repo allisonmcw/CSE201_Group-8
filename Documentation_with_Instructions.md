@@ -103,4 +103,3 @@ This is our project for CSE 201.
 
 # PLEASE CONTACT US IMMEDIATELY IF THE PROGRAM CANNOT READ IN THE FILES
 There might be some errors around the file path. 
-<br>Essentially, we have fixed this by putting everything in the src folder. Call the file using src/filepath.
