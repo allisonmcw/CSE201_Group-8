@@ -23,10 +23,22 @@ This is our project for CSE 201.
 9. The software shall require all users to login in in order to post on the forum.
 10. The software shall have the backend of the repository and user login information persisted.
 
-# Instructions:
-1. Download the ZIP file and open it using your IDE of choice.
-2. There should be 3 folders (src, accounts, and icons) and 2 lone files ("Application Information - Sheet1 (1).csv" and "README.md")
-3. Open src and run the main file GUI.java.
+# Installation/compilation instructions:
+Download the ZIP file and open it using your IDE of choice.
+<br><b><i>We encourage you to use Eclipse. Below is instructions to create a project from the ZIP file in Eclipse</b></i>
+<ol>
+	<li>Click File -> Import from the Eclipse main menu</li>
+	<li>Expand General, select Existing Projects into Workspace, and click Next</li>
+	<li>Make sure that Select Archive File is checked and browse for CSE201_Group-8.zip and browse for the ZIP file</li>
+	<li>Click Finish</li>
+</ol>
+<br><b><i>You should now see the new project in Package Explorer.</b></i>
+<br><b><i> To make test files work, simply add JUnit 5 into the library.</b></i>
+
+# Running instructions:
+1. Open the project that was imported using ZIP file.
+2. There should be 3 folders (<b>default package (created by Eclipse)</b>, <b>accounts</b>, and <b>icons</b>) and 5 single files.
+3. Open <b>default package</b> and run the main file <b>GUI.java</b>.
 4. You're at the home page with all the application available.
 5. Try the search function on the left side: Make sure the search is Case Sensitive.
 6. Try login or create a new account using the login/create account button.
@@ -48,7 +60,7 @@ This is our project for CSE 201.
 		<li>You cannot delete any comment; for administrator and moderator only.</li>
 	</ol>
 	b. Request a new app by clicking the "All Requests" button. Leads to an app request form.
-	<br>c. After refreshing the GUI, app will display without a picture, this will be modified by an administrator.
+	<br>c. After refreshing the GUI by clicking the Sort/UnSort button, app will display without a picture, this will be modified by an administrator.
 10. After logging in as an administrator: 
 	<br>a. Comment on an app using the "Comment Here!" button.
 	<ol>
@@ -57,8 +69,8 @@ This is our project for CSE 201.
 		<li>Delete a comment by entering its number and press "Delete".</li>
 	</ol>
 	b. Request a new app by clicking the "All Requests" button. Leads to an app request form.
-	<br>c. After refreshing the GUI, app will display without a picture, this will be modified by an administrator.
-	<br>d. Accept an app request by clicking approve (Will implement later!)
+	<br>c. After refreshing the GUI by clicking the Sort/UnSort button, app will display without a picture, this will be modified by an administrator.
+	<br>d. Accept an app request by clicking approve.
 11. After loggin in as a moderator: 
 	<br>a. Comment on an app using the "Comment Here!" button.
 	<ol>
@@ -67,7 +79,7 @@ This is our project for CSE 201.
 		<li>Delete a comment by entering its number and press "Delete".</li>
 	</ol>
 	b. Request a new app by clicking the "All Requests" button. Leads to an app request form.
-	<br>c. After refreshing the GUI, app will display without a picture, this will be modified by an administrator.
+	<br>c. After refreshing the GUI by clicking the Sort/UnSort button, app will display without a picture, this will be modified by an administrator.
 12. At the main GUI, try clicking on each app to see its respective information. 
 13. To exit the app, simply press close on the window.
 
@@ -97,7 +109,10 @@ This is our project for CSE 201.
 		</ol>
 	<li>Icon Images File: icons</li>
 	<li>Application Information - Sheet1 (1).csv</li>
+	<li>Diagrams.docx</li>
+	<li>Documentation_with_Instructions.md</li>
 	<li>README.md</li>
+	<li>Technical Skills and Goals</li>
 	<li>.gitignore</li>
 </ol>
 
