@@ -108,6 +108,7 @@ Download the ZIP file and open it using your IDE of choice.
 			<li>Moderator.txt</li>
 		</ol>
 	<li>Icon Images File: icons</li>
+	<li>Javadoc Files: all html javadocs</li>
 	<li>Application Information - Sheet1 (1).csv</li>
 	<li>Diagrams.docx</li>
 	<li>Documentation_with_Instructions.md</li>
@@ -116,5 +117,7 @@ Download the ZIP file and open it using your IDE of choice.
 	<li>.gitignore</li>
 </ol>
 
+# For future developers:
+To continue to work on our project, start with the GUI.java file. Then continues with other files. All files relate back to the GUI.java. admin.java is for administrator request page; commentDriver.java is for comment page; filterDriver.java is for the Filter JMenuBar up on top; login.java is for the login/create account page; and SortedGUI.java is essentially identical to GUI.java, excepts all applications here are sorted. That being said, whatever is added into GUI.java needs to be added into SortedGUI.java for smooth sync.
 # PLEASE CONTACT US IMMEDIATELY IF THE PROGRAM CANNOT READ IN THE FILES
 There might be some errors around the file path. 
