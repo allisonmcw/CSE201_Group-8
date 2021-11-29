@@ -3,7 +3,7 @@
  */
 
 /**
- * @author JP
+ * @author Jenn Pham
  *
  */
 /**
@@ -19,6 +19,17 @@ public class App {
     private String storeName;
     private String storeLink;
 
+    /**
+     * App Contructor.
+     * @param name
+     * @param about
+     * @param platform
+     * @param versions
+     * @param price
+     * @param category
+     * @param storeName
+     * @param storeLink
+     */
     public App(String name, String about, String platform, String versions,
     		String price, String category, String storeName, String storeLink) {
         this.name = name;
@@ -31,18 +42,30 @@ public class App {
         this.storeLink = storeLink;
     }
 
+    /**
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @param name the name to set
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * @return about: description
+     */
     public String getAbout() {
         return about;
     }
 
+    /**
+     * @param about the description to set
+     */
     public void setAbout(String about) {
         this.about = about;
     }

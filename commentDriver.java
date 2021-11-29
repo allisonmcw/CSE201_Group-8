@@ -10,6 +10,11 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ * Class Comment Driver, extends JFrame, implements ItemListener.
+ * @author Isabel Pulte, Tanmay Bahtkar
+ *
+ */
 public class commentDriver extends JFrame implements ItemListener{
     /**
 	 * 
@@ -179,7 +184,7 @@ public class commentDriver extends JFrame implements ItemListener{
         
         return cButton;
     }
-    
+
     public void itemStateChanged(ItemEvent e)
     {
         // if the state combobox is changed

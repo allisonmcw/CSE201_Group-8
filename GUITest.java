@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
  */
 
 /**
- * @author JP
- *
+ * @author Jenn Pham
+ * JUnit for GUI.
  */
 class GUITest {
 

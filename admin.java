@@ -20,6 +20,11 @@ import java.io.PrintWriter;
 
 import javax.swing.*;
 
+/**
+ * 
+ * @author Allison McWilliams, Tanmay Bahtkar
+ * Class Admin
+ */
 public class admin {
 
     public static void main(String args[]) {
@@ -217,6 +222,10 @@ public class admin {
 
     } // end main
 
+    /**
+     * Click to Clear.
+     * @param j
+     */
     public static void clickClear(JTextField j) {
 
         j.addMouseListener(new MouseAdapter() {

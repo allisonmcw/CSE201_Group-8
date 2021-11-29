@@ -23,6 +23,11 @@ import java.util.Scanner;
 
 import javax.swing.*;
 
+/**
+ * Class login extends JFrame implements ItemListener.
+ * @author Tanmay Bahtkar, Allison McWilliams.
+ *
+ */
 @SuppressWarnings("serial")
 public class login extends JFrame implements ItemListener{
     @SuppressWarnings("rawtypes")
@@ -346,6 +351,10 @@ public class login extends JFrame implements ItemListener{
         }
     }
     
+    /**
+     * Click to Clear.
+     * @param j
+     */
     public static void clickClear(JTextField j) {
 
         j.addMouseListener(new MouseAdapter() {
@@ -356,6 +365,10 @@ public class login extends JFrame implements ItemListener{
         });
     }
 
+    /**
+     * Read in Accounts File.
+     * @return a HashMap.
+     */
     private static HashMap<String, String> readFromFile() {
         HashMap<String, String> map = new HashMap<String, String>();
         try {
@@ -374,6 +387,10 @@ public class login extends JFrame implements ItemListener{
         return map;
     }
     
+    /**
+     * Read from Admin File.
+     * @return a HashMap.
+     */
     private static HashMap<String, String> readFromAdminFile() {
         HashMap<String, String> map = new HashMap<String, String>();
         try {
@@ -392,6 +409,10 @@ public class login extends JFrame implements ItemListener{
         return map;
     }
     
+    /**
+     * Read from Moderator File.
+     * @return a HashMap.
+     */
     private static HashMap<String, String> readFromModFile() {
         HashMap<String, String> map = new HashMap<String, String>();
         try {

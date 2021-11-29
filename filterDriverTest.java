@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
  */
 
 /**
- * @author JP
- *
+ * @author Jenn Pham
+ * JUnit for filterDriver.
  */
 class filterDriverTest {
 

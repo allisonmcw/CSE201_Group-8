@@ -8,6 +8,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
+/**
+ * Class filterDriver.
+ * @author Jenn Pham
+ *
+ */
 public class filterDriver {
     /**
      * This method creates a JMenuBar called Filter with expandable menus.

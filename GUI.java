@@ -18,6 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Tanmay Bahtkar, Jenn Pham, Allison McWilliams, Isable Pulte
+ *	Class GUI
+ */
 public class GUI {
     static JFrame a = new JFrame("App Store");
     static JButton logIn = new JButton("Sign In/Sign up");
@@ -161,7 +166,7 @@ public class GUI {
      * Method to generate apps GUI with respective information.
      * @param appName
      * @param appsList
-     * @return
+     * @return a JButton of an App
      */
     private static JButton generateApps(String appName, List<App> appsList) {    
         int x = 450;
@@ -220,6 +225,7 @@ public class GUI {
      * Method after logged in to create a user home page.
      * 
      * @param name
+     * @param userType
      */
     public static void logInAfter(String name,  String userType) {
         logIn.setVisible(false);
