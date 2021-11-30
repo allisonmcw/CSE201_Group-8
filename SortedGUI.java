@@ -146,6 +146,7 @@ public class SortedGUI {
 
 	/**
 	 * Method to generate apps' icons and information.
+	 * 
 	 * @param appName
 	 * @param appsList
 	 */
@@ -156,10 +157,14 @@ public class SortedGUI {
 		int height = 150;
 		JButton app;
 		String filePath;
-		if (totalApps < 10)
-			filePath = "icons/" + appName + ".png";
-		else
+		filePath = "icons/" + appName + ".png";
+		
+		File tempFile = new File(filePath);
+		boolean exists = tempFile.exists();
+		if (!exists) {
 			filePath = "icons/appnotfound.png";
+		}
+		
 		Icon ico = new ImageIcon(filePath);
 		app = new JButton(ico);
 		app.setText(appName);
@@ -296,7 +301,7 @@ public class SortedGUI {
 		JButton comm = new JButton("Comment here!");
 		a.add(comm);
 		comm.setBounds(270, 250, 150, 30);
-
+		
 		appReq.addActionListener((ActionListener) new ActionListener() {
 
 			@Override
@@ -427,12 +432,12 @@ public class SortedGUI {
 		String about = meta[1];
 		String platform = meta[2];
 		String versions = meta[3];
-		String storeLink = meta[4];
-		String price = meta[5];
-		String category = meta[6];
-		String storeName = meta[7];
+		String price = meta[4];
+		String category = meta[5];
+		String storeName = meta[6];
+		String storeLink = meta[7];
 
-		return new App(name, about, platform, versions, storeLink, price, category, storeName);
+		return new App(name, about, platform, versions, price, category, storeName, storeLink);
 	}
 
 }
