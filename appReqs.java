@@ -105,8 +105,7 @@ public class appReqs {
             @Override
             public void actionPerformed(ActionEvent e) {  
                 FileWriter myObj;
-                try {                     
-                    System.out.println("In here");
+                try {                                         
                     myObj = new FileWriter(
                             "src/Application Information - Sheet1 (1).csv",
                             true);
@@ -125,6 +124,7 @@ public class appReqs {
                     //if((args[1].compareTo("Moderator") == 0) || (args[1].compareTo("Admin") == 0) || (args[0].compareTo(temp[0]) == 0)) {
                         cl.remove(num - 1); 
                         JTableCreate newTable = new JTableCreate(cl);
+                    GUI.main(args);
                     
                     
                 } catch(Exception e1) { 
