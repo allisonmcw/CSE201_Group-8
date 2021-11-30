@@ -1,1 +1,0 @@
-typeSearchIndex = [{"p":"<Unnamed>","l":"admin"},{"l":"All Classes","u":"allclasses-index.html"},{"p":"<Unnamed>","l":"App"},{"p":"<Unnamed>","l":"commentDriver"},{"p":"<Unnamed>","l":"filterDriver"},{"p":"<Unnamed>","l":"GUI"},{"p":"<Unnamed>","l":"login"},{"p":"<Unnamed>","l":"SortedGUI"}];updateSearchResults();

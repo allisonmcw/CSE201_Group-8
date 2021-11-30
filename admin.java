@@ -13,7 +13,6 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -21,27 +20,18 @@ import java.io.PrintWriter;
 
 import javax.swing.*;
 
+/**
+ * 
+ * @author Allison McWilliams, Tanmay Bahtkar
+ * Class Admin
+ */
 public class admin {
 
     public static void main(String args[]) {
-
         int w = 300;
         int h = 250;
         
-
-//        HashMap<String,String> map = new HashMap<String,String>();
-//        map = readFromFile();
-        /*
-         *
-         */
-//        System.out.println("Iterating Hashmap...");
-//        for (Map.Entry<String, String> entry : map.entrySet()) {
-//            String key = entry.getKey();
-//            String value = entry.getValue();
-//            System.out.println(key+" "+value);
-//            // ...
-//        }
-
+        // Create request form GUI.
         JFrame a = new JFrame("Admin");
         a.getContentPane().setBackground(Color.gray);
         a.setSize(w, h);
@@ -109,6 +99,10 @@ public class admin {
         a.add(storeName);
         storeName.setBounds(800, 150, 100, 30);
         clickClear(storeName);
+        JTextField storeLink = new JTextField("Store Link");
+        a.add(storeLink);
+        storeLink.setBounds(925, 150, 100, 30);
+        clickClear(storeLink);
         
         JPopupMenu b13 = new JPopupMenu("Store Name");
         a.add(b13);
@@ -180,19 +174,13 @@ public class admin {
                }  
               });  
         
-        b12a.setBounds(675, 150, 100, 30);
+        b12a.setBounds(675, 150, 100, 30);       
         
         JTextField b14 = new JTextField("Store Link");
         a.add(b14);
         b14.setBounds(925, 150, 100, 30);
         clickClear(b14);
         
-        
-        
-        
-        
-
-        JLabel c2;
         JButton d1 = new JButton("Approve");
         d1.setBounds(1050, 150, 100, 30);
         a.add(d1);
@@ -205,10 +193,10 @@ public class admin {
             public void actionPerformed(ActionEvent e) {
                 FileWriter myObj;
                 try {
-                    String toFile = name.getText() + ", " + desc.getText() + ", " + plat.getText() + ", " + ver.getText() + ", " +
+                	String toFile = name.getText() + ", " + desc.getText() + ", " + plat.getText() + ", " + ver.getText() + ", " +
                             price.getText() + ", " + cat.getText() + ", " + storeName.getText() + ", "+b14.getText()+"\n";
                     myObj = new FileWriter(
-                            "src/appRequests.txt",
+                            "appRequests.txt",
                             true);
                     PrintWriter pr = new PrintWriter(myObj);
                     JOptionPane.showMessageDialog(null,
@@ -233,6 +221,10 @@ public class admin {
 
     } // end main
 
+    /**
+     * Click to Clear.
+     * @param j
+     */
     public static void clickClear(JTextField j) {
 
         j.addMouseListener(new MouseAdapter() {
@@ -243,11 +235,12 @@ public class admin {
         });
     }
 
-    private static HashMap<String, String> readFromFile() {
+    @SuppressWarnings("unused")
+	private static HashMap<String, String> readFromFile() {
         HashMap<String, String> map = new HashMap<String, String>();
         try {
             Scanner sc = new Scanner(new File(
-                    "Apps.txt"));
+                    "Application Information - Sheet1 (1).csv"));
             while (sc.hasNext()) {
                 String line = sc.nextLine();
                 String[] attributes = line.split(",");
@@ -255,6 +248,7 @@ public class admin {
 
             }
 
+            sc.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

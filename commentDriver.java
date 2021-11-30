@@ -5,9 +5,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 
@@ -15,8 +15,17 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ * Class Comment Driver, extends JFrame, implements ItemListener.
+ * @author Isabel Pulte, Tanmay Bahtkar
+ *
+ */
 public class commentDriver extends JFrame implements ItemListener{
-    @SuppressWarnings("rawtypes")
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@SuppressWarnings("rawtypes")
     static
     JComboBox type;
     static String appNameString = "Candy Crush";
@@ -27,7 +36,7 @@ public class commentDriver extends JFrame implements ItemListener{
     	JFrame main = new JFrame("Comment Site");
     	
     	List<App> apps;
-    	apps = GUI.readAppsFromCSV("src/Application Information - Sheet1 (1).csv");
+    	apps = GUI.readAppsFromCSV("Application Information - Sheet1 (1).csv");
     	String[] appNames = GUI.sort(apps);
         
     	commentDriver s = new commentDriver();
@@ -37,15 +46,10 @@ public class commentDriver extends JFrame implements ItemListener{
         type.setBounds(175, 150, 100, 30);
         main.add(type);
     	
-    	//array list of original values    
+    	//array list of original values 
         ArrayList<String[]> tempo = new ArrayList<String[]>(); 
-        tempo = commentsFromFile("src/comments.txt");
+        tempo = commentsFromFile("comments.txt");
     	final ArrayList<String[]> cl = tempo; 
-    	// cl = commentsFromFile("src/comments.txt");
-//    	String[] temp = {"janedoe", "Netflix", "Love it!"}; 
-//    	cl.add(temp); 
-//    	String[] temp2 = {"johndoe", "Canvas", "Hate it!"};
-//    	cl.add(temp2);     	    
         
     	// Links the comment button to the JTable
         JButton all = launchCommentButton();
@@ -54,7 +58,8 @@ public class commentDriver extends JFrame implements ItemListener{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //main.dispose();
-                JTableCreate newTable = new JTableCreate(cl);
+                @SuppressWarnings("unused")
+				JTableCreate newTable = new JTableCreate(cl);
             }
 
         });
@@ -112,7 +117,7 @@ public class commentDriver extends JFrame implements ItemListener{
         add.setBounds(425, 150, 100, 30);
         add.setVisible(true);
         main.add(add);
-        
+       
         main.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
@@ -120,19 +125,15 @@ public class commentDriver extends JFrame implements ItemListener{
                 FileWriter myObj;
                 try {
                     myObj = new FileWriter(
-                            "src/comments.txt",
+                            "comments.txt",
                             false);
                     PrintWriter pr = new PrintWriter(myObj);
                     for(String[] a: cl) {
                         pr.write(a[0] +","+ a[1] +","+ a[2] +"\n");
                     }
-                    
-                    // HashMap<String, String> map = new HashMap<String,
-                    // String>();                    
+                                   
                     myObj.close();
-
                 } catch (IOException e1) {
-                    // TODO Auto-generated catch block
                     e1.printStackTrace();
                 }
                 
@@ -146,8 +147,9 @@ public class commentDriver extends JFrame implements ItemListener{
             public void actionPerformed(ActionEvent e) {
             	String[] temp = {name.getText(), appNameString, comment.getText()}; 
             	cl.add(temp); 
-            	JTableCreate newTable = new JTableCreate(cl); 
-            	//name.setText("");
+            	@SuppressWarnings("unused")
+				JTableCreate newTable = new JTableCreate(cl); 
+            	name.setText("");
             	appName.setText("");
             	comment.setText("");
             }
@@ -172,7 +174,6 @@ public class commentDriver extends JFrame implements ItemListener{
 //        if (args[1].compareTo("User") == 0) { 
 //        	deleteButton.setVisible(false);  
 //        }
-                
         
         // deletes a comment from the list 
         deleteButton.addActionListener((ActionListener) new ActionListener() {
@@ -180,22 +181,23 @@ public class commentDriver extends JFrame implements ItemListener{
             @Override
             public void actionPerformed(ActionEvent e) {
             	try { 
-            	    
             		int num = Integer.valueOf(deleteNum.getText());
             		String[] temp = cl.get(num-1);
             		if((args[1].compareTo("Moderator") == 0) || (args[1].compareTo("Admin") == 0) || (args[0].compareTo(temp[0]) == 0)) {
             		    cl.remove(num - 1); 
-            		    JTableCreate newTable = new JTableCreate(cl);
+            		    @SuppressWarnings("unused")
+						JTableCreate newTable = new JTableCreate(cl);
                     }
             		else {
             		    JOptionPane.showMessageDialog(null,
                                 "Not authorized to delete comment");
             		}
-                	
             	} catch(Exception e1) { 
             		JOptionPane.showMessageDialog(null,
                             "Invalid Comment #");
             	}
+            	 
+            	 
             }
 
         });
@@ -206,15 +208,12 @@ public class commentDriver extends JFrame implements ItemListener{
     private static ArrayList<String[]> commentsFromFile(String fileName) {
         ArrayList<String[]> comments = new ArrayList<String[]>();
         Scanner sc;
-
         try {
             sc = new Scanner(new File(fileName));
-
             String line;
             
             while (sc.hasNext()) {
                 line = sc.nextLine();
-
                 String[] attributes = line.split(",");
                 comments.add(attributes);
                 
@@ -222,7 +221,6 @@ public class commentDriver extends JFrame implements ItemListener{
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
-
         return comments;
     }
 
@@ -236,7 +234,7 @@ public class commentDriver extends JFrame implements ItemListener{
         
         return cButton;
     }
-    
+
     public void itemStateChanged(ItemEvent e)
     {
         // if the state combobox is changed
@@ -292,11 +290,10 @@ class JTableCreate {
         jButton.addActionListener((ActionListener) new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//                jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             }
         });
-        //jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
     }    
 
 }

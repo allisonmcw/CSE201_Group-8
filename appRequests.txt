@@ -1,1 +1,3 @@
-TEST1, 1, 1, 1, 1, Music, Apple, Store Link
+Mario, Description, Platform, Versions, Price, Category, Store Name, Store Link
+MyMiami, Description, Platform, Versions, Price, Education, Apple, Store Link
+Mario, Description, Platform, Versions, Price, Category, Store Name, Store Link
