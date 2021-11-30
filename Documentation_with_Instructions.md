@@ -37,7 +37,7 @@ Download the ZIP file and open it using your IDE of choice.
 
 # Running instructions:
 1. Open the project that was imported using ZIP file.
-2. There should be 3 folders (<b>default package (created by Eclipse)</b>, <b>accounts</b>, and <b>icons</b>) and 5 single files.
+2. There should be 4 folders (<b>default package (created by Eclipse)</b>, <b>accounts</b>, <b>javadoc</b>, and <b>icons</b>) and 5 single files.
 3. Open <b>default package</b> and run the main file <b>GUI.java</b>.
 4. You're at the home page with all the application available.
 5. Try the search function on the left side: Make sure the search is Case Sensitive.
