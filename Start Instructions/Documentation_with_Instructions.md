@@ -41,6 +41,7 @@ Download the ZIP file and open it using your IDE of choice.
 3. Open <b>default package</b> and run the main file <b>GUI.java</b>.
 4. You're at the home page with all the application available.
 5. Try the search function on the left side: Make sure the search is Case Sensitive.
+<br><b>Before logging in, press Sort to lead to the Sorted GUI for smoother experience.</b>
 6. Try login or create a new account using the login/create account button.
 	<br>a. You must specify which type of user you want to be.
 	<br>b. Case-sensitive
@@ -71,7 +72,7 @@ Download the ZIP file and open it using your IDE of choice.
 	b. Request a new app by clicking the "All Requests" button. Leads to an app request form.
 	<br>c. Approve/Deny apps by clicking the Pending Request button.
 	<br>d. Functions like comment: click all app requests to see and choose a number to delete/approve.
-	<br>e. If an app is approved, it will show onto the GUI without a designated icon. 
+	<br>e. If an app is approved, it will show onto the GUI without a designated icon. Remember to also delete that request.
 11. After loggin in as a moderator: 
 	<br>a. Comment on an app using the "Comment Here!" button.
 	<ol>
