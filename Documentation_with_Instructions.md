@@ -37,7 +37,7 @@ Download the ZIP file and open it using your IDE of choice.
 
 # Running instructions:
 1. Open the project that was imported using ZIP file.
-2. There should be 4 folders (<b>default package (created by Eclipse)</b>, <b>accounts</b>, <b>javadoc</b>, and <b>icons</b>) and 5 single files.
+2. There should be 4 folders (<b>default package (created by Eclipse)</b>, <b>accounts</b>, <b>javadoc</b>, and <b>icons</b>) and 7 single files.
 3. Open <b>default package</b> and run the main file <b>GUI.java</b>.
 4. You're at the home page with all the application available.
 5. Try the search function on the left side: Make sure the search is Case Sensitive.
@@ -55,31 +55,32 @@ Download the ZIP file and open it using your IDE of choice.
 9. After logging in as a user: 
 	<br>a. Comment on an app using the "Comment Here!" button.
 	<ol>
-		<li>Leads to a different frame. <b>WARNING: DO NOT PRESS CLOSE, SIMPLE PRESS MINIMIZE TO EXIT BECAUSE IF PRESSED CLOSED IT WILL CLOSE THE WHOLE MAIN FRAME.</b></li>
+		<li>Leads to a different frame.
 		<li>Choose an app to comment on. Leads to an app table.</li>
 		<li>You cannot delete any comment; for administrator and moderator only.</li>
 	</ol>
 	b. Request a new app by clicking the "All Requests" button. Leads to an app request form.
-	<br>c. After refreshing the GUI by clicking the Sort/UnSort button, app will display without a picture, this will be modified by an administrator.
+	<br>c. If an app is approved, it will show onto the GUI without a designated icon.
 10. After logging in as an administrator: 
 	<br>a. Comment on an app using the "Comment Here!" button.
 	<ol>
-		<li>Leads to a different frame. <b>WARNING: DO NOT PRESS CLOSE, SIMPLE PRESS MINIMIZE TO EXIT BECAUSE IF PRESSED CLOSED IT WILL CLOSE THE WHOLE MAIN FRAME.</b></li>
+		<li>Leads to a different frame.
 		<li>Choose an app to comment on. Leads to an app table.</li>
 		<li>Delete a comment by entering its number and press "Delete".</li>
 	</ol>
 	b. Request a new app by clicking the "All Requests" button. Leads to an app request form.
-	<br>c. After refreshing the GUI by clicking the Sort/UnSort button, app will display without a picture, this will be modified by an administrator.
-	<br>d. Accept an app request by clicking approve.
+	<br>c. Approve/Deny apps by clicking the Pending Request button.
+	<br>d. Functions like comment: click all app requests to see and choose a number to delete/approve.
+	<br>e. If an app is approved, it will show onto the GUI without a designated icon. 
 11. After loggin in as a moderator: 
 	<br>a. Comment on an app using the "Comment Here!" button.
 	<ol>
-		<li>Leads to a different frame. <b>WARNING: DO NOT PRESS CLOSE, SIMPLE PRESS MINIMIZE TO EXIT BECAUSE IF PRESSED CLOSED IT WILL CLOSE THE WHOLE MAIN FRAME.</b></li>
+		<li>Leads to a different frame. 
 		<li>Choose an app to comment on. Leads to an app table.</li>
 		<li>Delete a comment by entering its number and press "Delete".</li>
 	</ol>
 	b. Request a new app by clicking the "All Requests" button. Leads to an app request form.
-	<br>c. After refreshing the GUI by clicking the Sort/UnSort button, app will display without a picture, this will be modified by an administrator.
+	<br>c. If an app is approved, it will show onto the GUI without a designated icon.
 12. At the main GUI, try clicking on each app to see its respective information. 
 13. To exit the app, simply press close on the window.
 
@@ -89,6 +90,7 @@ Download the ZIP file and open it using your IDE of choice.
 		<ol>
 			<li>admin.java</li>
 			<li>App.java</li>
+			<li>appReqs.java</li>
 			<li>commentDriver.java</li>
 			<li>filterDriver.java</li>
 			<li>GUI.java</li>
@@ -110,11 +112,12 @@ Download the ZIP file and open it using your IDE of choice.
 	<li>Icon Images File: icons</li>
 	<li>Javadoc Files: all html javadocs</li>
 	<li>Application Information - Sheet1 (1).csv</li>
+	<li>appRequests.txt</li>
+	<li>comments.txt</li>
 	<li>Diagrams.docx</li>
 	<li>Documentation_with_Instructions.md</li>
 	<li>README.md</li>
 	<li>Technical Skills and Goals</li>
-	<li>.gitignore</li>
 </ol>
 
 # For future developers:
